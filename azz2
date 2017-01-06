@@ -1,0 +1,30 @@
+PREFIX  dcterms: <http://purl.org/dc/terms/>
+PREFIX category: <http://dbpedia.org/page/Category/>
+PREFIX foaf: <http://xmlns.com/foaf/spec/>
+SELECT ?res    
+WHERE { 
+ ?res dcterms:subject category:Mobile_phone_manufacturers .
+} 
+
+
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX category: <http://dbpedia.org/resource/Category:>
+PREFIX foaf: <http://xmlns.com/foaf/spec/>
+SELECT ?res
+WHERE { 
+ ?res dcterms:subject category:Mobile_phone_manufacturers .
+}
+
+
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX category: <http://dbpedia.org/resource/Category:>
+PREFIX resource: <http://dbpedia.org/resource/>
+PREFIX foaf: <http://xmlns.com/foaf/spec/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?res
+WHERE { 
+ ?res dbo:manufacturer resource:Nokia .
+ ?res rdf:type dbo:Device .
+}

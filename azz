@@ -1,0 +1,9 @@
+PREFIX cacca: <http://purl.org/dc/terms/>
+PREFIX owl: <http://dbpedia.org/ontology/>
+PREFIX dcsst: <http://dublincore.org/documents/2012/06/14/dcmi-terms/?v=terms#subject>
+PREFIX  dcterms: <http://purl.org/dc/terms/>
+
+SELECT ?brand {
+    ?brand a owl:Company .
+    ?brand dct:subject <http://dbpedia.org/page/Category:Mobile_phone_manufacturers> .
+}
