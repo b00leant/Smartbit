@@ -1,6 +1,6 @@
 # Smartbit - Phone Repair & TechnicalSupport Delivery Management 
 
-Smartbit is a free web management tool for companies working in the phone technical support sector.
+Smartbit is a free management web tool for companies working in the phone technical support sector.
 
 ## Official Documentation
 
