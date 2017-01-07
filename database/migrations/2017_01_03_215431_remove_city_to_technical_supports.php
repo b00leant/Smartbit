@@ -15,6 +15,7 @@ class RemoveCityToTechnicalSupports extends Migration
         Schema::table('technical_supports', function (Blueprint $table) {
             //
             $table->dropColumn('citta');
+            $table->string('telefono', 255);
         });
     }
 
@@ -27,8 +28,8 @@ class RemoveCityToTechnicalSupports extends Migration
     {
         Schema::table('technical_supports', function (Blueprint $table) {
             //
-            $table->string('citta', 255);
-            $table->string('telefono', 255);
+            $table->dropColumn('telefono');
+            
         });
     }
 }
