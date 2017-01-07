@@ -19,7 +19,7 @@ class PDFController extends Controller
         $repair->device();
         $barcode64 = DNS1D::getBarcodePNG($repair->seriale, "C128");
         $view = View::make('ricevuta')->with(['barcode64'=>$barcode64,'repair'=>$repair]);
-        return PDF::loadHTML($view->render())->stream('Ricevuta.pdf');
+        return PDF::loadHTML($view->render())->save('myfile.pdf');
     }
     public function ddt($id){
         $delivery = App\Delivery::find($id);
@@ -30,7 +30,7 @@ class PDFController extends Controller
             $repairs = $delivery->repairs;
             $delivery->technicalSupport();
             $view = View::make('ddt')->with(['repairs'=>$repairs,'delivery'=>$delivery]);
-            return PDF::loadHTML($view->render())->stream('Ricevuta.pdf');
+            return PDF::loadHTML($view->render())->save('myfile.pdf');
         }else{
             return redirect('/#del');
         }
@@ -44,7 +44,7 @@ class PDFController extends Controller
             $repairs = $delivery->repairs;
             $delivery->technicalSupport();
             $view = View::make('ddtPickup')->with(['repairs'=>$repairs,'delivery'=>$delivery]);
-            return PDF::loadHTML($view->render())->stream('Ricevuta.pdf');
+            return PDF::loadHTML($view->render())->save('myfile.pdf');
         }else{
             return redirect('/#del');
         }
