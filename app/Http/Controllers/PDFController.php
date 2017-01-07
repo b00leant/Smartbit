@@ -31,7 +31,8 @@ class PDFController extends Controller
             $repairs = $delivery->repairs;
             $delivery->technicalSupport();
             $view = View::make('ddt')->with(['repairs'=>$repairs,'delivery'=>$delivery]);
-            return PDF::loadHTML($view->render())->stream('download.pdf');
+            PDF::loadHTML($view->render())->save('/ricevuta.pdf');
+            return response()->download('/ricevuta.pdf');
         }else{
             return redirect('/#del');
         }
