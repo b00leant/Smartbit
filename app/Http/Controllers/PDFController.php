@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use GuzzleHttp\Exception\GuzzleException;
-use GuzzleHttp\Client;
+
 use PDF;
 use DNS1D;
 use DNS2D;
@@ -21,14 +20,7 @@ class PDFController extends Controller
         $repair->device();
         $barcode64 = DNS1D::getBarcodePNG($repair->seriale, "C128");
         $view = View::make('ricevuta')->with(['barcode64'=>$barcode64,'repair'=>$repair]);
-        //return PDF::loadHTML($view->render())->save('myfile.pdf');
-            $client = new \GuzzleHttp\Client();
-            $r = $client->post('https://www.hypdf.com/pdftotext', 
-                ['multipart' => [
-                    "file" => $view->render(),
-                    "user" => '8825f5d2-d123-4ba2-b062-08f1b74ac3ad',
-                    "password" => 'fawUMVlX',
-                ]]);
+        return PDF::loadHTML($view->render())->stream('download.pdf');
     }
     public function ddt($id){
         $delivery = App\Delivery::find($id);
@@ -39,14 +31,7 @@ class PDFController extends Controller
             $repairs = $delivery->repairs;
             $delivery->technicalSupport();
             $view = View::make('ddt')->with(['repairs'=>$repairs,'delivery'=>$delivery]);
-            //return PDF::loadHTML($view->render())->save('myfile.pdf');
-            $client = new \GuzzleHttp\Client();
-            $r = $client->post('https://www.hypdf.com/pdftotext', 
-                ['multipart' => [
-                    "file" => $view->render(),
-                    "user" => '8825f5d2-d123-4ba2-b062-08f1b74ac3ad',
-                    "password" => 'fawUMVlX',
-                ]]);
+            return PDF::loadHTML($view->render())->stream('download.pdf');
         }else{
             return redirect('/#del');
         }
@@ -60,15 +45,7 @@ class PDFController extends Controller
             $repairs = $delivery->repairs;
             $delivery->technicalSupport();
             $view = View::make('ddtPickup')->with(['repairs'=>$repairs,'delivery'=>$delivery]);
-            //return PDF::loadHTML($view->render())->save('myfile.pdf');
-            $client = new \GuzzleHttp\Client();
-            $r = $client->post('https://www.hypdf.com/pdftotext', 
-                ['multipart' => [
-                    "file" => $view->render(),
-                    "user" => '8825f5d2-d123-4ba2-b062-08f1b74ac3ad',
-                    "password" => 'fawUMVlX',
-                ]]);
-            
+            return PDF::loadHTML($view->render())->stream('download.pdf');
             //
         }else{
             return redirect('/#del');
