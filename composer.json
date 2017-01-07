@@ -12,7 +12,8 @@
         "h4cc/wkhtmltopdf-i386": "0.12.x",
         "h4cc/wkhtmltoimage-i386": "0.12.x",
         "barryvdh/laravel-dompdf": "^0.7.0",
-        "milon/barcode": "^5.3"
+        "milon/barcode": "^5.3",
+        "fideloper/proxy": "^3.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
