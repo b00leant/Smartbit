@@ -1,5 +1,4 @@
 <?php
-
  $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
  $host = $url["host"];
  $username = $url["user"];
@@ -69,7 +68,8 @@ return [
             'prefix' => '',
             'strict' => false,
             'engine' => null,
-        ],*/
+        ],
+        */
         'mysql' => [
             'driver' => 'mysql',
             'host' => $host,
