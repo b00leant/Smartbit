@@ -57,7 +57,7 @@
         <a href="{{url('/person/'.$person->id)}}" class="waves-effect waves-light btn-flat smartbit" style="color:white">
             <i class="material-icons">perm_identity</i>
         </a>
-        <a href="{{url('ricevuta/'.$repair->id)}}" class="waves-effect waves-light btn-flat smartbit" style="color:white">
+        <a href="{{url('ricevuta/'.$repair->id)}}" target="_blank" class="waves-effect waves-light btn-flat smartbit" style="color:white">
             <i class="material-icons">print</i>
         </a>
         @if(Auth::user()->id===1)

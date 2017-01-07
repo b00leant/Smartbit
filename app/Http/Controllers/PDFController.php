@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Client;
 use PDF;
 use DNS1D;
 use DNS2D;
@@ -44,7 +46,16 @@ class PDFController extends Controller
             $repairs = $delivery->repairs;
             $delivery->technicalSupport();
             $view = View::make('ddtPickup')->with(['repairs'=>$repairs,'delivery'=>$delivery]);
-            return PDF::loadHTML($view->render())->save('myfile.pdf');
+            //return PDF::loadHTML($view->render())->save('myfile.pdf');
+            $client = new \GuzzleHttp\Client();
+            $r = $client->post('https://www.hypdf.com/pdftotext', 
+                ['multipart' => [
+                    "file" => $view->render(),
+                    "user" => '8825f5d2-d123-4ba2-b062-08f1b74ac3ad',
+                    "password" => 'fawUMVlX',
+                ]]);
+            
+            //
         }else{
             return redirect('/#del');
         }
