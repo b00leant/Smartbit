@@ -58,7 +58,7 @@ class PersonController extends Controller
                 'cognome'=> $request->input('cognome'),
                 'email'=> $request->input('email'),
                 'telefono'=> $request->input('telefono'),
-                'luogo_nascita'=> $request->input('addr_complete'),
+                'residenza'=> $request->input('addr_complete'),
                 'data_nascita'=> $date,
             ]);
             $person->save();   
@@ -91,7 +91,7 @@ class PersonController extends Controller
             'cognome'=> $request->input('cognome'),
             'email'=> $request->input('email'),
             'telefono'=> $request->input('telefono'),
-            'luogo_nascita'=> $request->input('addr_complete'),
+            'residenza'=> $request->input('addr_complete'),
             'data_nascita'=> $date,
         ]);
         $person->save();   

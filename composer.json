@@ -13,7 +13,9 @@
         "h4cc/wkhtmltoimage-i386": "0.12.x",
         "barryvdh/laravel-dompdf": "^0.7.0",
         "milon/barcode": "^5.3",
-        "fideloper/proxy": "^3.2"
+        "fideloper/proxy": "^3.2",
+        "spatie/laravel-backup": "^3.0.0",
+        "doctrine/dbal": "^2.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

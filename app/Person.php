@@ -12,7 +12,8 @@ class Person extends Model
         'data_nascita',
         'luogo_nascita',
         'email',
-        'telefono'
+        'telefono',
+        'residenza'
         ];
     //
     public function repairs()
