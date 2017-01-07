@@ -45,7 +45,7 @@
     <div class="input-field col s6 offset-s3" style="z-index: 1;">
         <!--i class="material-icons prefix">place</i-->
         <input required type="text" name="addr_complete" value="" style="background-color:#FFFFFF;text-align:center;" placeholder="Indirizzo" class="autocomplete address" autocomplete="off" id="addr_complete">
-        <!--label for="addr_complete">Indirizzo</label-->
+        <label for="addr_complete">Indirizzo</label>
     </div>
     </form>
     <div class="col s12" id="map" style="height:50%;position:absolute;"></div>
