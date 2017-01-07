@@ -35,4 +35,18 @@ class PDFController extends Controller
             return redirect('/#del');
         }
     }
+    public function ddtPickup($id){
+        $delivery = App\Delivery::find($id);
+        if($delivery->stato =='da_ritirare'){
+            $delivery->repairs();
+            $delivery->stato = 'ritirato';
+            $delivery->save();
+            $repairs = $delivery->repairs;
+            $delivery->technicalSupport();
+            $view = View::make('ddtPickup')->with(['repairs'=>$repairs,'delivery'=>$delivery]);
+            return PDF::loadHTML($view->render())->stream('Ricevuta.pdf');
+        }else{
+            return redirect('/#del');
+        }
+    }
 }

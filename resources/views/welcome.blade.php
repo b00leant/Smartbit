@@ -49,33 +49,34 @@
             <li class="collection-header">
                 <h4>Spedizioni</h4>
                 @if(Auth::user()->id === 1)
+                <a href="{{ url('new-pickup') }}" style="margin-top:1em" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Imposta ritiro</a>
                 <a href="{{ url('new-delivery') }}" style="margin-top:1em" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Aggiunci Spedizione</a>
                 <a href="{{ url('new-tech-sup') }}" style="margin-top:1em" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Aggiunci Centro</a>
                 @endif
             </li>
             @if(isset($deliveries))
             @foreach($deliveries as $delivery)
+            @if($delivery->stato == 'creata')
             <a href="delivery/{{$delivery->id}}" class="collection-item avatar black-text">
-                <span data-badge-caption="" class="new badge">{{$delivery->stato}}</span>
-                @if($delivery->stato !== 'spedita')
+                <span data-badge-caption="" class="new badge">da spedire</span>
                 <i class="material-icons circle green">location_on</i>
-                @else
-                <i class="material-icons circle green">local_shipping</i>
-                @endif
                 <span class="title">{{$delivery->technicalSupport->nome}}</span>
-                @if($delivery->stato === 'creata')
                 <p>spedizione: {{$delivery->task_consegna}}
-                @elseif($delivery->stato === 'spedita')
-                <p>ritiro: 
-                @if(!isset($delivery->task_ritiro))
-                ???
-                @endif{{$delivery->task_ritiro}}
-                @elseif($delivery->stato === 'ritirata')
-                <p>ritirata il: {{$delivery->task_ritiro}}
-                @endif
-                <br>dispositivi: {{count($delivery->repairs)}}</p>
+                <br>dispositivi da spedire: {{count($delivery->repairs)}}</p>
                 <span href="#!" class="secondary-content"><i class="material-icons"></i></span>
             </a>
+            @elseif($delivery->stato == 'da_ritirare')
+            <a href="delivery/{{$delivery->id}}" class="collection-item avatar black-text">
+                <span data-badge-caption="" class="new badge">da ritirare</span>
+                <i class="material-icons circle green">local_shipping</i>
+                <span class="title">{{$delivery->technicalSupport->nome}}</span>
+                <p>da ritirare il: @if(!isset($delivery->task_ritiro))
+                ???
+                @endif{{$delivery->task_ritiro}}</p>
+                dispositivi da ritirare: {{count($delivery->repairs)}}</p>
+                <span href="#!" class="secondary-content"><i class="material-icons"></i></span>
+            </a>
+            @endif
             @endforeach
             @endif
         </ul>

@@ -1,4 +1,5 @@
 <?php
+
  $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
  $host = $url["host"];
  $username = $url["user"];
@@ -55,8 +56,8 @@ return [
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
         ],
-
-        /*'mysql' => [
+        /*
+        'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '3306'),

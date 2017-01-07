@@ -138,11 +138,11 @@
 <div class="row" style="padding-top:70px">
     <div id="modal-chose-go" class="modal">
         <div class="modal-content">
-            <h4>Sei sicuro di voler spedire?</h4>
+            <h4>Sei sicuro di voler ritirare?</h4>
             <p>Una volta stampata la ricevuta non potrai più modificarla</p>
         </div>
         <div class="modal-footer">
-            <a href="{{url('delivery-go/'.$delivery->id)}}" class="modal-action modal-close waves-effect waves-light btn-flat  smartbit white-text">Stampa e vai!</a>
+            <a href="{{url('pickup-go/'.$delivery->id)}}" class="modal-action modal-close waves-effect waves-light btn-flat  smartbit white-text">Stampa e vai!</a>
             <a class=" modal-action modal-close waves-effect waves-light btn-flat">Annulla</a>
         </div>
     </div>
@@ -171,14 +171,14 @@
             <a href="#"  class=" modal-action modal-close waves-effect waves-green btn-flat">Annulla</a>
         </div>
     </div>
-    <div id="modal-chose-repair" class="modal">
+    <div id="modal-chose-repair-back" class="modal">
         <div class="modal-content">
             <h4>Aggiungi Dispositivi da ritirare</h4>
             <p>Scegli dalla lista:</p>
             <ul class="collection with-header">
                     @if(isset($repairs))
                     @foreach($repairs as $repair)
-                    <li data-id="{{$repair->id}}" class="collection-item">{{$repair->device->model}} ({{$repair->person->nome}} {{$repair->person->cognome}})</li>
+                    <li data-id="{{$repair->id}}" data-show="{{$repair->device->model}} ({{$repair->seriale}})" class="collection-item">{{$repair->device->model}} ({{$repair->person->nome}} {{$repair->person->cognome}})</li>
                     @endforeach
                     @else
                     <span>non sono state trovate riparazioni, riprova!</span>
@@ -200,7 +200,6 @@
                     data-address="{{$delivery->technicalSupport->indirizzo}}"
                     data-title="{{$delivery->technicalSupport->nome}}"
                     data-id="{{$delivery->technicalSupport->id}}"
-                    href=""
                     class="collection-item avatar">
                   <i class="material-icons smartbit circle">location_on</i>
                   <span class="title">{{$delivery->technicalSupport->nome}}</span>
@@ -212,28 +211,28 @@
             </ul>
             <ul id="back-delivery-repairs" class="collection with-header">
                 @if(isset($delivery->repairs))
-                <li class="collection-header"><h4>Dispositivi da spedire</h4></li>
+                <li class="collection-header"><h4>Dispositivi da ritirare</h4></li>
                 @foreach($delivery->repairs as $repair)
-                <a data-id="{{$repair->id}}" data-show="{{$repair->device->model}} ({{$repair->seriale}})" class="back-delivery-repair collection-item">
+                 <a data-id="{{$repair->id}}" data-show="{{$repair->device->model}} ({{$repair->seriale}})" class="back-delivery-repair collection-item"> 
                     {{$repair->device->model}} ({{$repair->seriale}})
-                    <span style="cursor:pointer" class="hide remove-repair-from-delivery secondary-content"><i class="material-icons">delete</i></span>
-                </a>
+                     <span style="cursor:pointer" class="hide remove-repair-from-delivery secondary-content"><i class="material-icons">delete</i></span> 
+                 </a> 
                 @endforeach
                 @else
                 <span>non sono state trovate riparazioni, riprova!</span>
                 @endif
               </ul>
               <div class="col s12" style="text-align:center">
-                  <a href="" class="trigger-to-add-repairs hide btn-floating btn-large waves-effect waves-light smartbit">
+                  <a href="" class="hide trigger-to-add-repairs-back btn-floating btn-large waves-effect waves-light smartbit">
                         <i class="material-icons">add</i>
                     </a>
               </div>
               <input type="hidden" name="repairs_to_update" value="">
               <input type="hidden" name="center_to_update" value="">
             <div class="input field col s12">
-                <h4>Data Spedizione</h4>
+                <h4>Data Ritiro</h4>
                 <input type="hidden" name="dlid_" value="{{$delivery->id}}">
-                <input disabled style="color:black" type="date" name="date" value="{{$delivery->task_consegna}}" readonly>
+                <input disabled style="color:black" type="date" name="date" value="{{ Carbon\Carbon::today()->format('Y-m-d') }}" readonly>
             </div>
         </div>
     </div>

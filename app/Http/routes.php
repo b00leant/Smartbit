@@ -62,6 +62,8 @@ Route::get('/edit-delivery/{id}', ['uses' =>'DeliveryController@editForm'])->mid
 
 Route::get('/new-tech-sup', 'TechnicalSupportController@create')->middleware('auth');
 
+Route::get('/new-pickup', 'DeliveryController@selectTechnicalSupportPickup')->middleware('auth');
+
 Route::get('/new-delivery', 'DeliveryController@selectTechnicalSupport')->middleware('auth');
 
 Route::get('deliveries','DeliveryController@home')->middleware('auth');
@@ -70,9 +72,15 @@ Route::get('delivery/{id}',['uses'=>'DeliveryController@show'])->middleware('aut
 
 Route::get('delivery-go/{id}',['uses'=>'PDFController@ddt'])->middleware('auth');
 
+Route::get('pickup-go/{id}',['uses'=>'PDFController@ddtPickup'])->middleware('auth');
+
 Route::get('/ricevuta/{id}',['uses'=>'PDFController@ricevuta'])->middleware('auth');
 
 //posts--------------------------------------------------------------------
+
+Route::post('/create-pickup','DeliveryController@createPickup');
+
+Route::post('/update-pickup/{id}',['uses'=>'DeliveryController@updatePickup'])->middleware('auth');
 
 Route::post('/update-delivery/{id}',['uses'=>'DeliveryController@update'])->middleware('auth');
 

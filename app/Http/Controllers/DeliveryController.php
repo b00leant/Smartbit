@@ -17,6 +17,26 @@ class DeliveryController extends Controller
         $tech_sups = App\TechnicalSupport::all();
         return View::make('new-delivery-step1')->with(['tech_sups'=>$tech_sups]);
     }
+    public function selectTechnicalSupportPickup(){
+        $tech_sups = App\TechnicalSupport::all();
+        return View::make('new-pickup-step1')->with(['tech_sups'=>$tech_sups]);
+    }
+    public function createPickup(Request $request){
+        if($request->has('center')){
+            try{
+                $delivery = new App\Delivery([
+                'stato'=>'da_ritirare'
+                ]);
+                $tech_sup = App\TechnicalSupport::find($request->input('center'));
+                $tech_sup->deliveries()->save($delivery);
+                return redirect('/#del');
+            }catch(ModelNotFoundException $ex){
+                return redirect('/');
+            }
+        }else{
+            return back()->withInput();
+        }
+    }
     public function selectDeliveries(Request $request){
         if($request->has('center')){
             $repairs_to_send = App\Repair::where(['assistenza'=>true])->get();
@@ -43,7 +63,7 @@ class DeliveryController extends Controller
     public function handleCreate(Request $request){
         if($request->has('center') and $request->has('json_repairs') and $request->has('date_delivery')){
             
-            $date = date_create_from_format('d F, Y', $request->input('date_delivery'));
+            $date = date_create_from_format('Y-m-d', $request->input('date_delivery'));
             
             try{
                 $delivery = new App\Delivery([
@@ -113,6 +133,41 @@ class DeliveryController extends Controller
                 $date = date_create_from_format('Y-m-d', $request['date']);
                 $delivery->task_consegna = $date;
                 $center_req = $request['centers_update'];
+                $repairs = App\Repair::where(['delivery_id'=>$id])->get();
+                foreach($repairs as $repair){
+                    $repair->delivery()->dissociate();
+                    $repair->save();
+                }
+                $repairs_to_update = $request['repairs_update'];
+                foreach($repairs_to_update as $key => $value){
+                    $repair_new = App\Repair::find($key);
+                    $repair_new->delivery()->associate($delivery);
+                    $repair_new->save();
+                }
+                if($center_req['id']!=null){
+                    $center_id = $center_req['id'];
+                    $tech_sup = App\TechnicalSupport::find($center_id);
+                    $tech_sup->deliveries()->save($delivery);
+                }
+                
+                $res = ['richiesta'=>$request,'id_ricevuto'=>$id,'repairz'=>$repairs];
+                return $res;
+            }catch(ModelNotFoundException $ex){
+                return $response;
+            }
+        }else{
+            return $response;
+        }
+    }
+    public function updatePickup(Request $request, $id){
+        if($request->ajax()){
+            try{
+                
+                $delivery = App\Delivery::where(['id'=>$id])->firstOrFail();
+                $center_req = $delivery->technicalSupport;
+                $delivery->technicalSupport()->dissociate();
+                $date = date_create_from_format('Y-m-d', $request['date']);
+                $delivery->task_ritiro = $date;
                 $repairs = App\Repair::where(['delivery_id'=>$id])->get();
                 foreach($repairs as $repair){
                     $repair->delivery()->dissociate();

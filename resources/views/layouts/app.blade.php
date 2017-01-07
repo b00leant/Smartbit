@@ -261,6 +261,7 @@
     <script src="{{ asset('js/sbscripts.js') }}"></script>
     <script src="{{ asset('js/sbaddress.js') }}"></script>
     <script src="{{ asset('js/edit_delivery.js') }}"></script>
+    <script src="{{ asset('js/edit_backdelivery.js') }}"></script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAK6y8tZ4VlyEKfCUzV7LvxTNLN6Me6S8&callback=autocompleteAddress">
     </script>
@@ -365,6 +366,7 @@
               $('.parallax').parallax();
             })
             $('.modal').modal();
+            $('.back-delivery-center').modal();
             $('.edit-delivery-center').modal();
             $('.edit-delivery-repair').modal();
             function remove_map_icon(){

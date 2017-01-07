@@ -1,7 +1,7 @@
 @extends('layouts.pdf')
 @section('content')
 @if(Auth::check())
-<h1 style="padding:1em;color:white;background:#085674;text-align:center">DDT Consegna Smartbit</h1><br>
+<h1 style="padding:1em;color:white;background:#085674;text-align:center">DDT Ritiro Smartbit</h1><br>
 
 <div style="width:50%;margin-left:25%;text-align:center">
 <img style="padding:0.2em" src="{{resource_path('images/ic.png')}}">
