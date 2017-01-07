@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 @if(Auth::check())
+@if($delivery->stato == 'creata')
 <div class="row" style="padding-top:70px">
     <div id="modal-chose-go" class="modal">
         <div class="modal-content">
@@ -8,8 +9,8 @@
             <p>Una volta stampata la ricevuta non potrai più modificarla</p>
         </div>
         <div class="modal-footer">
-            <a class="modal-action modal-close waves-effect waves-light btn-flat  smartbit white-text">Stampa e vai!</a>
-            <a href="{{url('delivery-go/'.$delivery->id)}}" class=" modal-action modal-close waves-effect waves-light btn-flat">Annulla</a>
+            <a href="{{url('delivery-go/'.$delivery->id)}}" class="modal-action modal-close waves-effect waves-light btn-flat  smartbit white-text">Stampa e vai!</a>
+            <a class=" modal-action modal-close waves-effect waves-light btn-flat">Annulla</a>
         </div>
     </div>
     <div id="modal-chose-center" class="modal">
@@ -133,5 +134,8 @@
         </div>
     @endif
 </div>
+@else
+
+@endif
 @endif
 @endsection

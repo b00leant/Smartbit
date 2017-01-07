@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -238,13 +238,13 @@
         <li><a class="waves-effect" href="#{{url('/')}}"><i class="material-icons">assignment_turned_in</i>Pianificazioni</a></li>
         <li><a class="waves-effect" href="#{{url('/')}}"><i class="material-icons">memory</i>Magazzino pezzi</a></li>
         @endif
-        <li><a class="waves-effect" href="{{url('deliveries')}}"><i class="material-icons">local_shipping</i>Vai alle consegne</a></li>
+        {{-- <li><a class="waves-effect" href="{{url('deliveries')}}"><i class="material-icons">local_shipping</i>Vai alle consegne</a></li> --}}
         @endif
         
 
-        <li><div class="divider"></div></li>
+        {{-- <li><div class="divider"></div></li>
         <li><a class="subheader">Altro</a></li>
-        <li><a class="waves-effect" href="#!">Cose secondarie..</a></li>
+        <li><a class="waves-effect" href="#!">Cose secondarie..</a></li> --}}
         </ul>
     @endif
     </header>

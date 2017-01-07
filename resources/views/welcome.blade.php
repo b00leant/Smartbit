@@ -56,12 +56,20 @@
             @if(isset($deliveries))
             @foreach($deliveries as $delivery)
             <a href="delivery/{{$delivery->id}}" class="collection-item avatar black-text">
+                <span data-badge-caption="" class="new badge">{{$delivery->stato}}</span>
+                @if($delivery->stato !== 'spedita')
                 <i class="material-icons circle green">location_on</i>
+                @else
+                <i class="material-icons circle green">local_shipping</i>
+                @endif
                 <span class="title">{{$delivery->technicalSupport->nome}}</span>
                 @if($delivery->stato === 'creata')
                 <p>spedizione: {{$delivery->task_consegna}}
                 @elseif($delivery->stato === 'spedita')
-                <p>ritiro: {{$delivery->task_ritiro}}
+                <p>ritiro: 
+                @if(!isset($delivery->task_ritiro))
+                ???
+                @endif{{$delivery->task_ritiro}}
                 @elseif($delivery->stato === 'ritirata')
                 <p>ritirata il: {{$delivery->task_ritiro}}
                 @endif

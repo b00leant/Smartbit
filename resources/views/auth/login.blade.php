@@ -29,15 +29,25 @@
       </div>
       <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn waves-effect waves-light">
+                                <button style="margin-bottom:1em" type="submit" class="btn waves-effect waves-light">
                                     <i class="material-icons right">send</i>Login
                                 </button>
 
-                                <a class="waves-effect waves-light btn" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
+                                <a style="margin-bottom:1em" class="waves-effect waves-light btn" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
                             </div>
                         </div>
     </form>
   </div>
+@endsection
+  
+  
+  
+  
+  
+  
+  
+  
+  
 <!--div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -100,4 +110,4 @@
         </div>
     </div>
 </div-->
-@endsection
+

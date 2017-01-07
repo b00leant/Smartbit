@@ -15,22 +15,22 @@
   <div class="col s4">
     <div class="center promo promo-example">
       <i class="material-icons large amber-text text-darken-1">flash_on</i>
-      <p class="promo-caption">Speeds up development</p>
-      <p class="light center">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components.</p>
+      <p class="promo-caption">Servizio efficiente</p>
+      <p class="light center">Noi di Smartbit facciamo del nostro meglio per riparare i vostri dispositivi in meno tempo possibile.</p>
     </div>
   </div>
   <div class="col s4">
     <div class="center promo promo-example">
       <i class="material-icons large amber-text text-darken-1">gps_fixed</i>
-      <p class="promo-caption">User Experience Focused</p>
-      <p class="light center">By utilizing elements and principles of Material Design, we were able to create a framework that focuses on User Experience.</p>
+      <p class="promo-caption">Tracciabilità</p>
+      <p class="light center">Grazie al nostro sistema di Tracking sai sempre in che stato si trova la tua riparazione.</p>
     </div>
   </div>
   <div class="col s4">
     <div class="center promo promo-example">
       <i class="material-icons large amber-text text-darken-1">notifications_active</i>
-      <p class="promo-caption">Easy to work with</p>
-      <p class="light center">We have provided detailed documentation as well as specific code examples to help new users get started.</p>
+      <p class="promo-caption">Notificato, sempre</p>
+      <p class="light center">Con il nostro sistema di notifiche asincrone, email e SMS sei sempre aggiornato.</p>
     </div>
   </div>
 </div>

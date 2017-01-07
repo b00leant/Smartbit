@@ -51,22 +51,22 @@
         </div>
       </div>
     <div class="row center-align">
-        <a class="waves-effect waves-teal btn-flat smartbit" style="color:white">
+        <a class="waves-effect waves-light btn-flat smartbit" style="color:white">
         <i class="material-icons">perm_phone_msg</i>
         </a>
-        <a href="{{url('/person/'.$person->id)}}" class="waves-effect waves-teal btn-flat smartbit" style="color:white">
+        <a href="{{url('/person/'.$person->id)}}" class="waves-effect waves-light btn-flat smartbit" style="color:white">
             <i class="material-icons">perm_identity</i>
         </a>
-        <a href="{{url('ricevuta/'.$repair->id)}}" class="waves-effect waves-teal btn-flat smartbit" style="color:white">
+        <a href="{{url('ricevuta/'.$repair->id)}}" class="waves-effect waves-light btn-flat smartbit" style="color:white">
             <i class="material-icons">print</i>
         </a>
         @if(Auth::user()->id===1)
-        <a href="{{url('lab')}}" class="waves-effect waves-teal btn-flat amber accent-4" style="color:white">
+        <a href="{{url('lab')}}" class="waves-effect waves-light btn-flat amber accent-4" style="color:white">
             <i class="material-icons">settings</i>
         </a>
         @endif
         @if(Auth::user()->id===1)
-        <a class="waves-effect waves-teal btn-flat red"  href="#modal1" style="color:white">
+        <a class="waves-effect waves-light btn-flat red"  href="#modal1" style="color:white">
             <i class="material-icons">delete</i>
         </a>
         @endif

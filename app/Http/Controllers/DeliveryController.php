@@ -139,9 +139,6 @@ class DeliveryController extends Controller
             return $response;
         }
     }
-    public function printz($id){
-        return redirect('/delivery/'.$id);
-    }
     //
 }
 

@@ -68,7 +68,7 @@ Route::get('deliveries','DeliveryController@home')->middleware('auth');
 
 Route::get('delivery/{id}',['uses'=>'DeliveryController@show'])->middleware('auth');
 
-Route::get('delivery-go/{id}',['uses'=>'DeliveryController@printz'])->middleware('auth');
+Route::get('delivery-go/{id}',['uses'=>'PDFController@ddt'])->middleware('auth');
 
 Route::get('/ricevuta/{id}',['uses'=>'PDFController@ricevuta'])->middleware('auth');
 
