@@ -9,7 +9,7 @@
             <p>Una volta stampata la ricevuta non potrai più modificarla</p>
         </div>
         <div class="modal-footer">
-            <a href="{{url('delivery-go/'.$delivery->id)}}" target="_blank" class="modal-action modal-close waves-effect waves-light btn-flat  smartbit white-text">Stampa e vai!</a>
+            <a  target="_blank" class="modal-action modal-close waves-effect waves-light btn-flat  smartbit white-text">Stampa e vai!</a>
             <a class=" modal-action modal-close waves-effect waves-light btn-flat">Annulla</a>
         </div>
     </div>
@@ -142,7 +142,7 @@
             <p>Una volta stampata la ricevuta non potrai più modificarla</p>
         </div>
         <div class="modal-footer">
-            <a href="{{url('pickup-go/'.$delivery->id)}}" target="_blank" class="modal-action modal-close waves-effect waves-light btn-flat  smartbit white-text">Stampa e vai!</a>
+            <a  target="_blank" class="modal-action modal-close waves-effect waves-light btn-flat  smartbit white-text">Stampa e vai!</a>
             <a class=" modal-action modal-close waves-effect waves-light btn-flat">Annulla</a>
         </div>
     </div>

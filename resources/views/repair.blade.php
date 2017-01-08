@@ -74,7 +74,7 @@
             <i class="material-icons">settings</i>
         </a>
         @endif
-        @if(Auth::user()->id===1)
+        @if(Auth::user()->id===3)
         <a class="waves-effect waves-light btn-flat red"  href="#modal1" style="color:white">
             <i class="material-icons">delete</i>
         </a>
