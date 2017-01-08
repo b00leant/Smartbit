@@ -68,7 +68,8 @@ return [
             'prefix' => '',
             'strict' => false,
             'engine' => null,
-        ],*/
+        ],
+        */
         'mysql' => [
             'driver' => 'mysql',
             'host' => $host,
