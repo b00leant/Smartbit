@@ -77,7 +77,7 @@ return [
             'strict' => false,
             'engine' => null,
         ],
-        
+    /*    
         'mysql' => array(
         'driver'    => 'mysql',
         'host'      => $host,
@@ -87,7 +87,7 @@ return [
         'charset'   => 'utf8',
         'collation' => 'utf8_unicode_ci',
         'prefix'    => '',
-    ),
+    ),*/
     /*
         'pgsql' => [
             'driver' => 'pgsql',
@@ -101,7 +101,7 @@ return [
             'schema' => 'public',
         ],
     */
-    /*
+    
     'pgsql' => array(
         'driver'   => 'pgsql',
         'host'     => $host,
@@ -111,7 +111,7 @@ return [
         'charset'  => 'utf8',
         'prefix'   => '',
         'schema'   => 'public',
-    ),*/
+    ),
     ],
     
     /*
