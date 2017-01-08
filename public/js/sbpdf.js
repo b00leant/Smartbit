@@ -1,5 +1,7 @@
 $('a.print-repair').on('click',function(){
     var doc = new jsPDF();
+    var code = ''+$('input[name="seriale"]').val();
+ 	JsBarcode("#barcode", code);
     var can = document.getElementById('barcode');
     doc.text(20, 30, 'Ricevuta riparazione per Smartbit');
     doc.setFontSize(10);
