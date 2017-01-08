@@ -161,7 +161,7 @@ return [
          */
         Crabbly\FPDF\FpdfServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
-        Milon\Barcode\BarcodeServiceProvider::class
+        Milon\Barcode\BarcodeServiceProvider::class,
     ],
 
     /*

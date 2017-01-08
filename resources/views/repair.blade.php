@@ -20,11 +20,11 @@
                 <i class="medium material-icons">perm_identity</i>
             </div>
             <div class="divider"></div>
-            <p >Nome: {{$person->nome}}</p>
+            <p class="nome-ricevuta">Nome: {{$person->nome}}</p>
             <div class="divider"></div>
-            <p >Cognome: {{$person->cognome}}</p>
+            <p class="cognome-ricevuta">Cognome: {{$person->cognome}}</p>
             <div class="divider"></div>
-            <p >Recapito: {{$person->telefono}}</p>
+            <p class="recapito-ricevuta">Recapito: {{$person->telefono}}</p>
             <div class="divider"></div>
         </div>
         <div class="section col s12 m6">
@@ -32,17 +32,23 @@
                 <i class="medium material-icons">phone_iphone</i>
             </div>
             <div class="divider"></div>
-            <p >Modello: {{$device->model}}</p>
+            <p class="modello-ricevuta">Modello: {{$device->model}}</p>
             <div class="divider"></div>
-            <p >Marca: {{$device->brand}}</p>
+            <p class="marca-ricevuta">Marca: {{$device->brand}}</p>
             <div class="divider"></div>
-            <p>Stato: {{$repair->stato}}</p>
+            <p class="imei-ricevuta">Imei: {{$device->imei}}</p>
             <div class="divider"></div>
+            <div id="to print" style="display:none">
+                <p>Riparazione</p>
+                <p class="today" style="display:none">{{ $repair->created_at }}</p>
+                <canvas id="barcode"></canvas>
+            </div>
+            <input type="hidden" name="seriale" value="{{$repair->seriale}}">
         </div>
     </div>
     <div class="row">
         <div class="input-field col s6">
-          <textarea readonly id="note" class="materialize-textarea">{{$repair->note}}</textarea>
+          <textarea readonly id="note" class="note-ricevuta materialize-textarea">{{$repair->note}}</textarea>
           <label for="note">Note Cliente</label>
         </div>
         <div class="input-field col s6">
@@ -57,7 +63,10 @@
         <a href="{{url('/person/'.$person->id)}}" class="waves-effect waves-light btn-flat smartbit" style="color:white">
             <i class="material-icons">perm_identity</i>
         </a>
-        <a href="{{url('ricevuta/'.$repair->id)}}" target="_blank" class="waves-effect waves-light btn-flat smartbit" style="color:white">
+        <!--a href="{{url('ricevuta/'.$repair->id)}}" target="_blank" class="waves-effect waves-light btn-flat smartbit" style="color:white">
+            <i class="material-icons">print</i>
+        </a-->
+        <a class="print-repair waves-effect waves-light btn-flat smartbit" style="color:white">
             <i class="material-icons">print</i>
         </a>
         @if(Auth::user()->id===1)

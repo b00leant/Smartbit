@@ -260,11 +260,18 @@
     <script src="{{ asset('js/bin/materialize.js') }}"></script>
     <script src="{{ asset('js/sbscripts.js') }}"></script>
     <script src="{{ asset('js/sbaddress.js') }}"></script>
+    
     <script src="{{ asset('js/edit_delivery.js') }}"></script>
     <script src="{{ asset('js/edit_backdelivery.js') }}"></script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAK6y8tZ4VlyEKfCUzV7LvxTNLN6Me6S8&callback=autocompleteAddress">
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+    <script src="{{ asset('js/html2canvas.js') }}"></script>
+    <script src="{{ asset('js/JsBarcode.all.min.js') }}"></script>
+    
+    <script src="{{ asset('js/sbpdf.js') }}"></script>
     <!--script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script-->
     <!--script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script-->
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
@@ -276,7 +283,8 @@
         });*/
  		$(document).ready(function(){
  		    
- 		    
+ 		    var code = ''+$('input[name="seriale"]').val();
+ 		    JsBarcode("#barcode", code);
  		    $('.date_delivery').pickadate({
                 selectMonths: true, // Creates a dropdown to control month
                 selectYears: 15 // Creates a dropdown of 15 years to control year

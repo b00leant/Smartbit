@@ -4,6 +4,8 @@
  $username = $url["user"];
  $password = $url["pass"];
  $database = substr($url["path"], 1);*/
+ 
+ 
  $url = parse_url(getenv("DATABASE_URL"));
 $host = $url["host"];
 $username = $url["user"];
@@ -34,9 +36,10 @@ return [
     | you may use many connections at once using the Database library.
     |
     */
-
+    
     //'default' => env('DB_CONNECTION', 'mysql'),
-    'default' => 'pgsql',
+    'default' => env('DB_CONNECTION', 'pgsql'),
+    //'default' => 'pgsql',
     /*
     |--------------------------------------------------------------------------
     | Database Connections
@@ -74,7 +77,7 @@ return [
             'strict' => false,
             'engine' => null,
         ],
-        /*
+        
         'mysql' => array(
         'driver'    => 'mysql',
         'host'      => $host,
@@ -84,7 +87,7 @@ return [
         'charset'   => 'utf8',
         'collation' => 'utf8_unicode_ci',
         'prefix'    => '',
-    ),*/
+    ),
     /*
         'pgsql' => [
             'driver' => 'pgsql',
@@ -98,6 +101,7 @@ return [
             'schema' => 'public',
         ],
     */
+    /*
     'pgsql' => array(
         'driver'   => 'pgsql',
         'host'     => $host,
@@ -107,9 +111,9 @@ return [
         'charset'  => 'utf8',
         'prefix'   => '',
         'schema'   => 'public',
-    ),
+    ),*/
     ],
-
+    
     /*
     |--------------------------------------------------------------------------
     | Migration Repository Table
