@@ -15,7 +15,8 @@
         "milon/barcode": "^5.3",
         "fideloper/proxy": "^3.2",
         "spatie/laravel-backup": "^3.0.0",
-        "doctrine/dbal": "^2.5"
+        "doctrine/dbal": "^2.5",
+        "ext-mbstring": "*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
