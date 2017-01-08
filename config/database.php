@@ -1,9 +1,14 @@
 <?php
- $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+ /*$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
  $host = $url["host"];
  $username = $url["user"];
  $password = $url["pass"];
- $database = substr($url["path"], 1);
+ $database = substr($url["path"], 1);*/
+ $url = parse_url(getenv("DATABASE_URL"));
+$host = $url["host"];
+$username = $url["user"];
+$password = $url["pass"];
+$database = substr($url["path"], 1);
 return [
 
     /*
@@ -30,8 +35,8 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
-
+    //'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => 'pgsql',
     /*
     |--------------------------------------------------------------------------
     | Database Connections
@@ -55,7 +60,7 @@ return [
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
         ],
-        /*
+        
         'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', 'localhost'),
@@ -69,7 +74,7 @@ return [
             'strict' => false,
             'engine' => null,
         ],
-        */
+        /*
         'mysql' => array(
         'driver'    => 'mysql',
         'host'      => $host,
@@ -79,8 +84,8 @@ return [
         'charset'   => 'utf8',
         'collation' => 'utf8_unicode_ci',
         'prefix'    => '',
-    ),
-
+    ),*/
+    /*
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', 'localhost'),
@@ -92,7 +97,17 @@ return [
             'prefix' => '',
             'schema' => 'public',
         ],
-
+    */
+    'pgsql' => array(
+        'driver'   => 'pgsql',
+        'host'     => $host,
+        'database' => $database,
+        'username' => $username,
+        'password' => $password,
+        'charset'  => 'utf8',
+        'prefix'   => '',
+        'schema'   => 'public',
+    ),
     ],
 
     /*
