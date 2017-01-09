@@ -34,7 +34,18 @@ $('a.print-repair').on('click',function(){
     var data = can.toDataURL( "image/jpeg" );
     doc.addImage(data, 'JPEG', 80, 165);
     doc.addPage();
-    doc.setFontSize(16);
+    oc.text(20, 30, 'Ricevuta riparazione per Smartbit');
+    doc.setFontSize(10);
+    doc.text(20, 40, $('.modello-ricevuta').text()+"\n"+
+    $('.marca-ricevuta').text()+
+    "\nImei:"+$('.imei-ricevuta').text()+"\nData ricezione: "+$('.today').text());
+    doc.text(110, 40, 'Cliente:\n'+$('.nome-ricevuta').text()+"\n"+$('.cognome-ricevuta').text()+"\n"+$('.recapito-ricevuta').text());
+    doc.text(20, 70,'Note:');
+    doc.setDrawColor(255,171,0);
+    doc.rect(25, 72, 160, 20);
+    doc.setFontSize(8);
+    doc.text(26, 75,''+$('.note-ricevuta').text());
+    /*doc.setFontSize(16);
     doc.text(20, 30, 'Ricevuta riparazione per Smartbit');
     doc.setFontSize(10);
     doc.text(20, 210, $('.modello-ricevuta').text()+"\n"+
@@ -47,6 +58,6 @@ $('a.print-repair').on('click',function(){
     doc.setFontSize(8);
     doc.text(26, 231,''+$('.note-ricevuta').text());
     doc.setFontSize(8);
-    doc.addImage(data, 'JPEG', 80, 255);
+    doc.addImage(data, 'JPEG', 80, 255);*/
     doc.save('s.pdf');
 });
