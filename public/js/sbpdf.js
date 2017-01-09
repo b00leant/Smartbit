@@ -79,6 +79,6 @@ $('a.print-repair').on('click',function(){
     doc.text(26, 231,''+$('.note-ricevuta').text());
     doc.setFontSize(8);
     doc.addImage(data, 'JPEG', 80, 255);*/
-    doc.autoPrint();
-    //doc.save('s.pdf');
+    //doc.autoPrint();
+    doc.save('ricevuta_'+$('input[name="seriale"]').val()+'+.pdf');
 });
