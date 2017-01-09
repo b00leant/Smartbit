@@ -34,6 +34,7 @@ $('a.print-repair').on('click',function(){
     var data = can.toDataURL( "image/jpeg" );
     doc.addImage(data, 'JPEG', 80, 165);
     doc.addPage();
+    doc.setFontSize(16);
     doc.text(20, 30, 'Ricevuta riparazione per Smartbit');
     doc.setFontSize(10);
     doc.text(20, 40, $('.modello-ricevuta').text()+"\n"+
