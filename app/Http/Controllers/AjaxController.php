@@ -63,6 +63,18 @@ class AjaxController extends Controller
             }
         }
     }
+    public function sendSMSRepair(Repair $request)
+    {
+        if ($request->ajax()){
+            if (!$people->isEmpty()){
+                $sms_sb = new SmsGateway('microtel.tre@gmail.com','latini65giovanni');
+                return null;
+            }else{
+                $response = array(['success' => 'false','errors'=>'non si trova'],400);
+                return $response;
+            }
+        }
+    }
     /**
      * Display the specified resource.
      *
