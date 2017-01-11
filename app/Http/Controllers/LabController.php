@@ -76,7 +76,7 @@ class LabController extends Controller
     }
     
     public function home(){
-        if(Auth::user()->id === 1 or Auth::user()->id === 3){
+        if(Auth::user()->id === 1 or Auth::user()->id === 2){
             $repairs = App\Repair::where('stato','!=','pronta')
             ->where('stato','!=','ritirata')->
             where('stato','!=','finita')->paginate(10);
