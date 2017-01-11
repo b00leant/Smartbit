@@ -66,12 +66,19 @@ class AjaxController extends Controller
     public function sendSMSRepair(Repair $request)
     {
         if ($request->ajax()){
+            
             if (!$people->isEmpty()){
                 $sms_sb = new SmsGateway('microtel.tre@gmail.com','latini65giovanni');
+                $deviceID = 1;
+                $number = '+44771232343';
+                $message = 'Hello World!';
+                $options = [
+                'send_at' => strtotime('+10 minutes'), // Send the message in 10 minutes
+                'expires_at' => strtotime('+1 hour') // Cancel the message in 1 hour if the message is not yet sent
+                ];
+                $sms_sb->sendMessageToNumber($number,$message,$deviceID,$options);
                 return null;
             }else{
-                $response = array(['success' => 'false','errors'=>'non si trova'],400);
-                return $response;
             }
         }
     }
