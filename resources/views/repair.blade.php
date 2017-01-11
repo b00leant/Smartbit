@@ -2,7 +2,7 @@
 @section('content')
 @if(Auth::check())
 <div class="container">
-    @if(Auth::user()->id===1)
+    @if(Auth::user()->id===2)
     <div id="modal1" class="modal">
         <div class="modal-content">
             <h4>Conferma?</h4>
@@ -75,7 +75,7 @@
         </a>
         @endif
         @if(Auth::user()->id===2)
-        <a class="waves-effect waves-light btn-flat red"  href="#modal1" style="color:white">
+        <a class="waves-effect waves-light btn-flat red" href="#modal1" style="color:white">
             <i class="material-icons">delete</i>
         </a>
         @endif
