@@ -227,7 +227,7 @@
         @if(Route::getCurrentRoute()->getPath() != '/')
         <li><a class="waves-effect" href="{{url('/')}}"><i class="material-icons">home</i>Torna a Smartbit</a></li>
         @endif
-        @if(Auth::user()->id == 1)
+        @if(Auth::user()->id == 1 or Auth::user()->id == 2)
         @if(Route::getCurrentRoute()->getPath() != '/')
         @endif
         @if(Route::getCurrentRoute()->getPath() != 'lab')
