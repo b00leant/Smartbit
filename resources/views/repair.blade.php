@@ -15,8 +15,9 @@
     </div>
     <div id="modal_giveback" class="modal">
         <div class="modal-content">
-            <h4>Conferma?</h4>
-            <p>Sicuro di eliminare la riparazione dal Database di Smartbit?</p>
+            <h4>Consegnare al cliente?</h4>
+            <p>Confermi la consegna del dispositivo al cliente?</p>
+            <p>Procedi solo se il cliente è in possesso della ricevuta.</p>
         </div>
         <div class="modal-footer">
             <a href="{{url('giveback-repair/'.$repair->id)}}"  class=" modal-action modal-close waves-effect waves-smartbit btn-flat">Elimina</a>
