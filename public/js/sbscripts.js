@@ -626,6 +626,7 @@ function load_repair_info(id){
                         $('.note-field label').addClass('active');
                         $('.note-field1 label').addClass('active');
                         $('button.change-state-lab').text('Finisci');
+                        $('div#modal-change.modal .modal-footer a.finish-action').prop('href','/finish-state-lab/'+data.id);
                         $('input.change-state-lab').val(data.id);
                         $('div#lab.collection a[data-id="'+data.id+'"] a div.secondary-content i').text('done');
                         $('div#lab.collection a[data-id="'+data.id+'"] a div.secondary-content i').css('color','grey');
@@ -680,6 +681,7 @@ function change_state(){
                     $('button.change-state-lab').addClass('hide');
                     $('button.finish-state-lab').removeClass('hide');
                     $('.modal-change').modal();
+                    $('div#modal-change.modal .modal-footer a.finish-action').prop('href','/finish-state-lab/'+data.id);
                     $('.update-lab').removeClass('hide');
                     $('.note-field textarea').val(data.note_lab);
                     $('button.change-state-lab').addClass('hide');

@@ -67,8 +67,9 @@ class LabController extends Controller
     public function finishLab($id){
         try{
             $repair = App\Repair::where(['id'=>$id])->firstOrFail();
-            $repair->state = 'finita-lab';
+            $repair->stato = 'finita';
             $repair->save();
+            return redirect('/lab');
         }catch(ModelNotFoundException $ex){
             return redirect('/lab');
         }
@@ -76,7 +77,7 @@ class LabController extends Controller
     public function index(Request $request){
         if($request->ajax()){
             $index = $request->input('index');
-            $repairs = App\Repair::where('stato','!=','ritirata')->orWhere('stato','!=','finita-lab')->paginate(10);
+            $repairs = App\Repair::where('stato','!=','ritirata')->where('stato','!=','finita')->paginate(10);
             return $repairs;
         }else{
             $response = array(['success' => 'false','errors'=>'non si trova'],400);
@@ -88,7 +89,7 @@ class LabController extends Controller
         if(Auth::user()->id === 1 or Auth::user()->id === 2){
             $repairs = App\Repair::where('stato','!=','pronta')
             ->where('stato','!=','ritirata')->
-            where('stato','!=','finita')->paginate(10);
+            where('stato','!=','finita')->where('stato','!=','finita-lab')->paginate(10);
             return View::make('lab')->with(['repairs_pages'=>$repairs]);
         }else{
             return redirect('/');

@@ -79,10 +79,12 @@
         <a class="print-repair waves-effect waves-light btn-flat smartbit" style="color:white">
             <i class="material-icons">print</i>
         </a>
-        @if(Auth::user()->id===1 or Auth::user()->id===2)
+        @if(Auth::user()->id===1 or Auth::user()->id===2 )
+        @if($repair->stato === 'iniziata' or $repair->stato === 'creata')
         <a href="{{url('lab')}}" class="waves-effect waves-light btn-flat amber accent-4" style="color:white">
             <i class="material-icons">settings</i>
         </a>
+        @endif
         @endif
         @if(Auth::user()->id===2)
         <a class="waves-effect waves-light btn-flat red" href="#modal_delete" style="color:white">

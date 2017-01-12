@@ -47,7 +47,7 @@ Route::get('/repair/{id}',['uses'=>'RepairController@showRepair'])->middleware('
 
 Route::post('/change-state-lab/{id}',['uses'=>'LabController@changeState'])->middleware('auth');
 
-Route::post('/finish-state-lab/{id}',['uses'=>'LabController@finishLab'])->middleware('auth');
+Route::get('/finish-state-lab/{id}',['uses'=>'LabController@finishLab'])->middleware('auth');
 
 Route::post('/update-note-lab/{id}',['uses'=>'LabController@updateNoteLab'])->middleware('auth');
 
