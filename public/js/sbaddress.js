@@ -160,7 +160,6 @@ $.fn.searchAddress = function(){
     });
 };
 function autocompleteAddress(){
-        var uluru = {lat: 41.7754297, lng: 12.9219462};
         var map = new google.maps.Map(document.getElementById('maphome'), {
           scrollwheel: false,
           navigationControl: false,
@@ -169,7 +168,7 @@ function autocompleteAddress(){
           draggable: false,
           mapTypeId: google.maps.MapTypeId.ROADMAP,
           zoom: 14,
-          center: uluru,
+          center: position,
           styles: [
                 {elementType: 'geometry', stylers: [{color: '#a1887f'}]},
                 {elementType: 'labels.text.stroke', stylers: [{color: '#a1887f'}]},
