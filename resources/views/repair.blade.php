@@ -3,7 +3,7 @@
 @if(Auth::check())
 <div class="container">
     @if(Auth::user()->id===2)
-    <div id="modal_delete" class="modal">
+    <div id="modal_delete" class="modal_delete">
         <div class="modal-content">
             <h4>Conferma?</h4>
             <p>Sicuro di eliminare la riparazione dal Database di Smartbit?</p>
@@ -13,7 +13,7 @@
             <a href="#"  class=" modal-action modal-close waves-effect waves-light btn-flat">Annulla</a>
         </div>
     </div>
-    <div id="modal_giveback" class="modal">
+    <div id="modal_giveback" class="modal_giveback">
         <div class="modal-content">
             <h4>Consegnare al cliente?</h4>
             <p>Confermi la consegna del dispositivo al cliente?</p>
@@ -93,7 +93,7 @@
         </a>
         @endif
         @if($repair->stato === 'finita')
-        <a class="waves-effect waves-light btn-flat red" href="#modal_giveback" style="color:white">
+        <a class="waves-effect waves-light btn-flat smartbit" href="#modal_giveback" style="color:white">
             <i class="material-icons">done</i>
         </a>
         @endif

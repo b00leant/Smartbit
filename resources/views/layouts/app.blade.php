@@ -521,6 +521,8 @@
               $('.parallax').parallax();
             })
             $('.modal').modal();
+            $('.modal_giveback').modal();
+            $('.modal_delete').modal();
             $('.back-delivery-center').modal();
             $('.edit-delivery-center').modal();
             $('.edit-delivery-repair').modal();
