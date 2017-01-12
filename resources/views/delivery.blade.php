@@ -134,7 +134,7 @@
         </div>
     @endif
 </div>
-@endif
+@elseif($delivery->stato =='da_ritirare')
 <div class="row" style="padding-top:70px">
     <div id="modal-chose-go" class="modal">
         <div class="modal-content">
@@ -253,5 +253,6 @@
     </div>
     @endif
 </div>
+@endif
 @endif
 @endsection
