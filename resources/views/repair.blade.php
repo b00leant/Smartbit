@@ -69,7 +69,7 @@
         </div>
       </div>
     <div class="row center-align">
-        @if($repair->stato === 'consegnata')
+        @if($repair->stato != 'consegnata')
         <a data-id="{{$repair->id}}" class="send_sms_status waves-effect waves-light btn-flat smartbit" style="color:white">
         <i class="material-icons">perm_phone_msg</i>
         </a>
