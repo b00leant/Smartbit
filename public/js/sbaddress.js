@@ -259,7 +259,7 @@ function autocompleteAddress(){
           origin: new google.maps.Point(0,0), // origin
           anchor: new google.maps.Point(0, 150) // anchor
         };
-        position = new google.maps.LatLng(41.775432,12.924108)
+        var position = new google.maps.LatLng(41.775432,12.924108)
         var marker = new google.maps.Marker({
           icon: image,
           position: position,
