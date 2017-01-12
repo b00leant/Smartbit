@@ -258,7 +258,7 @@ function autocompleteAddress(){
           url: 'http://smartbit.online/images/smartbit_marker.png',
           size: new google.maps.Size(150, 150),
           origin: new google.maps.Point(0, 0),
-          anchor: new google.maps.Point(0, 75),
+          anchor: new google.maps.Point(-75, 75),
           scaledSize: new google.maps.Size(65, 65)
         };
         var marker = new google.maps.Marker({
