@@ -406,7 +406,7 @@
         });
 }
     </script>
-    @elseif(Route::getCurrentRoute()->getPath() === 'create-person')
+    @elseif(Route::getCurrentRoute()->getPath() === 'create-person' or Route::getCurrentRoute()->getPath() === 'new-person' or Route::getCurrentRoute()->getPath() === 'new-tech-sup')
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAK6y8tZ4VlyEKfCUzV7LvxTNLN6Me6S8&callback=autocompleteAddress">
     </script>
