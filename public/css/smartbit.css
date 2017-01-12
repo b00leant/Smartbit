@@ -109,7 +109,9 @@ html, body, .block {
 main > .home:nth-child(2) {
         padding-top: 165px;
 }
-
 main > div:first-child{
+    padding-top: 165px;
+}
+main > div.home:first-child{
     padding-top: 64px; /*165px;*/
 }
