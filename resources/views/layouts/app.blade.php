@@ -285,7 +285,125 @@
     <script src="{{ asset('js/bin/materialize.js') }}"></script>
     <script src="{{ asset('js/sbscripts.js') }}"></script>
     <script src="{{ asset('js/sbaddress.js') }}"></script>
-    
+    @if(Route->getCurrentRoute() === '/')
+    <script>
+    function autocompleteAddress(){
+        var position = new google.maps.LatLng(41.775432,12.924108);
+        var map = new google.maps.Map(document.getElementById('maphome'), {
+          scrollwheel: false,
+          navigationControl: false,
+          mapTypeControl: false,
+          scaleControl: false,
+          draggable: false,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          zoom: 14,
+          center: position,
+          styles: [
+                {elementType: 'geometry', stylers: [{color: '#a1887f'}]},
+                {elementType: 'labels.text.stroke', stylers: [{color: '#a1887f'}]},
+                {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+                {
+                  featureType: 'administrative.locality',
+                  elementType: 'labels.text.fill',
+                  stylers: [{color: '#212121'}]
+                },
+                {
+                  featureType: 'poi.business',
+                  stylers: [{visibility: 'off'}]
+                },
+                {
+                  featureType: 'poi',
+                  elementType: 'labels.text.fill',
+                  stylers: [{color: '#212121'}]
+                },
+                {
+                  featureType: 'poi.park',
+                  elementType: 'geometry',
+                  stylers: [{color: '#263c3f'}]
+                },
+                {
+                  featureType: 'poi.park',
+                  elementType: 'labels.text.fill',
+                  stylers: [{color: '#6b9a76'}]
+                },
+                {
+                  featureType: 'road',
+                  elementType: 'geometry',
+                  stylers: [{color: '#38414e'}]
+                },
+                {
+                  featureType: 'road',
+                  elementType: 'geometry.stroke',
+                  stylers: [{color: '#212a37'}]
+                },
+                {
+                  featureType: 'road',
+                  elementType: 'labels.text.fill',
+                  stylers: [{color: '#9ca5b3'}]
+                },
+                {
+                  featureType: 'road.highway',
+                  elementType: 'geometry',
+                  stylers: [{color: '#746855'}]
+                },
+                {
+                  featureType: 'road.highway',
+                  elementType: 'geometry.stroke',
+                  stylers: [{color: '#1f2835'}]
+                },
+                {
+                  featureType: 'road.highway',
+                  elementType: 'labels.text.fill',
+                  stylers: [{color: '#f3d19c'}]
+                },
+                {
+                  featureType: 'transit',
+                  elementType: 'geometry',
+                  stylers: [{color: '#2f3948'}]
+                },
+                {
+                  featureType: 'transit.station',
+                  elementType: 'labels.text.fill',
+                  stylers: [{color: '#d59563'}]
+                },
+                {
+                  featureType: 'water',
+                  elementType: 'geometry',
+                  stylers: [{color: '#17263c'}]
+                },
+                {
+                  featureType: 'water',
+                  elementType: 'labels.text.fill',
+                  stylers: [{color: '#515c6d'}]
+                },
+                {
+                  featureType: 'water',
+                  elementType: 'labels.text.stroke',
+                  stylers: [{color: '#17263c'}]
+                }]
+        });
+        
+        var image = {
+          url: 'http://smartbit.online/images/smartbit_marker.png',
+          scaledSize: new google.maps.Size(65, 65),
+          origin: new google.maps.Point(0,0), // origin
+          anchor: new google.maps.Point(0, 65) // anchor
+        };
+        
+        var marker = new google.maps.Marker({
+          icon: image,
+          position: position,
+          map: map
+        });
+}
+    </script>
+    @elseif(Route->getCurrentRoute() === '/create-person')
+    <script>
+        function autocompleteAddress(){
+        $('input#addr_complete.autocomplete.address').searchAddress();
+    }
+    </script>
+    @endif
     <script src="{{ asset('js/edit_delivery.js') }}"></script>
     <script src="{{ asset('js/edit_backdelivery.js') }}"></script>
     <script async defer
