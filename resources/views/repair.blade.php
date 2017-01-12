@@ -69,18 +69,21 @@
         </div>
       </div>
     <div class="row center-align">
+        @if($repair->stato === 'consegnata')
         <a data-id="{{$repair->id}}" class="send_sms_status waves-effect waves-light btn-flat smartbit" style="color:white">
         <i class="material-icons">perm_phone_msg</i>
         </a>
+        <a class="print-repair waves-effect waves-light btn-flat smartbit" style="color:white">
+            <i class="material-icons">print</i>
+        </a>
+        @endif
         <a href="{{url('/person/'.$person->id)}}" class="waves-effect waves-light btn-flat smartbit" style="color:white">
             <i class="material-icons">perm_identity</i>
         </a>
         <!--a href="{{url('ricevuta/'.$repair->id)}}" target="_blank" class="waves-effect waves-light btn-flat smartbit" style="color:white">
             <i class="material-icons">print</i>
         </a-->
-        <a class="print-repair waves-effect waves-light btn-flat smartbit" style="color:white">
-            <i class="material-icons">print</i>
-        </a>
+        
         @if(Auth::user()->id===1 or Auth::user()->id===2 )
         @if($repair->stato === 'iniziata' or $repair->stato === 'creata')
         <a href="{{url('lab')}}" class="waves-effect waves-light btn-flat amber accent-4" style="color:white">
