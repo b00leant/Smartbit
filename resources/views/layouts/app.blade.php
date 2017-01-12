@@ -40,14 +40,14 @@
     <header>
     {{------------------- DEFINISCO NAVIGAZIONE PER GLI OSPITI ---------------}}
     @if(Auth::guest())
-    <nav class="z-depth-1" style="position:fixed;z-index:2;">
+    <nav class="z-depth-1" style="position:fixed;z-index:4;">
     <div class="nav-wrapper">
         <a href="/" class="brand-logo center">Smartbit</a>
     </div>
 </nav>
     {{------------------ DEFINISCO NAVIGAZIONE NEL LABORATORIO ---------------}}
     @elseif(Route::getCurrentRoute()->getPath() == 'lab')
-    <nav class="z-depth-1" style="background:#ffab00;position:fixed;z-index:2;">
+    <nav class="z-depth-1" style="background:#ffab00;position:fixed;z-index:4;">
         <div class="nav-wrapper">
             <ul class="left">
                 <a href="#" data-activates="slide-out" class="sbmenu" 
@@ -67,7 +67,7 @@
     </nav>
     {{------------------ DEFINISCO NAVIGAZIONE NEL LATO ADMIN ----------------}}
     @elseif(Route::getCurrentRoute()->getPath() != '/')
-    <nav class="z-depth-1" style="position:fixed;z-index:2;">
+    <nav class="z-depth-1" style="position:fixed;z-index:4;">
             <div class="nav-wrapper">
                 <ul class="left">
                     <li><a class="sbmenu" style="height: 64px;line-height: 64px;float: left;position: relative;z-index: 1;height: auto;margin: 0 0px;" data-activates="slide-out"><i class="material-icons">menu</i></a></li>
@@ -78,7 +78,7 @@
         </nav>
     {{------------------ DEFINISCO NAVIGAZIONE NELLA HOME ADMIN -------------}}
     @else
-    <nav class="z-depth-1 nav-extended" style="position:fixed;z-index:2;">
+    <nav class="z-depth-1 nav-extended" style="position:fixed;z-index:4;">
             <div class="nav-wrapper">
                 <a href="/" class="brand-logo center">Smartbit</a>
                 <ul class="left">
@@ -118,7 +118,7 @@
       </li>
     </ul-->
     <div id="slide-lab" class="row side-nav">
-        <nav class="z-depth-1 amber accent-4" style="position:fixed;z-index:2;">
+        <nav class="z-depth-1 amber accent-4" style="position:fixed;z-index:4;">
             <div class="nav-wrapper">
                 <ul class="left">
                     <a class="hide-slide-lab" 
