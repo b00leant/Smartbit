@@ -167,6 +167,7 @@ function autocompleteAddress(){
           mapTypeControl: false,
           scaleControl: false,
           draggable: false,
+          disableDefaultUI: true,
           mapTypeId: google.maps.MapTypeId.ROADMAP,
           zoom: 14,
           center: uluru
