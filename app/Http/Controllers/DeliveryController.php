@@ -42,6 +42,11 @@ class DeliveryController extends Controller
             $repairs_to_send = App\Repair::where(['assistenza'=>true])
             ->where('stato','!=','finita')
             ->where('stato','!=','consegnata')->get();
+            foreach($repairs_to_send as $repair){
+                $repair->device();
+                $repair->person();
+                $repair->person_name();
+            }
             return View::make('new-delivery-step2')->with(['repairs'=>$repairs_to_send,
             'center'=>$request->input('center')]);
         }else{
