@@ -301,6 +301,7 @@
           mapTypeId: google.maps.MapTypeId.ROADMAP,
           zoom: 14,
           center: position,
+          disableDefaultUI: true,
           styles: [
                 {elementType: 'geometry', stylers: [{color: '#a1887f'}]},
                 {elementType: 'labels.text.stroke', stylers: [{color: '#a1887f'}]},
