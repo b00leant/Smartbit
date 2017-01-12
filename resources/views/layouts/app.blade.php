@@ -391,7 +391,7 @@
 @if(Auth::guest())
 <footer class="page-footer" style="position:relative;
     width: 100%;
-    bottom: 0;margin-top:0;padding-top:1em;">
+    bottom: 0;margin-top:0;padding-top:1em;border-top: solid 0.5em #ffb300">
     <div class="container">
         <div class="home row">
   <div class="col s4">
