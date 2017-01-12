@@ -28,6 +28,9 @@ class HomeController extends Controller
     public function index(){
         //
     }
+    public function info(){
+        return View::make('about');
+    }
     public function home()
     {
         if(Auth::check()){

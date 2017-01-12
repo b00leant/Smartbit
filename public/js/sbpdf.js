@@ -65,20 +65,9 @@ $('a.print-repair').on('click',function(){
     );
     var data = can.toDataURL( "image/jpeg" );
     doc.addImage(data, 'JPEG', 80, 165);
-    /*doc.setFontSize(16);
-    doc.text(20, 30, 'Ricevuta riparazione per Smartbit');
-    doc.setFontSize(10);
-    doc.text(20, 210, $('.modello-ricevuta').text()+"\n"+
-    $('.marca-ricevuta').text()+
-    "\nImei:"+$('.imei-ricevuta').text());
-    doc.text(110, 210, 'Cliente:\n'+$('.nome-ricevuta').text()+"\n"+$('.cognome-ricevuta').text()+"\n"+$('.recapito-ricevuta').text());
-    doc.text(20, 225,'Note:');
-    doc.setDrawColor(255,171,0);
-    doc.rect(25, 227, 160, 20);
-    doc.setFontSize(8);
-    doc.text(26, 231,''+$('.note-ricevuta').text());
-    doc.setFontSize(8);
-    doc.addImage(data, 'JPEG', 80, 255);*/
-    //doc.autoPrint();
     doc.save('ricevuta_'+$('input[name="seriale"]').val()+'.pdf');
+});
+
+$('a.print-ddt').on('click',function(){
+    
 });

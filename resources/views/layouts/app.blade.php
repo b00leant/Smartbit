@@ -42,11 +42,12 @@
     @if(Auth::guest())
     <nav class="z-depth-1" style="position:fixed;z-index:2;">
     <div class="nav-wrapper">
-        <a href="/" class="brand-logo center" style="
-            left: 0;
-            padding-left: 0.5em;
-            transform: translateX(0px);
-        ">Smartbit</a>
+        <a href="/" class="brand-logo center">Smartbit</a>
+        @if(Route::getCurrentRoute()->getPath() != 'info')
+        <ul id="nav-mobile" class="left">
+        <li><a href="{{url('info')}}"><i class="material-icons">info</i></a></li>
+      </ul>
+      @endif
     </div>
 </nav>
     {{------------------ DEFINISCO NAVIGAZIONE NEL LABORATORIO ---------------}}
