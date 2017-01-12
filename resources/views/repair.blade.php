@@ -13,6 +13,7 @@
             <a href="#"  class=" modal-action modal-close waves-effect waves-light btn-flat">Annulla</a>
         </div>
     </div>
+    @endif
     <div id="modal-giveback" class="modal">
         <div class="modal-content">
             <h4>Consegnare al cliente?</h4>
@@ -24,7 +25,7 @@
             <a href="#"  class=" modal-action modal-close waves-effect waves-light btn-flat">Annulla</a>
         </div>
     </div>
-    @endif
+    
     <div class="row" style="padding-top:2em">
         <div class="section col s12 m6">
             <div style="text-align:center">
