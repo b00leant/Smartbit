@@ -546,21 +546,21 @@
     bottom: 0;margin-top:0;padding-top:1em;border-top: solid 0.5em #ffb300">
     <div class="container">
         <div class="home row">
-  <div class="col s4">
+  <div class="col s12 m4">
     <div class="center promo promo-example">
       <i class="material-icons large amber-text text-darken-1">flash_on</i>
       <p class="white-text promo-caption">Servizio efficiente</p>
       <p class="white-text light center">Noi di Smartbit facciamo del nostro meglio per riparare i vostri dispositivi in meno tempo possibile.</p>
     </div>
   </div>
-  <div class="col s4">
+  <div class="col s12 m4">
     <div class="center promo promo-example">
       <i class="material-icons large amber-text text-darken-1">remove_red_eye</i>{{-- gps_fixed --}}
       <p class="white-text promo-caption">Tracciabilità</p>
       <p class="white-text light center">Grazie al nostro sistema di Tracking sai sempre in che stato si trova la tua riparazione.</p>
     </div>
   </div>
-  <div class="col s4">
+  <div class="col s12 m4">
     <div class="center promo promo-example">
       <i class="material-icons large amber-text text-darken-1">notifications_active</i>
       <p class="white-text promo-caption">Notificato, sempre</p>
