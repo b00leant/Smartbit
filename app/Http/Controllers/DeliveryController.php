@@ -39,7 +39,9 @@ class DeliveryController extends Controller
     }
     public function selectDeliveries(Request $request){
         if($request->has('center')){
-            $repairs_to_send = App\Repair::where(['assistenza'=>true])->get();
+            $repairs_to_send = App\Repair::where(['assistenza'=>true])
+            ->where('stato','!=','finita')
+            ->where('stato','!=','consegnata')->get();
             return View::make('new-delivery-step2')->with(['repairs'=>$repairs_to_send,
             'center'=>$request->input('center')]);
         }else{
