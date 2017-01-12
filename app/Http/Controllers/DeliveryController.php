@@ -50,7 +50,8 @@ class DeliveryController extends Controller
             return View::make('new-delivery-step2')->with(['repairs'=>$repairs_to_send,
             'center'=>$request->input('center')]);
         }else{
-            return back()->withInput();
+            return redirect('/#del');
+            //return back()->withInput();
         }
     }
     public function selectDate(Request $request){
@@ -118,7 +119,14 @@ class DeliveryController extends Controller
         try{
             $delivery = App\Delivery::where(['id'=>$id])->firstOrFail();
             $delivery->repairs();
-            $repairs_to_send = App\Repair::where(['assistenza'=>true])->get();
+            $repairs_to_send = App\Repair::where(['assistenza'=>true])
+            ->where('stato','!=','finita')
+            ->where('stato','!=','consegnata')->get();
+            foreach($repairs_to_send as $repair){
+                $repair->device();
+                $repair->person();
+                $repair->person_name();
+            }
             foreach($delivery->repairs() as $repair){
                 $repair->device();
             }

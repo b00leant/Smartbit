@@ -91,8 +91,8 @@
                     @if(isset($delivery->repairs))
                     <li class="collection-header"><h4>Dispositivi da spedire</h4></li>
                     @foreach($delivery->repairs as $repair)
-                    <a data-id="{{$repair->id}}" data-show="{{$repair->device->model}} ({{$repair->seriale}})" class="edit-delivery-repair collection-item">
-                        {{$repair->device->model}} ({{$repair->seriale}})
+                    <a data-id="{{$repair->id}}" data-show="{{$repair->device->model}} ({{$repair->person_name}})" class="edit-delivery-repair collection-item">
+                        {{$repair->device->model}} ({{$repair->person_name}})
                         <span style="cursor:pointer" class="hide remove-repair-from-delivery secondary-content"><i class="material-icons">delete</i></span>
                     </a>
                     @endforeach
