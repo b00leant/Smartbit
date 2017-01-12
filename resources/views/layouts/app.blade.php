@@ -4,7 +4,36 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    <html itemscope itemtype="http://schema.org/LocalBusiness">
 
+    <!-- Aggiungi i tre tag seguenti all'interno del tag head. -->
+    <meta itemprop="name" content="SmartBit">
+    <meta itemprop="description" content="SmartBit è un&#39;azienda specializzata nella vendita e assistenza di prodotti nel campo della telefonia mobile e dell&#39;informatica. SmartBit inoltre mette a disposizione operazioni di notifica e tracking online per la clientela che richiede i nostri servizi di assistenza tecnica">
+    <meta itemprop="image" content="http://microtelservice.it/favicon.ico">
+    
+    <!-- for Facebook -->          
+    <meta property="og:title" content="SmartBit" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="http://smartbit.online" />
+    <meta property="og:url" content="http://smartbit.online/" />
+    <meta property="og:description" content="SmartBit è un'azienda specializzata nella vendita e riparaz.." />
+
+    <!-- for Twitter -->          
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="SmartBit" />
+    <meta name="twitter:description" content="SmartBit è un'azienda specializzata nella vendita e riparaz.." />
+    <meta name="twitter:image" content="{{ asset('img/favicon.ico') }}" />
+    
+    <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon"/>
+    <link rel="icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon"/>
+    <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img/Icon-60@3x.png') }}" />
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/Icon-76.png') }}" />
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('img/Icon-76@2x.png') }}" />
+    <link rel="apple-touch-icon" sizes="58x58" href="{{ asset('img/Icon-Small@2x.png') }}" />
+    
     <!--meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, user-scalable=no' name='viewport' /-->
     <!--meta name="viewport" content="width=device-width, initial-scale=1"-->
     <meta name="csrf-token" content="{{ csrf_token() }}" />
