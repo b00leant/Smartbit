@@ -15,5 +15,4 @@
     </div>
     <div id="maphome" style="height: 500px; width: 100%; position: relative;"></div>
 </div>
-
 @endsection
