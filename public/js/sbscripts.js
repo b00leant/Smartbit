@@ -735,3 +735,28 @@ function update_lab(){
         alert('State could not be changed.');
     });
 }
+
+$('.send_sms_status').on('click',function(){
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        url : '/sms-status-repair/'+$(this).data('id'),
+        dataType: 'json',
+        type: 'POST'
+    }).done(function (data){
+        console.log(data);
+        if(data.status === 200){
+            Materialize.toast('SMS inviato correttamente! 🤖', 4000);
+        }else{
+            Materialize.toast('Qualcosa è adato storto! 😕', 4000);
+        }
+        setTimeout(function(){
+        },800);
+       
+    }).fail(function(data){
+        console.log(data);
+    });
+});

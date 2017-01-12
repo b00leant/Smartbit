@@ -57,7 +57,7 @@
         </div>
       </div>
     <div class="row center-align">
-        <a class="waves-effect waves-light btn-flat smartbit" style="color:white">
+        <a data-id="{{$repair->id}}" class="send_sms_status waves-effect waves-light btn-flat smartbit" style="color:white">
         <i class="material-icons">perm_phone_msg</i>
         </a>
         <a href="{{url('/person/'.$person->id)}}" class="waves-effect waves-light btn-flat smartbit" style="color:white">

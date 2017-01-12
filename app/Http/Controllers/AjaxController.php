@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App;
+use \SMSGateway;
 
 class AjaxController extends Controller
 {
@@ -63,22 +65,24 @@ class AjaxController extends Controller
             }
         }
     }
-    public function sendSMSRepair(Repair $request)
+    public function sendSMSRepairStatus($id,Request $request)
     {
         if ($request->ajax()){
-            
-            if (!$people->isEmpty()){
-                $sms_sb = new SmsGateway('microtel.tre@gmail.com','latini65giovanni');
-                $deviceID = 1;
-                $number = '+44771232343';
-                $message = 'Hello World!';
+            try{
+                $repair = App\Repair::where(['id'=>$id])->firstOrFail();
+                $person = $repair->person;
+                $device = $repair->device;
+                $deviceID = 36788;
+                $number = '+39'.$person->telefono;
+                $message = 'Smartbit la informa sullo stato attuale della sua riparazione: '."\n\n".'-stato →'.$repair->stato.".\n".'-dispositivo →'.$device->model.".\n\n".'Buona giornata da Smartbit!'."🤖";
                 $options = [
                 'send_at' => strtotime('+10 minutes'), // Send the message in 10 minutes
                 'expires_at' => strtotime('+1 hour') // Cancel the message in 1 hour if the message is not yet sent
                 ];
-                $sms_sb->sendMessageToNumber($number,$message,$deviceID,$options);
-                return null;
-            }else{
+                $sms_sb = SMSGateway::sendMessageToNumber($number,$message,$deviceID);
+                return $sms_sb;
+            }catch(ModelNotFoundException $ex){
+                return $ex;
             }
         }
     }

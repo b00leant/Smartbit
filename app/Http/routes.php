@@ -100,6 +100,8 @@ Route::post('create-to-use','PersonController@handleCreateToUse')->middleware('a
 
 Route::post('create-person','PersonController@handleCreateToUse')->middleware('auth');
 
+Route::post('sms-status-repair/{id}',['uses' => 'AjaxController@sendSMSRepairStatus'])->middleware('auth');
+
 
 
 
