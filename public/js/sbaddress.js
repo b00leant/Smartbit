@@ -255,6 +255,7 @@ function autocompleteAddress(){
                 }]
         });
         var marker = new google.maps.Marker({
+          icon: 'http://smartbit.online/images/smartbit_mrker.png',
           position: uluru,
           map: map
         });
