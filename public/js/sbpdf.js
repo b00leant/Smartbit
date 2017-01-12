@@ -60,12 +60,13 @@ $('a.print-repair').on('click',function(){
     "essi possano essere cancellati.\n\n"+
     "5. Si prega di provare subito il dispositivo per controllare se funziona, in caso contrario decade la garanzia.\n\n"+
     "6. Si autorizza il trattamento dei dati personali in base art. 13 del D. Lgs. 196/2003.\n\n"+
+    "7. Smartbit non è responsabile di possibili prolungamenti dei tempi di assistenza tecnica.\n\n"+
     "Firma __________________\n\n"+
     "Smartbit S.R.L. Via Casilina 343 Valmontone (RM) Tel.06/95995061\n"+
     "Grazie per aver scelto smartbit!"
     );
     var data = can.toDataURL( "image/jpeg" );
-    doc.addImage(data, 'JPEG', 80, 165);
+    doc.addImage(data, 'JPEG', 80, 175);
     doc.save('ricevuta_'+$('input[name="seriale"]').val()+'.pdf');
 });
 
