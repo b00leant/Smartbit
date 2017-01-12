@@ -284,7 +284,9 @@
     <!-- JavaScripts -->
     <script src="{{ asset('js/bin/materialize.js') }}"></script>
     <script src="{{ asset('js/sbscripts.js') }}"></script>
-    
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAK6y8tZ4VlyEKfCUzV7LvxTNLN6Me6S8&callback=autocompleteAddress">
+    </script>
     @if(Route::getCurrentRoute() === '/')
     <script>
     function autocompleteAddress(){
@@ -397,7 +399,7 @@
         });
 }
     </script>
-    @elseif(Route::getCurrentRoute() === '/create-person')
+    @elseif(Route::getCurrentRoute() === 'create-person')
     <script>
         function autocompleteAddress(){
         $('input#addr_complete.autocomplete.address').searchAddress();
@@ -407,9 +409,7 @@
     <script src="{{ asset('js/sbaddress.js') }}"></script>
     <script src="{{ asset('js/edit_delivery.js') }}"></script>
     <script src="{{ asset('js/edit_backdelivery.js') }}"></script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAK6y8tZ4VlyEKfCUzV7LvxTNLN6Me6S8&callback=autocompleteAddress">
-    </script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
     <script src="{{ asset('js/html2canvas.js') }}"></script>
