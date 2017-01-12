@@ -222,7 +222,7 @@ class RepairController extends Controller
             $repair->save();
             return redirect('/#rip');
         }catch(ModelNotFoundException $ex){
-            return redirect('/#rip')
+            return redirect('/#rip');
         }
     }
     /*public function delete()
