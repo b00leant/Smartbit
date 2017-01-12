@@ -113,5 +113,5 @@ main > div:first-child{
     padding-top: 165px;
 }
 main > div.home:first-child{
-    padding-top: 60px; /*165px;*/
+    padding-top: 54px; /*165px;*/
 }
