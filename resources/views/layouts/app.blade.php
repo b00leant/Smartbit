@@ -284,10 +284,11 @@
     <!-- JavaScripts -->
     <script src="{{ asset('js/bin/materialize.js') }}"></script>
     <script src="{{ asset('js/sbscripts.js') }}"></script>
+    
+    @if(Route::getCurrentRoute()->getPath() === '/')
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAK6y8tZ4VlyEKfCUzV7LvxTNLN6Me6S8&callback=autocompleteAddress">
     </script>
-    @if(Route::getCurrentRoute()->getPath() === '/')
     <script>
     function autocompleteAddress(){
         var position = new google.maps.LatLng(41.775432,12.924108);
@@ -400,6 +401,9 @@
 }
     </script>
     @elseif(Route::getCurrentRoute()->getPath() === 'create-person')
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAK6y8tZ4VlyEKfCUzV7LvxTNLN6Me6S8&callback=autocompleteAddress">
+    </script>
     <script>
         function autocompleteAddress(){
         $('input#addr_complete.autocomplete.address').searchAddress();

@@ -64,10 +64,19 @@ class LabController extends Controller
         }
     }
     
+    public function finishLab($id){
+        try{
+            $repair = App\Repair::where(['id'=>$id])->firstOrFail();
+            $repair->state = 'finita-lab';
+            $repair->save();
+        }catch(ModelNotFoundException $ex){
+            return redirect('/lab');
+        }
+    }
     public function index(Request $request){
         if($request->ajax()){
             $index = $request->input('index');
-            $repairs = App\Repair::where('stato','!=','ritirata')->paginate(10);
+            $repairs = App\Repair::where('stato','!=','ritirata')->orWhere('stato','!=','finita-lab')->paginate(10);
             return $repairs;
         }else{
             $response = array(['success' => 'false','errors'=>'non si trova'],400);
