@@ -139,6 +139,10 @@ $.fn.searchAddress = function(){
                   map: map,
               });
             }
+            $(window).resize(function() {
+    // (the 'map' here is the result of the created 'var map = ...' above)
+    google.maps.event.trigger(map, "resize");
+  });
             }else{} 
           },
           error: function (xhr, b, c) {
