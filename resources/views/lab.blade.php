@@ -67,7 +67,7 @@
     </div>
     <div class="modal-footer">
       <a class=" modal-action modal-close waves-effect waves-red btn-flat">Cancella</a>
-      <a href="{{url('finish-repair/'.$repair->id)}}" class=" modal-action modal-close waves-effect waves-green btn-flat">Okay</a>
+      <a href="{{url('finish-state-lab/'.$repair->id)}}" class=" modal-action modal-close waves-effect waves-green btn-flat">Okay</a>
     </div>
   </div>
 @endsection
