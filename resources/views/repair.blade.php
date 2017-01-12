@@ -70,14 +70,14 @@
       </div>
     <div class="row center-align">
         @if($repair->stato != 'consegnata')
-        <a data-id="{{$repair->id}}" class="send_sms_status waves-effect waves-light btn-flat smartbit" style="color:white">
+        <a data-id="{{$repair->id}}" data-position="bottom" data-delay="100" data-tooltip="Spedisci SMS" class="send_sms_status waves-effect waves-light btn-flat smartbit" style="color:white">
         <i class="material-icons">perm_phone_msg</i>
         </a>
-        <a class="print-repair waves-effect waves-light btn-flat smartbit" style="color:white">
+        <a class="print-repair waves-effect waves-light btn-flat smartbit" data-position="bottom" data-delay="100" data-tooltip="Stampa"  style="color:white">
             <i class="material-icons">print</i>
         </a>
         @endif
-        <a href="{{url('/person/'.$person->id)}}" class="waves-effect waves-light btn-flat smartbit" style="color:white">
+        <a href="{{url('/person/'.$person->id)}}" data-position="bottom" data-delay="100" data-tooltip="Vai al cliente" class="waves-effect waves-light btn-flat smartbit" style="color:white">
             <i class="material-icons">perm_identity</i>
         </a>
         <!--a href="{{url('ricevuta/'.$repair->id)}}" target="_blank" class="waves-effect waves-light btn-flat smartbit" style="color:white">
@@ -86,7 +86,7 @@
         
         @if(Auth::user()->id===1 or Auth::user()->id===2 )
         @if($repair->stato === 'iniziata' or $repair->stato === 'creata')
-        <a href="{{url('lab')}}" class="waves-effect waves-light btn-flat amber accent-4" style="color:white">
+        <a href="{{url('lab')}}" data-position="bottom" data-delay="100" data-tooltip="Laboratorio" class="waves-effect waves-light btn-flat amber accent-4" style="color:white">
             <i class="material-icons">settings</i>
         </a>
         @endif
@@ -97,7 +97,7 @@
         </a>
         @endif
         @if($repair->stato === 'finita')
-        <a class="waves-effect waves-light btn-flat smartbit" href="#modal-giveback" style="color:white">
+        <a class="waves-effect waves-light btn-flat smartbit" data-position="bottom" data-delay="100" data-tooltip="Consegna al cliente" href="#modal-giveback" style="color:white">
             <i class="material-icons">done</i>
         </a>
         @endif
