@@ -15,7 +15,7 @@ Route::get('/lab', 'LabController@home')->middleware('auth');
 
 Route::auth();
 
-Route::get('/info','HomeController@info');
+//Route::get('/info','HomeController@info');
 Route::get('/', 'HomeController@home');
 
 Route::get('/logout',function(){

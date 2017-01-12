@@ -160,6 +160,21 @@ $.fn.searchAddress = function(){
     });
 };
 function autocompleteAddress(){
+        var uluru = {lat: 41.7754297, lng: 12.9219462};
+        var map = new google.maps.Map(document.getElementById('maphome'), {
+          scrollwheel: false,
+          navigationControl: false,
+          mapTypeControl: false,
+          scaleControl: false,
+          draggable: false,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          zoom: 14,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
     $('input#addr_complete.autocomplete.address').searchAddress();
 }
 $('input.autocomplete.address').keyup(function(){
@@ -171,6 +186,7 @@ $('input.autocomplete.address').keyup(function(){
 
 
 
+      
 
 
 /*

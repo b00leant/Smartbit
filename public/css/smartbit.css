@@ -111,5 +111,5 @@ main > .home:nth-child(2) {
 }
 
 main > div:first-child{
-    padding-top: 165px;
+    padding-top: 64px; /*165px;*/
 }

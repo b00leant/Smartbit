@@ -43,11 +43,6 @@
     <nav class="z-depth-1" style="position:fixed;z-index:2;">
     <div class="nav-wrapper">
         <a href="/" class="brand-logo center">Smartbit</a>
-        @if(Route::getCurrentRoute()->getPath() != 'info')
-        <ul id="nav-mobile" class="left">
-        <li><a href="{{url('info')}}"><i class="material-icons">info</i></a></li>
-      </ul>
-      @endif
     </div>
 </nav>
     {{------------------ DEFINISCO NAVIGAZIONE NEL LABORATORIO ---------------}}
@@ -396,8 +391,31 @@
 @if(Auth::guest())
 <footer class="page-footer" style="position:relative;
     width: 100%;
-    bottom: 0;margin-top:0;padding-top:0;">
+    bottom: 0;margin-top:0;padding-top:1em;">
     <div class="container">
+        <div class="home row">
+  <div class="col s4">
+    <div class="center promo promo-example">
+      <i class="material-icons large amber-text text-darken-1">flash_on</i>
+      <p class="white-text promo-caption">Servizio efficiente</p>
+      <p class="white-text light center">Noi di Smartbit facciamo del nostro meglio per riparare i vostri dispositivi in meno tempo possibile.</p>
+    </div>
+  </div>
+  <div class="col s4">
+    <div class="center promo promo-example">
+      <i class="material-icons large amber-text text-darken-1">gps_fixed</i>
+      <p class="white-text promo-caption">Tracciabilità</p>
+      <p class="white-text light center">Grazie al nostro sistema di Tracking sai sempre in che stato si trova la tua riparazione.</p>
+    </div>
+  </div>
+  <div class="col s4">
+    <div class="center promo promo-example">
+      <i class="material-icons large amber-text text-darken-1">notifications_active</i>
+      <p class="white-text promo-caption">Notificato, sempre</p>
+      <p class="white-text light center">Con il nostro sistema di notifiche asincrone, email e SMS sei sempre aggiornato.</p>
+    </div>
+  </div>
+</div>
         <div class="row">
             <div class="col l6 s12">
                 <h5 class="white-text">WebApp in via di sviluppo</h5>
@@ -411,7 +429,7 @@
     </div>
     <div class="footer-copyright">
         <div class="container">
-    © 2016 Stefano Latini
+    © 2017 Stefano Latini
     <!--a class="grey-text text-lighten-4 right" href="#!">More Links</a-->
         </div>
     </div>
