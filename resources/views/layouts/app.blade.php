@@ -285,7 +285,7 @@
     <script src="{{ asset('js/bin/materialize.js') }}"></script>
     <script src="{{ asset('js/sbscripts.js') }}"></script>
     <script src="{{ asset('js/sbaddress.js') }}"></script>
-    @if(Route->getCurrentRoute() === '/')
+    @if(Route::getCurrentRoute() === '/')
     <script>
     function autocompleteAddress(){
         var position = new google.maps.LatLng(41.775432,12.924108);
@@ -397,7 +397,7 @@
         });
 }
     </script>
-    @elseif(Route->getCurrentRoute() === '/create-person')
+    @elseif(Route::getCurrentRoute() === '/create-person')
     <script>
         function autocompleteAddress(){
         $('input#addr_complete.autocomplete.address').searchAddress();
