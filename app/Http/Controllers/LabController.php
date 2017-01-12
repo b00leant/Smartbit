@@ -89,7 +89,7 @@ class LabController extends Controller
         if(Auth::user()->id === 1 or Auth::user()->id === 2){
             $repairs = App\Repair::where('stato','!=','pronta')
             ->where('stato','!=','ritirata')->
-            where('stato','!=','finita')->where('stato','!=','finita-lab')->paginate(10);
+            where('stato','!=','finita')->where('stato','!=','consegnata')->paginate(10);
             return View::make('lab')->with(['repairs_pages'=>$repairs]);
         }else{
             return redirect('/');
