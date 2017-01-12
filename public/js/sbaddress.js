@@ -256,8 +256,9 @@ function autocompleteAddress(){
         });
         var image = {
           url: 'http://smartbit.online/images/smartbit_marker.png',
-          size: new google.maps.Size(150, 150),
-          scaledSize: new google.maps.Size(65, 65)
+          scaledSize: new google.maps.Size(65, 65),
+          origin: new google.maps.Point(0,0), // origin
+          anchor: new google.maps.Point(0,0) // anchor
         };
         var marker = new google.maps.Marker({
           icon: image,
