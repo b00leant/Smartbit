@@ -3,14 +3,24 @@
 @if(Auth::check())
 <div class="container">
     @if(Auth::user()->id===2)
-    <div id="modal1" class="modal">
+    <div id="modal_delete" class="modal">
         <div class="modal-content">
             <h4>Conferma?</h4>
             <p>Sicuro di eliminare la riparazione dal Database di Smartbit?</p>
         </div>
         <div class="modal-footer">
-            <a href="{{url('delete-repair/'.$repair->id)}}"  class=" modal-action modal-close waves-effect waves-green btn-flat">Elimina</a>
-            <a href="#"  class=" modal-action modal-close waves-effect waves-green btn-flat">Annulla</a>
+            <a href="{{url('delete-repair/'.$repair->id)}}"  class=" modal-action modal-close waves-effect waves-red btn-flat">Elimina</a>
+            <a href="#"  class=" modal-action modal-close waves-effect waves-light btn-flat">Annulla</a>
+        </div>
+    </div>
+    <div id="modal_giveback" class="modal">
+        <div class="modal-content">
+            <h4>Conferma?</h4>
+            <p>Sicuro di eliminare la riparazione dal Database di Smartbit?</p>
+        </div>
+        <div class="modal-footer">
+            <a href="{{url('giveback-repair/'.$repair->id)}}"  class=" modal-action modal-close waves-effect waves-smartbit btn-flat">Elimina</a>
+            <a href="#"  class=" modal-action modal-close waves-effect waves-light btn-flat">Annulla</a>
         </div>
     </div>
     @endif
@@ -69,14 +79,19 @@
         <a class="print-repair waves-effect waves-light btn-flat smartbit" style="color:white">
             <i class="material-icons">print</i>
         </a>
-        @if(Auth::user()->id===1)
+        @if(Auth::user()->id===1 or Auth::user()->id===2)
         <a href="{{url('lab')}}" class="waves-effect waves-light btn-flat amber accent-4" style="color:white">
             <i class="material-icons">settings</i>
         </a>
         @endif
         @if(Auth::user()->id===2)
-        <a class="waves-effect waves-light btn-flat red" href="#modal1" style="color:white">
+        <a class="waves-effect waves-light btn-flat red" href="#modal_delete" style="color:white">
             <i class="material-icons">delete</i>
+        </a>
+        @endif
+        @if($repair->stato === 'finita')
+        <a class="waves-effect waves-light btn-flat red" href="#modal_giveback" style="color:white">
+            <i class="material-icons">done</i>
         </a>
         @endif
     </div>

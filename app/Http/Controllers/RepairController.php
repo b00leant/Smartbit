@@ -215,6 +215,16 @@ class RepairController extends Controller
                 //return View::make('checktest')->with('nomecompleto','AIAH, MI SA CHE HAI FATTO IL FURBETTO');
         }
     }
+    public function giveback($id){
+        try{
+            $repair = App\Repair::where(['id'=>$id])->firstOrFail();
+            $repair->stato = 'consegnata';
+            $repair->save();
+            return redirect('/#rip');
+        }catch(ModelNotFoundException $ex){
+            return redirect('/#rip')
+        }
+    }
     /*public function delete()
     {
         return View::make('delete');

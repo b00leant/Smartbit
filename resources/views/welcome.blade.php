@@ -24,6 +24,8 @@
                             <i class="material-icons tooltipped" style="color:grey" data-tooltip="Finita (non ancora pronta)">done_all</i>
                             @elseif($repair->stato === 'pronta')
                             <i class="material-icons tooltipped" style="color:#4CAF50" data-tooltip="Pronta per il ritiro">done_all</i>
+                            @elseif($repair->stato === 'consegnata')
+                            <i class="material-icons tooltipped" style="color:#4CAF50" data-tooltip="Pronta per il ritiro">tag_faces</i>
                             @else
                             <i class="material-icons tooltipped" style="color:grey" data-tooltip="senza stato">error</i>
                             @endif

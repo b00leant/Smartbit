@@ -77,6 +77,7 @@ Route::get('pickup-go/{id}',['uses'=>'PDFController@ddtPickup'])->middleware('au
 
 Route::get('/ricevuta/{id}',['uses'=>'PDFController@ricevuta'])->middleware('auth');
 
+Route::get('/giveback-repair/{id}',['uses','RepairController@giveback'])->middleware('auth');
 //posts--------------------------------------------------------------------
 
 Route::post('/create-pickup','DeliveryController@createPickup');
