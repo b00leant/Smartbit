@@ -23,16 +23,16 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="SmartBit" />
     <meta name="twitter:description" content="SmartBit è un'azienda specializzata nella vendita e riparaz.." />
-    <meta name="twitter:image" content="{{ asset('img/favicon.ico') }}" />
+    <meta name="twitter:image" content="{{ asset('images/favicon.ico') }}" />
     
-    <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon"/>
-    <link rel="icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon"/>
-    <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}" />
+    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon"/>
+    <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon"/>
+    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" />
     
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img/Icon-60@3x.png') }}" />
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/Icon-76.png') }}" />
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('img/Icon-76@2x.png') }}" />
-    <link rel="apple-touch-icon" sizes="58x58" href="{{ asset('img/Icon-Small@2x.png') }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/Icon-60@3x.png') }}" />
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('images/Icon-76.png') }}" />
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('images/Icon-76@2x.png') }}" />
+    <link rel="apple-touch-icon" sizes="58x58" href="{{ asset('images/Icon-Small@2x.png') }}" />
     
     <!--meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, user-scalable=no' name='viewport' /-->
     <!--meta name="viewport" content="width=device-width, initial-scale=1"-->
