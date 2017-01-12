@@ -160,6 +160,7 @@ $.fn.searchAddress = function(){
     });
 };
 function autocompleteAddress(){
+        var position = new google.maps.LatLng(41.775432,12.924108);
         var map = new google.maps.Map(document.getElementById('maphome'), {
           scrollwheel: false,
           navigationControl: false,
@@ -253,13 +254,14 @@ function autocompleteAddress(){
                   stylers: [{color: '#17263c'}]
                 }]
         });
+        
         var image = {
           url: 'http://smartbit.online/images/smartbit_marker.png',
           scaledSize: new google.maps.Size(65, 65),
           origin: new google.maps.Point(0,0), // origin
           anchor: new google.maps.Point(0, 150) // anchor
         };
-        var position = new google.maps.LatLng(41.775432,12.924108)
+        
         var marker = new google.maps.Marker({
           icon: image,
           position: position,
