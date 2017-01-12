@@ -284,7 +284,7 @@
     <!-- JavaScripts -->
     <script src="{{ asset('js/bin/materialize.js') }}"></script>
     <script src="{{ asset('js/sbscripts.js') }}"></script>
-    <script src="{{ asset('js/sbaddress.js') }}"></script>
+    
     @if(Route::getCurrentRoute() === '/')
     <script>
     function autocompleteAddress(){
@@ -404,6 +404,7 @@
     }
     </script>
     @endif
+    <script src="{{ asset('js/sbaddress.js') }}"></script>
     <script src="{{ asset('js/edit_delivery.js') }}"></script>
     <script src="{{ asset('js/edit_backdelivery.js') }}"></script>
     <script async defer
