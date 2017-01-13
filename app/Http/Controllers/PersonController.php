@@ -54,8 +54,8 @@ class PersonController extends Controller
             $datanascita = $request->input('datanascita');
             $date = date_create_from_format('Y-m-d', $datanascita);
             $person = new App\Person([
-                'nome' => $request->input('nome'),
-                'cognome'=> $request->input('cognome'),
+                'nome' => ucfirst(strtolower($request->input('nome'))),
+                'cognome'=> ucfirst(strtolower($request->input('cognome'))),
                 'email'=> $request->input('email'),
                 'telefono'=> $request->input('telefono'),
                 'residenza'=> $request->input('addr_complete'),
