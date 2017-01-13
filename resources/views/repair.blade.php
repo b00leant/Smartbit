@@ -67,7 +67,9 @@
           <textarea readonly id="notelab" class="materialize-textarea">{{$repair->note_lab}}</textarea>
           <label for="notelab">Note Laboratorio</label>
         </div>
-      </div>
+    </div>
+    <input type="hidden" name="assistenza" value="{{$repair->assistenza}}">
+    <input type="hidden" name="garanzia" value="{{$repair->garanzia}}">
     <div class="row center-align">
         @if($repair->stato != 'consegnata')
         <a data-id="{{$repair->id}}" data-position="top" data-delay="100" data-tooltip="Spedisci SMS" class="tooltipped send_sms_status waves-effect waves-light btn-flat smartbit" style="color:white">

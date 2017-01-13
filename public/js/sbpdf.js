@@ -9,6 +9,18 @@ $('a.print-repair').on('click',function(){
     $('.marca-ricevuta').text()+
     "\nImei:"+$('.imei-ricevuta').text()+"\nData ricezione: "+$('.today').text());
     doc.text(110, 40, 'Cliente:\n'+$('.nome-ricevuta').text()+"\n"+$('.cognome-ricevuta').text()+"\n"+$('.recapito-ricevuta').text());
+    doc.text(20,60,'Garanzia');
+    if($('input["garanzia"]').val() === true){
+        doc.rect(30,60,5,5,'F');
+    }else{
+        doc.rect(30,60,5,5);
+    }
+    doc.text(50,60,'Assistenza');
+    if($('input["assistenza"]').val() === true){
+        doc.rect(60,60,5,5,'F');
+    }else{
+        doc.rect(60,60,5,5);
+    }
     doc.text(20, 70,'Note:');
     doc.setDrawColor(255,171,0);
     doc.rect(25, 72, 160, 20);
@@ -42,6 +54,18 @@ $('a.print-repair').on('click',function(){
     $('.marca-ricevuta').text()+
     "\nImei:"+$('.imei-ricevuta').text()+"\nData ricezione: "+$('.today').text());
     doc.text(110, 40, 'Cliente:\n'+$('.nome-ricevuta').text()+"\n"+$('.cognome-ricevuta').text()+"\n"+$('.recapito-ricevuta').text());
+    doc.text(20,60,'Garanzia');
+    if($('input["garanzia"]').val() === true){
+        doc.rect(30,60,5,5,'F');
+    }else{
+        doc.rect(30,60,5,5);
+    }
+    doc.text(50,60,'Assistenza');
+    if($('input["assistenza"]').val() === true){
+        doc.rect(60,60,5,5,'F');
+    }else{
+        doc.rect(60,60,5,5);
+    }
     doc.text(20, 70,'Note:');
     doc.setDrawColor(255,171,0);
     doc.rect(25, 72, 160, 20);
