@@ -257,7 +257,11 @@
           <div class="background">
             <img src="http://sf.co.ua/16/01/wallpaper-5da9.jpg">
           </div>
+          @if(Auth::user()->id === 5)
+          <a href="#!user"><img class="circle" src="{{url('bubblegum.jpeg')}}"></a>
+          @else
           <a href="#!user"><img class="circle" src="{{url('grumpy.jpeg')}}"></a>
+          @endif
           <a href="#!name"><span class="white-text name">{{ Auth::user()->name }}</span></a>
           <a href="#!email"><span class="white-text email">{{ Auth::user()->email }}</span></a>
           <a href="{{url('logout')}}"><span class="white-text email"><i class="material-icons">exit_to_app</i></span></a>
