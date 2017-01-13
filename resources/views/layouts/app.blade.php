@@ -411,7 +411,7 @@
           icon: image,
           position: position,
           map: map,
-          url: 'https://www.google.it/maps/place/Via+Casilina,+343,+00038+Valmontone+RM/data=!4m2!3m1!1s0x13257c4bd7fa4e6b:0x4f05bd31eb2115e3?sa=X&ved=0ahUKEwiw77Kp377RAhUFtBQKHeV-Dy4Q8gEIHDAA'
+          url: 'https://www.google.it/maps/place/SmartBit+srl/@41.7754322,12.9219192,17z/data=!4m13!1m7!3m6!1s0x13257c4bd7fa4e6b:0x4f05bd31eb2115e3!2sVia+Casilina,+343,+00038+Valmontone+RM!3b1!8m2!3d41.7754322!4d12.9241079!3m4!1s0x13257c4bd7f94c29:0x7358b3e1dbf0f754!8m2!3d41.7754322!4d12.9241079'
         });
         google.maps.event.addDomListener(window, "resize", function() {
          var center = map.getCenter();
