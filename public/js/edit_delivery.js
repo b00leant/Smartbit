@@ -309,6 +309,13 @@ $('.date').pickadate({
      $('a.delete-delivery').removeClass('hide');
      $('a.activate-edit-mode-delivery').removeClass('hide');
      $('a.cancel-edit-delivery').addClass('hide');
+     $('input[name="date"]').attr('disabled','');
+     $('input[name="date"]').prop('readonly',true).removeClass('date').removeClass('picker__input');
+     
+     $('a.trigger-to-add-repairs').addClass('hide').removeClass('edit-delivery-repair').attr('href','');
+     $('#edit-delivery-center.collection .collection-item').attr('href','');
+     $('#edit-delivery-repairs.collection .collection-item span.secondary-content').addClass('hide');
+     $('#edit-delivery-center.collection .collection-item span.secondary-content').addClass('hide');
     }).fail(function(){
         Materialize.toast('Qualcosa è andato storto 😕', 4000)
         //$('.progress').addClass('hide');
