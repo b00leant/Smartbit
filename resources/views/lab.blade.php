@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div style="position:absolute;width:100%;padding-top:90px">
+<!--div style="position:absolute;width:100%;padding-top:90px">
     <div class="fairyoutl " id="open" style="padding:0">
     </div>
     <div class="fairyl " id="open" style="padding:0">
@@ -13,7 +13,7 @@
     background-color: rgb(6, 86, 116);font-size:1em">
       Benvenuto nel laboratorio {{ Auth::user()->username }}
     </div>
-</div>
+</div-->
 <div class="home row">
   <div class="col s12">
       <div class="section">
