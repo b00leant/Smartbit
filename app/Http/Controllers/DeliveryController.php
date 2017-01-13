@@ -29,7 +29,7 @@ class DeliveryController extends Controller
                 ]);
                 $tech_sup = App\TechnicalSupport::find($request->input('center'));
                 $tech_sup->deliveries()->save($delivery);
-                return redirect('/#del');
+                return redirect('/delivery/'.$delivery->id);
             }catch(ModelNotFoundException $ex){
                 return redirect('/');
             }
