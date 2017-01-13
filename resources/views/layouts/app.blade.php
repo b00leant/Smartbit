@@ -62,42 +62,42 @@
     <link rel="stylesheet" href="{{ asset('css/materialize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/smartbit.css') }}">
     <style type="text/css">
-@font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: 400;
-  src: url("{{asset('iconfont/material-icons/MaterialIcons-Regular.eot')}}"); /* For IE6-8 */
-  src: local('Material Icons'),
-       local('MaterialIcons-Regular'),
-       url("{{asset('iconfont/material-icons/MaterialIcons-Regular.woff2')}}") format('woff2'),
-       url("{{asset('iconfont/material-icons/MaterialIcons-Regular.woff')}}") format('woff'),
-       url("{{asset('iconfont/material-icons/MaterialIcons-Regular.ttf')}}") format('truetype');
-}
-
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;  /* Preferred icon size */
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-
-  /* Support for IE. */
-  font-feature-settings: 'liga';
-}
+        @font-face {
+          font-family: 'Material Icons';
+          font-style: normal;
+          font-weight: 400;
+          src: url("{{asset('iconfont/MaterialIcons-Regular.eot')}}"); /* For IE6-8 */
+          src: local('Material Icons'),
+               local('MaterialIcons-Regular'),
+               url("{{asset('iconfont/MaterialIcons-Regular.woff2')}}") format('woff2'),
+               url("{{asset('iconfont/MaterialIcons-Regular.woff')}}") format('woff'),
+               url("{{asset('iconfont/MaterialIcons-Regular.ttf')}}") format('truetype');
+        }
+    
+    .material-icons {
+      font-family: 'Material Icons';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;  /* Preferred icon size */
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    
+      /* Support for all WebKit browsers. */
+      -webkit-font-smoothing: antialiased;
+      /* Support for Safari and Chrome. */
+      text-rendering: optimizeLegibility;
+    
+      /* Support for Firefox. */
+      -moz-osx-font-smoothing: grayscale;
+    
+      /* Support for IE. */
+      font-feature-settings: 'liga';
+    }
     </style>
     <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"-->
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
