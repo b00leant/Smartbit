@@ -7172,7 +7172,7 @@ DatePicker.defaults = (function( prefix ) {
 
     return {
 
-        // The title label to use for the month nav buttons
+        /* / The title label to use for the month nav buttons
         labelMonthNext: 'Next month',
         labelMonthPrev: 'Previous month',
 
@@ -7192,7 +7192,28 @@ DatePicker.defaults = (function( prefix ) {
         // Today and clear
         today: 'Today',
         clear: 'Clear',
-        close: 'Close',
+        close: 'Close',*/
+        // The title label to use for the month nav buttons
+        labelMonthNext: 'Prossimo mese',
+        labelMonthPrev: 'Mese scorso',
+
+        // The title label to use for the dropdown selectors
+        labelMonthSelect: 'Seleziona un mese',
+        labelYearSelect: 'Seleziona un anno',
+
+        // Months and weekdays
+        monthsFull: [ 'Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre' ],
+        monthsShort: [ 'Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic' ],
+        weekdaysFull: [ 'Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato' ],
+        weekdaysShort: [ 'Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab' ],
+
+        // Materialize modified
+        weekdaysLetter: [ 'D', 'M', 'M', 'G', 'V', 'S', 'D' ],
+
+        // Today and clear
+        today: 'Oggi',
+        clear: 'Pulisci',
+        close: 'Chiudi',
 
         // The format to show on the `input` element
         //format: 'd mmmm, yyyy',
