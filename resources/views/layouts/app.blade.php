@@ -110,7 +110,11 @@ direction: ltr;
             <ul class="left">
                 <a href="#" data-activates="slide-out" class="sbmenu" 
                 style="height:64px;line-height:64px:margin;float: left;position: relative;z-index: 1;height: auto;margin: 0 0px;">
+                    <!--[if !IE]> -->
                     <i class="material-icons">menu</i>
+                    <!-- <![endif]--><!--[if lt IE 9]>
+                    <i class="material-icons">&#xE5D2;</i>
+                    <![endif]-->
                 </a>
                 <li class="hide-on-small-only">
                         <a href="{{url('/')}}">
@@ -132,7 +136,6 @@ direction: ltr;
                 </a>
             </ul>
             <a href="{{url('/lab')}}" class="brand-logo center">SmartLAB</a>
-            <!--a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a-->
         </div>
     </nav>
     {{------------------ DEFINISCO NAVIGAZIONE NEL LATO ADMIN ----------------}}
@@ -140,7 +143,13 @@ direction: ltr;
     <nav class="z-depth-1" style="position:fixed;z-index:4;">
             <div class="nav-wrapper">
                 <ul class="left">
-                    <li><a class="sbmenu" style="height: 64px;line-height: 64px;float: left;position: relative;z-index: 1;height: auto;margin: 0 0px;" data-activates="slide-out"><i class="material-icons">menu</i></a></li>
+                    <li><a class="sbmenu" style="height: 64px;line-height: 64px;float: left;position: relative;z-index: 1;height: auto;margin: 0 0px;" data-activates="slide-out">
+                    <!--[if !IE]> -->
+                    <i class="material-icons">menu</i>
+                    <!-- <![endif]--><!--[if lt IE 9]>
+                    <i class="material-icons">&#xE5D2;</i>
+                    <![endif]-->
+                    </a></li>
                     <li class="hide-on-small-only">
                         <a href="{{url('/')}}">
                             <!--[if !IE]> -->
@@ -156,7 +165,6 @@ direction: ltr;
                 </ul>
                 
                 <a href="/" class="brand-logo center">Smartbit</a>
-                <!--a href="#" data-activates="slide-out"><i class="material-icons">menu</i></a-->
             </div>
         </nav>
     {{------------------ DEFINISCO NAVIGAZIONE NELLA HOME ADMIN -------------}}
@@ -167,7 +175,11 @@ direction: ltr;
                 <ul class="left">
                     <a href="#" data-activates="slide-out" class="sbmenu" 
                     style="height:64px;line-height:64px:margin;float: left;position: relative;z-index: 1;height: auto;margin: 0 0px;">
+                        <!--[if !IE]> -->
                         <i class="material-icons">menu</i>
+                        <!-- <![endif]--><!--[if lt IE 9]>
+                        <i class="material-icons">&#xE5D2;</i>
+                        <![endif]-->
                     </a>
                 </ul>
                 <ul class="tabs tabs-transparent" style="overflow-x:hidden">
