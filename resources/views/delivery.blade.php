@@ -91,8 +91,8 @@
                     @if(isset($delivery->repairs))
                     <li class="collection-header"><h4>Dispositivi da spedire</h4></li>
                     @foreach($delivery->repairs as $repair)
-                    <a data-id="{{$repair->id}}" data-show="{{$repair->device->model}} ({{$repair->person_name}})" class="edit-delivery-repair collection-item">
-                        {{$repair->device->model}} ({{$repair->person_name}})
+                    <a data-id="{{$repair->id}}" data-show="{{$repair->device->model}} ({{$repair->person->nome}} {{$repair->person->cognome}})" class="edit-delivery-repair collection-item">
+                        {{$repair->device->model}} ({{$repair->person->nome}} {{$repair->person->cognome}})
                         <span style="cursor:pointer" class="hide remove-repair-from-delivery secondary-content"><i class="material-icons">delete</i></span>
                     </a>
                     @endforeach
@@ -190,6 +190,16 @@
             <a href="#"  class=" modal-action modal-close waves-effect waves-green btn-flat">Annulla</a>
         </div>
     </div>
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Conferma?</h4>
+            <p>Sicuro di eliminare la spedizione dal Database di Smartbit?</p>
+        </div>
+        <div class="modal-footer">
+            <a href="{{url('delete-delivery/'.$delivery->id)}}"  class=" modal-action modal-close waves-effect waves-green btn-flat">Elimina</a>
+            <a href="#"  class=" modal-action modal-close waves-effect waves-green btn-flat">Annulla</a>
+        </div>
+    </div>
     <div class="col s12 m8 offset-m2">
         <div class="row">
             <ul id="back-delivery-center" class="collection with-header">
@@ -249,6 +259,9 @@
         </a>
         <a class=" waves-effect go-back-delivery waves-light btn-flat smartbit" href="#modal-chose-go" style="color:white">
             <i class="material-icons">local_shipping</i>
+        </a>
+        <a class="delete-delivery waves-effect waves-light btn-flat red"  href="#modal1" style="color:white">
+                <i class="material-icons">delete</i>
         </a>
     </div>
     @endif

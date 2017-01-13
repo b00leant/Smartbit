@@ -108,7 +108,7 @@ $('.date').pickadate({
      $('a.update-back-delivery').addClass('hide');
      $('a.go-back-delivery').removeClass('hide');
      $('a.activate-back-mode-delivery').removeClass('hide');
-     $('a.cancel-back-mode-delivery').addClass('hide');
+     $('a.cancel-back-delivery').addClass('hide');
      $('input[name="date"]').attr('disabled','');
      $('input[name="date"]').prop('readonly',true).removeClass('date').removeClass('picker__input');
      

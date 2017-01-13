@@ -159,7 +159,7 @@
             </div>
         </nav>
         <div class="row" style="padding-top:64px;text-align:center;">
-            <div class="section">
+            <div class="section" style="padding-bottom:0;">
                 <div class="hide preloader-wrapper big active">
                     <div class="spinner-layer spinner-blue-only">
                         <div class="circle-clipper left">
@@ -224,7 +224,7 @@
             </div>
             
               <input type="hidden" name="change-state" class="change-state-lab" value="null">
-            <div class="section col s12" style="padding:1em;text-align:center">
+            <div class="section col s12" style="padding:0em;text-align:center">
                 <button class="btn change-state-lab waves-effect hide waves-light smartbit" onclick="change_state();">
                 </button>
                 <button data-target="modal-change" class="btn hide finish-state-lab waves-effect waves-light smartbit">Finisci
@@ -406,7 +406,7 @@
         });
 }
     </script>
-    @elseif(Route::getCurrentRoute()->getPath() === 'create-person' or Route::getCurrentRoute()->getPath() === 'new-person' or Route::getCurrentRoute()->getPath() === 'new-tech-sup')
+    @elseif(Route::getCurrentRoute()->getPath() === 'create-person' or Route::getCurrentRoute()->getPath() === 'add-person' or Route::getCurrentRoute()->getPath() === 'new-tech-sup')
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAK6y8tZ4VlyEKfCUzV7LvxTNLN6Me6S8&callback=autocompleteAddress">
     </script>

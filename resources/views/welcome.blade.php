@@ -29,7 +29,7 @@
                             @else
                             <i class="material-icons tooltipped" style="color:grey" data-tooltip="senza stato">error</i>
                             @endif
-                        </div>Modello: {{$repair->device->model}}di {{$repair->person_name()}}
+                        </div>Modello: {{$repair->device->model}} ({{$repair->person_name()}})
                     </a>
                     
                 @endforeach

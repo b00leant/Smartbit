@@ -110,7 +110,7 @@ main > .home:nth-child(2) {
         padding-top: 165px;
 }
 main > div:first-child{
-    padding-top: 165px;
+    padding-top: 105px;
 }
 main > div.home:first-child{
     padding-top: 54px; /*165px;*/

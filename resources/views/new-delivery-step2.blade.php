@@ -25,7 +25,7 @@
                           <h4>Seleziona Le riparazioni</h4>
                       </div>
                       @foreach($repairs as $repair)
-                      <a class="delivery-item collection-item" data-id="{{$repair->id}}">{{$repair->device->model}} ({{$repair->person_name}})</a>
+                      <a class="delivery-item collection-item" data-id="{{$repair->id}}">{{$repair->device->model}} ({{$repair->person->nome}} {{$repair->person->cognome}})</a>
                       @endforeach
                       @endif
                   </div>
