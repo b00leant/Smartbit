@@ -410,12 +410,17 @@
         var marker = new google.maps.Marker({
           icon: image,
           position: position,
-          map: map
+          map: map,
+          url: 'https://www.google.it/maps/place/Via+Casilina,+343,+00038+Valmontone+RM/data=!4m2!3m1!1s0x13257c4bd7fa4e6b:0x4f05bd31eb2115e3?sa=X&ved=0ahUKEwiw77Kp377RAhUFtBQKHeV-Dy4Q8gEIHDAA'
         });
         google.maps.event.addDomListener(window, "resize", function() {
          var center = map.getCenter();
          google.maps.event.trigger(map, "resize");
          map.setCenter(center); 
+        });
+        google.maps.event.addListener(marker, 'click', function() {
+          //window.location.href = marker.url;
+          window.open(marker.url,'_blank');
         });
 }
     </script>
