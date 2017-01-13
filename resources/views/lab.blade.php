@@ -40,7 +40,7 @@
                   @else
                   <i class="material-icons tooltipped" style="color:grey" data-tooltip="senza stato">error</i>
                   @endif
-                </div>Seriale: {{$repair->seriale}} Modello:"{{$repair->device->model}} ({{$repair->person->nome}}{{$repair->person->cognome}})"
+                </div>Seriale: {{$repair->seriale}} Modello:"{{$repair->device->model}} ({{$repair->person->nome}}{{$repair->person->cognome}})
               </a>
             @endforeach
           @endif
