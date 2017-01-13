@@ -196,7 +196,7 @@
         </ul>
       </li>
     </ul-->
-    <div id="slide-lab" class="row side-nav" style="left:100%;width:100%">
+    <div id="slide-lab" class="row side-nav" style="left:-100%;width:100%">
         <nav class="z-depth-1 amber accent-4" style="position:fixed;z-index:4;">
             <div class="nav-wrapper">
                 <ul class="left">
