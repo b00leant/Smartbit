@@ -113,7 +113,13 @@ direction: ltr;
                     <i class="material-icons">menu</i>
                 </a>
                 <li class="hide-on-small-only">
-                        <a href="{{url('/')}}"><i class="material-icons">home</i></a>
+                        <a href="{{url('/')}}">
+                            <!--[if !IE]> -->
+                            <i class="material-icons">home</i>
+                            <!-- <![endif]--><!--[if lt IE 9]>
+                            <i class="material-icons">&#xE88A;</i>
+                            <![endif]-->
+                        </a>
                 </li>
                 <li class="hide-on-small-only">
                     <a href="{{url('/#del')}}"><i class="material-icons">local_shipping</i></a>
@@ -136,7 +142,13 @@ direction: ltr;
                 <ul class="left">
                     <li><a class="sbmenu" style="height: 64px;line-height: 64px;float: left;position: relative;z-index: 1;height: auto;margin: 0 0px;" data-activates="slide-out"><i class="material-icons">menu</i></a></li>
                     <li class="hide-on-small-only">
-                        <a href="{{url('/')}}"><i class="material-icons">home</i></a>
+                        <a href="{{url('/')}}">
+                            <!--[if !IE]> -->
+                            <i class="material-icons">home</i>
+                            <!-- <![endif]--><!--[if lt IE 9]>
+                            <i class="material-icons">&#xE88A;</i>
+                            <![endif]-->
+                        </a>
                     </li>
                     <li class="hide-on-small-only">
                         <a href="{{url('/#del')}}"><i class="material-icons">local_shipping</i></a>
@@ -296,7 +308,13 @@ direction: ltr;
           <a href="{{url('logout')}}"><span class="white-text email"><i class="material-icons">exit_to_app</i></span></a>
         </div></li>
         @if(Route::getCurrentRoute()->getPath() != '/')
-        <li><a class="waves-effect" href="{{url('/')}}"><i class="material-icons">home</i>Torna a Smartbit</a></li>
+        <li><a class="waves-effect" href="{{url('/')}}">
+            <!--[if !IE]> -->
+            <i class="material-icons">home</i>
+            <!-- <![endif]--><!--[if lt IE 9]>
+            <i class="material-icons">&#xE88A;</i>
+            <![endif]-->
+            Torna a Smartbit</a></li>
         @endif
         @if(Auth::user()->id == 1 or Auth::user()->id == 2)
         @if(Route::getCurrentRoute()->getPath() != '/')
@@ -305,7 +323,6 @@ direction: ltr;
         
         <li><a class="waves-effect" href="{{url('/lab')}}"><i class="material-icons">build</i>Vai al laboratorio</a></li>
         @else
-        <!--li><a class="waves-effect" href="{{url('/')}}"><i class="material-icons">home</i>Torna a Smartbit</a></li-->
         <li><a class="waves-effect" href="#{{url('/')}}"><i class="material-icons">assignment_turned_in</i>Pianificazioni</a></li>
         <li><a class="waves-effect" href="#{{url('/')}}"><i class="material-icons">memory</i>Magazzino pezzi</a></li>
         @endif
