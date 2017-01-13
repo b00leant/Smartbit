@@ -601,7 +601,7 @@
         <div class="row">
             <div class="col l6 s12">
                 <h5 class="white-text">WebApp in via di sviluppo</h5>
-                <p class="grey-text text-lighten-4">A breve saremo disponibili per aiuarvi!</p>
+                <p class="grey-text text-lighten-4">A breve saremo disponibili per aiutarvi!</p>
             </div>
             <!--div class="col l4 offset-l2 s12" style="text-align:center">
                 <h5 style="color:white">Votaci su Google+</h5>
