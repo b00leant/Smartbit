@@ -45,7 +45,7 @@ $.fn.searchModels = function(){
                 $('input.autocomplete.devices').after($autocomplete);
                 if($input.val()!=''){
                     for(var i = 0; i < 6; i++) {
-                        if(result[i].DeviceName!==undefined){
+                        if(result[i].DeviceName !== undefined){
                             var autocompleteOption = $('<li data-model="'+result[i].DeviceName+'" data-brand="'+result[i].Brand+'"></li>');
                             autocompleteOption.append('<span>'+result[i].DeviceName+'</span>');
                             $autocomplete.append(autocompleteOption);
