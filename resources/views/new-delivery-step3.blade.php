@@ -17,7 +17,7 @@
                 <div class="input field col s12">
                     <form action="{{ url('select-date-delivery') }}" id="create" method="POST">
                     <input type="hidden" name="center" value="{{$center}}">
-                    <input type="date" name="date_delivery" value="{{ Carbon\Carbon::today()->format('Y-m-d') }}" class="date_delivery">
+                    <input type="date" autofocus name="date_delivery" value="" class="date_delivery">
                     <input type="hidden" name="json_repairs" value="{{$repairs}}">
                     {{ csrf_field() }}
                 </form>
