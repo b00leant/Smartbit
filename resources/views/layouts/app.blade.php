@@ -402,9 +402,9 @@
         
         var image = {
           url: 'http://smartbit.online/images/smartbit_marker.png',
-          scaledSize: new google.maps.Size(65, 65),
+          scaledSize: new google.maps.Size(80, 80),
           origin: new google.maps.Point(0,0), // origin
-          anchor: new google.maps.Point(32, 65) // anchor
+          anchor: new google.maps.Point(40, 80) // anchor
         };
         
         var marker = new google.maps.Marker({
