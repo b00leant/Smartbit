@@ -83,6 +83,9 @@
                 style="height:64px;line-height:64px:margin;float: left;position: relative;z-index: 1;height: auto;margin: 0 0px;">
                     <i class="material-icons">menu</i>
                 </a>
+                <li class="hide-on-med-and-down">
+                        <a href="{{url('/')}}"><i class="material-icons">home</i></a>
+                    </li>
             </ul>
             <ul class="right">
                 <a href="#" class="" 
@@ -100,7 +103,11 @@
             <div class="nav-wrapper">
                 <ul class="left">
                     <li><a class="sbmenu" style="height: 64px;line-height: 64px;float: left;position: relative;z-index: 1;height: auto;margin: 0 0px;" data-activates="slide-out"><i class="material-icons">menu</i></a></li>
+                    <li class="hide-on-med-and-down">
+                        <a href="{{url('/')}}"><i class="material-icons">home</i></a>
+                    </li>
                 </ul>
+                
                 <a href="/" class="brand-logo center">Smartbit</a>
                 <!--a href="#" data-activates="slide-out"><i class="material-icons">menu</i></a-->
             </div>
