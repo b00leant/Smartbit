@@ -63,7 +63,14 @@ class DeliveryController extends Controller
             }catch(ModelNotFoundException $ex){
                 $center = '???';
             }
-            return View::make('new-delivery-step3')->with(['repairs'=>$request->input('json_repairs'),
+            $repairs_new_delivery;
+            $json_repairs = json_decode($request->input('json_repairs'));
+            foreach($json_repairs as $repair){
+                $repair1 = App\Repair::find($repair);
+                $repairs_new_delivery[$repair] = $repair1;
+            }
+            $repairs_new_delivery = json_encode($repairs_new_delivery);
+            return View::make('new-delivery-step3')->with(['repairs'=>$repairs_new_delivery,'old_repairs'=>$request->input('json_repairs'),
             'centerobj'=>$center,'center'=>$request->input('center')]);
             }else{
                 return redirect('/new-delivery');

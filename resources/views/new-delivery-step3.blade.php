@@ -4,7 +4,7 @@
 <div class="row" style="padding-top:70px">
     <form action="{{ url('select-date-delivery') }}" id="create" method="POST">
                     <input type="hidden" name="center" value="{{$center}}">
-                    <input type="hidden" name="json_repairs" value="{{$repairs}}">
+                    <input type="hidden" name="json_repairs" value="{{$old_repairs}}">
                     {{ csrf_field() }}
         <div class="col s12">
             <nav>
@@ -38,10 +38,10 @@
                     @if(isset($repairs))
                     <li class="collection-header"><h4>Riparazioni da spedire</h4></li>
                     @foreach(json_decode($repairs) as $repair)
-                    <li class="collection-item">{{$repair}}</li>
+                    <li class="collection-item">Seriale: {{$repair->seriale}}</li>
                     @endforeach
                     @else
-                    <span>non sono state trovate riparazioni, riprova!</span>
+                    <span>Non sono state trovate riparazioni, riprova!</span>
                     @endif
                   </ul>
                 
