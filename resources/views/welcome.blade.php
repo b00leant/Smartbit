@@ -15,6 +15,12 @@
             @if(isset($repairs_pages))
                 @foreach($repairs_pages as $repair)
                     <a href="/repair/{{$repair->id}}" class="collection-item">
+                        @if($repair->garanzia === true)
+                        <span data-badge-caption="" class="new badge green">garanzia</span>
+                        @endif
+                        @if($repair->assistenza === true)
+                        <span data-badge-caption="" class="new badge green">assistenza</span>
+                        @endif
                         <div class="secondary-content">
                             @if($repair->stato === 'creata')
                             <i class="material-icons tooltipped" style="color:grey" data-tooltip="Creata">hourglass_empty</i>
