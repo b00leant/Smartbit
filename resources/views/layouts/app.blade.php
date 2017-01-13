@@ -539,11 +539,13 @@
                 console.log(json_repairs);
             });
  		    $('.hide-side-lab').on('click',function(){
+ 		        $('div#slide-lab.side-nav').css('left',0);
  		        $(this).sideNav('hide');
  		    });
  		    $('.tooltipped').tooltip({delay: 50});
             $('.lab-item').on('click',function(){
                 load_repair_info($(this).data('id'));
+                $('div#slide-lab.side-nav').css('left',0);
             });
  		    $('.lab-item:not(.updated)').sideNav({
                   menuWidth: '100%', // Default is 240
