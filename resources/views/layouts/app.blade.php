@@ -339,7 +339,7 @@
     <script src="{{ asset('js/bin/materialize.js') }}"></script>
     <script src="{{ asset('js/sbscripts.js') }}"></script>
     
-    @if(Route::getCurrentRoute()->getPath() === '/')
+    @if(Route::getCurrentRoute()->getPath() === '/' and Auth::guest())
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAK6y8tZ4VlyEKfCUzV7LvxTNLN6Me6S8&callback=autocompleteAddress">
     </script>
