@@ -66,12 +66,12 @@
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
-  src: url("../iconfont/material-icons/MaterialIcons-Regular.eot"); /* For IE6-8 */
+  src: url("{{asset('iconfont/material-icons/MaterialIcons-Regular.eot')}}"); /* For IE6-8 */
   src: local('Material Icons'),
        local('MaterialIcons-Regular'),
-       url("../iconfont/material-icons/MaterialIcons-Regular.woff2") format('woff2'),
-       url("../iconfont/material-icons/MaterialIcons-Regular.woff") format('woff'),
-       url("../iconfont/material-icons/MaterialIcons-Regular.ttf") format('truetype');
+       url("{{asset('iconfont/material-icons/MaterialIcons-Regular.woff2')}}") format('woff2'),
+       url("{{asset('iconfont/material-icons/MaterialIcons-Regular.woff')}}") format('woff'),
+       url("{{asset('iconfont/material-icons/MaterialIcons-Regular.ttf')}}") format('truetype');
 }
 
 .material-icons {
