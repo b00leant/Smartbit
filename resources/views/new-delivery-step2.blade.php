@@ -21,22 +21,36 @@
                   <!-- da impostare la classe "active" per selezionarli -->
                   <div id="delivery_select" class="collection with-header">
                       @if(isset($repairs))
+                      @if(count($repairs))
                       <div class="collection-header">
                           <h4>Seleziona Le riparazioni</h4>
                       </div>
                       @foreach($repairs as $repair)
                       <a class="delivery-item collection-item" data-id="{{$repair->id}}">{{$repair->device->model}} ({{$repair->person->nome}} {{$repair->person->cognome}})</a>
                       @endforeach
+                      @else
+                      <div class="collection-header">
+                          <h4>Non ci sono riparazioni da spedire</h4>
+                      </div>
+                      @endif
                       @endif
                   </div>
               </div>
               
         </div>
+        @if(count($repairs))
         <div class="fixed-action-btn">
         <button class="create_repair btn-floating btn-large smartbit" type="submit" form="create">
           <i class="large material-icons">done</i>
         </button>
         </div>
+        @else
+        <div class="fixed-action-btn" style="left:23px">
+        <a href="{{url('/#del')}}" class="create_repair btn-floating btn-large smartbit" type="submit" form="create">
+          <i class="large material-icons">arrow_back</i>
+        </a>
+        </div>
+        @endif
 </div>
 @endif
 @endsection
