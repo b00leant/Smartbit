@@ -483,7 +483,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
     <script src="{{ asset('js/html2canvas.js') }}"></script>
     <script src="{{ asset('js/JsBarcode.all.min.js') }}"></script>
-    
+    @if(Route::getCurrentRoute()->getPath() === 'lab')
+    <script src="{{ asset('js/labIE.js') }}"></script>
+    @endif
     <script src="{{ asset('js/sbpdf.js') }}"></script>
     <!--script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script-->
     <!--script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script-->
@@ -538,8 +540,7 @@
                 }
                 console.log(json_repairs);
             });
-            var position = $('div#slide-lab.side-nav').position();
-            var percentLeft = position.left/$(window).width() * 100;
+            
  		    $('.hide-side-lab').on('click',function(){
  		        $(this).sideNav('hide');
  		        $('div#slide-lab.side-nav').css('left',percentLeft);
