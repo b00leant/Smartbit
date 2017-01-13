@@ -50,12 +50,13 @@
     <div class="col s12" id="map" style="height:50%;position:absolute;"></div>
     <!--div class="col s12" id="preview" style="height:50%;position:absolute;"></div-->
 </div>
-</form>
+
 <div class="fixed-action-btn">
         <button class="create_repair btn-floating btn-large smartbit" type="submit" form="create">
           <i class="large material-icons">done</i>
         </button>
     </div>
+    </form>
     <!--div class="fixed-action-btn" style="left:23px">
         <button class="create_repair btn-floating btn-large smartbit" type="submit" form="create">
           <i class="large material-icons">arrow_back</i>
