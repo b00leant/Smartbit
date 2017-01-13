@@ -304,6 +304,11 @@ $('.date').pickadate({
       console.log('backup_center:');
       console.log(backup_old_center);*/
       Materialize.toast('Modifiche salvate! 😀', 4000);
+      $('a.update-delivery').addClass('hide');
+     $('a.go-delivery').removeClass('hide');
+     $('a.delete-delivery').removeClass('hide');
+     $('a.activate-edit-mode-delivery').removeClass('hide');
+     $('a.cancel-edit-delivery').addClass('hide');
     }).fail(function(){
         Materialize.toast('Qualcosa è andato storto 😕', 4000)
         //$('.progress').addClass('hide');
