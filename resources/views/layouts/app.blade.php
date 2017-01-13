@@ -83,10 +83,10 @@
                 style="height:64px;line-height:64px:margin;float: left;position: relative;z-index: 1;height: auto;margin: 0 0px;">
                     <i class="material-icons">menu</i>
                 </a>
-                <li class="hide-on-med-and-down">
+                <li class="hide-on-small-only">
                         <a href="{{url('/')}}"><i class="material-icons">home</i></a>
                 </li>
-                <li class="hide-on-med-and-down">
+                <li class="hide-on-small-only">
                     <a href="{{url('/#del')}}"><i class="material-icons">local_shipping</i></a>
                 </li>
             </ul>
@@ -106,10 +106,10 @@
             <div class="nav-wrapper">
                 <ul class="left">
                     <li><a class="sbmenu" style="height: 64px;line-height: 64px;float: left;position: relative;z-index: 1;height: auto;margin: 0 0px;" data-activates="slide-out"><i class="material-icons">menu</i></a></li>
-                    <li class="hide-on-med-and-down">
+                    <li class="hide-on-small-only">
                         <a href="{{url('/')}}"><i class="material-icons">home</i></a>
                     </li>
-                    <li class="hide-on-med-and-down">
+                    <li class="hide-on-small-only">
                         <a href="{{url('/#del')}}"><i class="material-icons">local_shipping</i></a>
                     </li>
                 </ul>
