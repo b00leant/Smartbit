@@ -258,7 +258,7 @@
             <img src="http://sf.co.ua/16/01/wallpaper-5da9.jpg">
           </div>
           @if(Auth::user()->id == 5)
-          <a href="#!user"><img class="circle" src="{{url('bubblegum.jpeg')}}"></a>
+          <a href="#!user"><img class="circle" src="{{url('bubblegum.png')}}"></a>
           @else
           <a href="#!user"><img class="circle" src="{{url('grumpy.jpeg')}}"></a>
           @endif
