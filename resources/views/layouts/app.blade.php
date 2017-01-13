@@ -176,8 +176,9 @@ direction: ltr;
                     <a href="#" data-activates="slide-out" class="sbmenu" 
                     style="height:64px;line-height:64px:margin;float: left;position: relative;z-index: 1;height: auto;margin: 0 0px;">
                         <!--[if !IE]> -->
-                        <i class="material-icons">menu</i>
-                        <!-- <![endif]--><!--[if lt IE 9]>
+                        <i class="material-icons">&#xE5D2;</i>
+                        <!-- <![endif]-->
+                        <!--[if lt IE 9]>
                         <i class="material-icons">&#xE5D2;</i>
                         <![endif]-->
                     </a>
