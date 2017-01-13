@@ -10,16 +10,16 @@ $('a.print-repair').on('click',function(){
     "\nImei:"+$('.imei-ricevuta').text()+"\nData ricezione: "+$('.today').text());
     doc.text(110, 40, 'Cliente:\n'+$('.nome-ricevuta').text()+"\n"+$('.cognome-ricevuta').text()+"\n"+$('.recapito-ricevuta').text());
     doc.text(20,60,'Garanzia');
-    if($('input[name="garanzia"]').val() === true){
-        doc.rect(30,60,5,5,'F');
+    if($('input[name="garanzia"]').val() === '1'){
+        doc.rect(36,57,5,5,'F');
     }else{
-        doc.rect(30,60,5,5);
+        doc.rect(36,57,5,5);
     }
     doc.text(50,60,'Assistenza');
-    if($('input[name="assistenza"]').val() === true){
-        doc.rect(60,60,5,5,'F');
+    if($('input[name="assistenza"]').val() === '1'){
+        doc.rect(69,57,5,5,'F');
     }else{
-        doc.rect(60,60,5,5);
+        doc.rect(69,57,5,5);
     }
     doc.text(20, 70,'Note:');
     doc.setDrawColor(255,171,0);
@@ -55,16 +55,16 @@ $('a.print-repair').on('click',function(){
     "\nImei:"+$('.imei-ricevuta').text()+"\nData ricezione: "+$('.today').text());
     doc.text(110, 40, 'Cliente:\n'+$('.nome-ricevuta').text()+"\n"+$('.cognome-ricevuta').text()+"\n"+$('.recapito-ricevuta').text());
     doc.text(20,60,'Garanzia');
-    if($('input[name="garanzia"]').val() === true){
-        doc.rect(30,60,5,5,'F');
+    if($('input[name="garanzia"]').val() === '1'){
+        doc.rect(36,57,5,5,'F');
     }else{
-        doc.rect(30,60,5,5);
+        doc.rect(36,57,5,5);
     }
     doc.text(50,60,'Assistenza');
-    if($('input[name="assistenza"]').val() === true){
-        doc.rect(60,60,5,5,'F');
+    if($('input[name="assistenza"]').val() === '1'){
+        doc.rect(69,57,5,5,'F');
     }else{
-        doc.rect(60,60,5,5);
+        doc.rect(69,57,5,5);
     }
     doc.text(20, 70,'Note:');
     doc.setDrawColor(255,171,0);
