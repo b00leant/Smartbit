@@ -52,8 +52,8 @@
                 <h4>Spedizioni</h4>
                 @if(Auth::user()->id === 1 or Auth::user()->id === 2)
                 <a href="{{ url('new-pickup') }}" style="margin-top:1em" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Imposta ritiro</a>
-                <a href="{{ url('new-delivery') }}" style="margin-top:1em" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Aggiunci Spedizione</a>
-                <a href="{{ url('new-tech-sup') }}" style="margin-top:1em" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Aggiunci Centro</a>
+                <a href="{{ url('new-delivery') }}" style="margin-top:1em" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Crea Spedizione</a>
+                <a href="{{ url('new-tech-sup') }}" style="margin-top:1em" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Crea Centro</a>
                 @endif
             </li>
             @if(isset($deliveries))
