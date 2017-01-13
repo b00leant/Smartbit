@@ -538,9 +538,11 @@
                 }
                 console.log(json_repairs);
             });
+            var position = $('div#slide-lab.side-nav').position();
+            var percentLeft = position.left/$(window).width() * 100;
  		    $('.hide-side-lab').on('click',function(){
- 		        $('div#slide-lab.side-nav').css('left','100%');
  		        $(this).sideNav('hide');
+ 		        $('div#slide-lab.side-nav').css('left',percentLeft);
  		    });
  		    $('.tooltipped').tooltip({delay: 50});
             $('.lab-item').on('click',function(){
