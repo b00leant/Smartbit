@@ -54,11 +54,12 @@
                 <input id="70a3d71f-87a6-94d1-771a-ac07379c7386" class="input" placeholder="+Tag">
             </div>
         </div>
-    </form>
+    
     <div class="fixed-action-btn">
-        <button class="create_repair btn-floating btn-large smartbit" type="submit" form="create">
-          <i class="large material-icons">done</i>
-        </button>
+    <button class="create_repair btn-floating btn-large smartbit" type="submit" form="create">
+      <i class="large material-icons">done</i>
+    </button>
+    </form>
     <!--ul>
       <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
       <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
