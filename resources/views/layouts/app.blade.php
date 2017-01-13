@@ -85,7 +85,10 @@
                 </a>
                 <li class="hide-on-med-and-down">
                         <a href="{{url('/')}}"><i class="material-icons">home</i></a>
-                    </li>
+                </li>
+                <li class="hide-on-med-and-down">
+                    <a href="{{url('/#del')}}"><i class="material-icons">local_shipping</i></a>
+                </li>
             </ul>
             <ul class="right">
                 <a href="#" class="" 
@@ -105,6 +108,9 @@
                     <li><a class="sbmenu" style="height: 64px;line-height: 64px;float: left;position: relative;z-index: 1;height: auto;margin: 0 0px;" data-activates="slide-out"><i class="material-icons">menu</i></a></li>
                     <li class="hide-on-med-and-down">
                         <a href="{{url('/')}}"><i class="material-icons">home</i></a>
+                    </li>
+                    <li class="hide-on-med-and-down">
+                        <a href="{{url('/#del')}}"><i class="material-icons">local_shipping</i></a>
                     </li>
                 </ul>
                 
