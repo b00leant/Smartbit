@@ -4,7 +4,6 @@
 <div class="row" style="padding-top:70px">
     <form action="{{ url('select-date-delivery') }}" id="create" method="POST">
                     <input type="hidden" name="center" value="{{$center}}">
-                    <input type="date" autofocus name="date_delivery" value="{{ Carbon\Carbon::today()->format('Y-m-d') }}" class="date_delivery">
                     <input type="hidden" name="json_repairs" value="{{$repairs}}">
                     {{ csrf_field() }}
         <div class="col s12">
@@ -20,8 +19,7 @@
             <div class="row">
                 <h2 class="col s12 header">Seleziona Data</h2>
                 <div class="input field col s12">
-                    
-                
+                    <input type="date" autofocus name="date_delivery" value="{{ Carbon\Carbon::today()->format('Y-m-d') }}" class="date_delivery">
                 </div>
                 <ul class="collection with-header">
                     <li class="collection-header">
