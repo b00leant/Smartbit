@@ -56,6 +56,7 @@ class DeliveryController extends Controller
     }
     public function selectDate(Request $request){
         if($request->has('center') and $request->has('json_repairs')){
+            if($request->input('json_repairs')!='' or $request->input('json_repairs')!=null){
             //dovrei controllare il json??
             try{
                 $center = App\TechnicalSupport::where(['id'=>$request->input('center')])->firstOrFail();
@@ -64,6 +65,10 @@ class DeliveryController extends Controller
             }
             return View::make('new-delivery-step3')->with(['repairs'=>$request->input('json_repairs'),
             'centerobj'=>$center,'center'=>$request->input('center')]);
+            }else{
+                return redirect('/new-delivery');
+                //return back()->withInput();
+            }
         }else{
             return back()->withInput();
         }
