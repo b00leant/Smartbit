@@ -541,14 +541,14 @@
                 console.log(json_repairs);
             });
             
- 		    $('.hide-side-lab').on('click',function(){
+ 		    $('.hide-slide-lab').on('click',function(){
  		        $(this).sideNav('hide');
- 		        $('div#slide-lab.side-nav').css('left',percentLeft);
+ 		        $('div#slide-lab.side-nav').animate({ left: '100%'}, 'slow');//.css('left','100%');
  		    });
  		    $('.tooltipped').tooltip({delay: 50});
             $('.lab-item').on('click',function(){
                 load_repair_info($(this).data('id'));
-                $('div#slide-lab.side-nav').css('left',0);
+                $('div#slide-lab.side-nav').css('left','0%');
             });
  		    $('.lab-item:not(.updated)').sideNav({
                   menuWidth: '100%', // Default is 240
