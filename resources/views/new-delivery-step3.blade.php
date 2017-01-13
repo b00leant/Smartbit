@@ -2,6 +2,11 @@
 @section('content')
 @if(Auth::user()->id ===1 or Auth::user()->id ===2)
 <div class="row" style="padding-top:70px">
+    <form action="{{ url('select-date-delivery') }}" id="create" method="POST">
+                    <input type="hidden" name="center" value="{{$center}}">
+                    <input type="date" autofocus name="date_delivery" value="{{ Carbon\Carbon::today()->format('Y-m-d') }}" class="date_delivery">
+                    <input type="hidden" name="json_repairs" value="{{$repairs}}">
+                    {{ csrf_field() }}
         <div class="col s12">
             <nav>
                 <div class="nav-wrapper">
@@ -15,12 +20,8 @@
             <div class="row">
                 <h2 class="col s12 header">Seleziona Data</h2>
                 <div class="input field col s12">
-                    <form action="{{ url('select-date-delivery') }}" id="create" method="POST">
-                    <input type="hidden" name="center" value="{{$center}}">
-                    <input type="date" autofocus name="date_delivery" value="{{ Carbon\Carbon::today()->format('Y-m-d') }}" class="date_delivery">
-                    <input type="hidden" name="json_repairs" value="{{$repairs}}">
-                    {{ csrf_field() }}
-                </form>
+                    
+                
                 </div>
                 <ul class="collection with-header">
                     <li class="collection-header">
@@ -53,6 +54,7 @@
             <i class="large material-icons">done</i>
         </button>
         </div>
+        </form>
 </div>
 @endif
 @endsection

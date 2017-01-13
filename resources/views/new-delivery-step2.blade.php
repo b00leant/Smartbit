@@ -2,6 +2,11 @@
 @section('content')
 @if(Auth::user()->id ===1 or Auth::user()->id ===2)
 <div class="row" style="padding-top:70px">
+    <form method="POST" id="create" action="{{ url('select-repair-delivery') }}">
+                      {{ csrf_field() }}
+                      <input type="hidden" name="center" value="{{$center}}"/>
+                      <input type="hidden" value="" name="json_repairs">
+                  
         <div class="col s12">
             <nav>
                 <div class="nav-wrapper">
@@ -13,11 +18,7 @@
                 </div>
               </nav>
               <div class="container" style="margin-top:20px">
-                  <form method="POST" id="create" action="{{ url('select-repair-delivery') }}">
-                      {{ csrf_field() }}
-                      <input type="hidden" name="center" value="{{$center}}"/>
-                      <input type="hidden" value="" name="json_repairs">
-                  </form>
+                  
                   <!-- da impostare la classe "active" per selezionarli -->
                   <div id="delivery_select" class="collection with-header">
                       @if(isset($repairs))
@@ -51,6 +52,7 @@
         </a>
         </div>
         @endif
+        </form>
 </div>
 @endif
 @endsection

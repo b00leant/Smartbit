@@ -2,7 +2,11 @@
 @section('content')
 @if(Auth::user()->id ===1 or Auth::user()->id ==2)
 <div class="row" style="padding-top:70px">
+    <form method="POST" id="create" action="{{ url('create-pickup') }}">
+                      {{ csrf_field() }}
+                      <input type="hidden" value="" name="center">
         <div class="col s12">
+            
             <nav>
                 <div class="nav-wrapper">
                     <div class="col s12">
@@ -12,12 +16,8 @@
                     </div>
                 </div>
               </nav>
+              
               <div class="container" style="margin-top:20px">
-                  
-                  <form method="POST" id="create" action="{{ url('create-pickup') }}">
-                      {{ csrf_field() }}
-                      <input type="hidden" value="" name="center">
-                  </form>
                   <!-- da impostare la classe "active" per selezionarli -->
                   <div id="technical_supports_select" class="collection with-header">
                       @if(isset($tech_sups))
@@ -44,6 +44,7 @@
           <i class="large material-icons">done</i>
         </button>
         </div>
+        </form>
         <!--div class="fixed-action-btn" style="left:23px">
             <a href="{{url('/#del')}}" class="create_repair btn-floating btn-large smartbit">
               <i class="large material-icons">arrow_back</i>
