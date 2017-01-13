@@ -8,7 +8,7 @@
     @else
     <form method="POST" action="{{ url('create-person') }}" id="create">
     @endif
-<div class="row">
+<div class="row" style="padding-top: 100px;">
     <div class="divider"></div>
         <div class="col s12 m6 l6">
             <div class="input-field col s6">
