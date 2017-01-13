@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-@if(Auth::user()->id ===1)
+@if(Auth::user()->id ===1 or Auth:user()->id ==2)
 <div class="row" style="padding-top:70px">
         <div class="col s12">
             <nav>
