@@ -246,7 +246,7 @@
             </div>
         </div>
     </div>
-    @if(Auth::user()->id===1)
+    @if(Auth::user()->id===1 or Auth::user()->id===2)
     <div class="col s12 center-align">
         <a  class="activate-back-mode-delivery waves-effect waves-light btn-flat smartbit" style="color:white">
             <i class="material-icons">edit</i>
