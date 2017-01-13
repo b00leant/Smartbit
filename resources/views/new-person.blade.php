@@ -2,14 +2,14 @@
 
 @section('content')
 @if(Auth::check())
-<div class="row">
-    <div class="divider"></div>
-    @if(isset($create2use))
+@if(isset($create2use))
     <form method="POST" action="{{ url('create-to-use') }}" id="create">
         <input type="hidden" name="repair_after" value="true"/>
     @else
     <form method="POST" action="{{ url('create-person') }}" id="create">
     @endif
+<div class="row">
+    <div class="divider"></div>
         <div class="col s12 m6 l6">
             <div class="input-field col s6">
                 {{ csrf_field() }}
@@ -46,11 +46,11 @@
         <!--i class="material-icons prefix">place</i-->
         <input required type="text" name="addr_complete" value="" style="background-color:#FFFFFF;text-align:center;" placeholder="Indirizzo" class="autocomplete address" autocomplete="off" id="addr_complete">
         <label for="addr_complete">Indirizzo</label>
-        </form>
     </div>
     <div class="col s12" id="map" style="height:50%;position:absolute;"></div>
     <!--div class="col s12" id="preview" style="height:50%;position:absolute;"></div-->
 </div>
+</form>
 <div class="fixed-action-btn">
         <button class="create_repair btn-floating btn-large smartbit" type="submit" form="create">
           <i class="large material-icons">done</i>
