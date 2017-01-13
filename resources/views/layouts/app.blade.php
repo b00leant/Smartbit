@@ -62,34 +62,42 @@
     <link rel="stylesheet" href="{{ asset('css/materialize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/smartbit.css') }}">
     <style type="text/css">
-        @font-face {
-font-family: 'Material Icons';
-font-style: normal;
-font-weight: 400;
-src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://fonts.gstatic.com/s/materialicons/v13/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../iconfont/material-icons/MaterialIcons-Regular.eot"); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url("../iconfont/material-icons/MaterialIcons-Regular.woff2") format('woff2'),
+       url("../iconfont/material-icons/MaterialIcons-Regular.woff") format('woff'),
+       url("../iconfont/material-icons/MaterialIcons-Regular.ttf") format('truetype');
 }
 
 .material-icons {
-font-family: 'Material Icons';
-font-weight: normal;
-font-style: normal;
-font-size: 24px;
-line-height: 1;
-letter-spacing: normal;
-text-transform: none;
-display: inline-block;
-white-space: nowrap;
-word-wrap: normal;
-direction: ltr;
--webkit-font-feature-settings: 'liga';
--webkit-font-smoothing: antialiased;
-/* Support for Safari and Chrome. */
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
   text-rendering: optimizeLegibility;
 
   /* Support for Firefox. */
   -moz-osx-font-smoothing: grayscale;
-}
 
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
     </style>
     <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"-->
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
@@ -110,20 +118,10 @@ direction: ltr;
             <ul class="left">
                 <a href="#" data-activates="slide-out" class="sbmenu" 
                 style="height:64px;line-height:64px:margin;float: left;position: relative;z-index: 1;height: auto;margin: 0 0px;">
-                    <!--[if !IE]> -->
                     <i class="material-icons">menu</i>
-                    <!-- <![endif]--><!--[if lt IE 9]>
-                    <i class="material-icons">&#xE5D2;</i>
-                    <![endif]-->
                 </a>
                 <li class="hide-on-small-only">
-                        <a href="{{url('/')}}">
-                            <!--[if !IE]> -->
-                            <i class="material-icons">home</i>
-                            <!-- <![endif]--><!--[if lt IE 9]>
-                            <i class="material-icons">&#xE88A;</i>
-                            <![endif]-->
-                        </a>
+                        <a href="{{url('/')}}"><i class="material-icons">home</i></a>
                 </li>
                 <li class="hide-on-small-only">
                     <a href="{{url('/#del')}}"><i class="material-icons">local_shipping</i></a>
@@ -136,6 +134,7 @@ direction: ltr;
                 </a>
             </ul>
             <a href="{{url('/lab')}}" class="brand-logo center">SmartLAB</a>
+            <!--a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a-->
         </div>
     </nav>
     {{------------------ DEFINISCO NAVIGAZIONE NEL LATO ADMIN ----------------}}
@@ -143,21 +142,9 @@ direction: ltr;
     <nav class="z-depth-1" style="position:fixed;z-index:4;">
             <div class="nav-wrapper">
                 <ul class="left">
-                    <li><a class="sbmenu" style="height: 64px;line-height: 64px;float: left;position: relative;z-index: 1;height: auto;margin: 0 0px;" data-activates="slide-out">
-                    <!--[if !IE]> -->
-                    <i class="material-icons">menu</i>
-                    <!-- <![endif]--><!--[if lt IE 9]>
-                    <i class="material-icons">&#xE5D2;</i>
-                    <![endif]-->
-                    </a></li>
+                    <li><a class="sbmenu" style="height: 64px;line-height: 64px;float: left;position: relative;z-index: 1;height: auto;margin: 0 0px;" data-activates="slide-out"><i class="material-icons">menu</i></a></li>
                     <li class="hide-on-small-only">
-                        <a href="{{url('/')}}">
-                            <!--[if !IE]> -->
-                            <i class="material-icons">home</i>
-                            <!-- <![endif]--><!--[if lt IE 9]>
-                            <i class="material-icons">&#xE88A;</i>
-                            <![endif]-->
-                        </a>
+                        <a href="{{url('/')}}"><i class="material-icons">home</i></a>
                     </li>
                     <li class="hide-on-small-only">
                         <a href="{{url('/#del')}}"><i class="material-icons">local_shipping</i></a>
@@ -165,6 +152,7 @@ direction: ltr;
                 </ul>
                 
                 <a href="/" class="brand-logo center">Smartbit</a>
+                <!--a href="#" data-activates="slide-out"><i class="material-icons">menu</i></a-->
             </div>
         </nav>
     {{------------------ DEFINISCO NAVIGAZIONE NELLA HOME ADMIN -------------}}
@@ -175,12 +163,7 @@ direction: ltr;
                 <ul class="left">
                     <a href="#" data-activates="slide-out" class="sbmenu" 
                     style="height:64px;line-height:64px:margin;float: left;position: relative;z-index: 1;height: auto;margin: 0 0px;">
-                        <!--[if !IE]> -->
-                        <i class="material-icons">&#xE5D2;</i>
-                        <!-- <![endif]-->
-                        <!--[if lt IE 9]>
-                        <i class="material-icons">&#xE5D2;</i>
-                        <![endif]-->
+                        <i class="material-icons">menu</i>
                     </a>
                 </ul>
                 <ul class="tabs tabs-transparent" style="overflow-x:hidden">
@@ -321,13 +304,7 @@ direction: ltr;
           <a href="{{url('logout')}}"><span class="white-text email"><i class="material-icons">exit_to_app</i></span></a>
         </div></li>
         @if(Route::getCurrentRoute()->getPath() != '/')
-        <li><a class="waves-effect" href="{{url('/')}}">
-            <!--[if !IE]> -->
-            <i class="material-icons">home</i>
-            <!-- <![endif]--><!--[if lt IE 9]>
-            <i class="material-icons">&#xE88A;</i>
-            <![endif]-->
-            Torna a Smartbit</a></li>
+        <li><a class="waves-effect" href="{{url('/')}}"><i class="material-icons">home</i>Torna a Smartbit</a></li>
         @endif
         @if(Auth::user()->id == 1 or Auth::user()->id == 2)
         @if(Route::getCurrentRoute()->getPath() != '/')
@@ -336,6 +313,7 @@ direction: ltr;
         
         <li><a class="waves-effect" href="{{url('/lab')}}"><i class="material-icons">build</i>Vai al laboratorio</a></li>
         @else
+        <!--li><a class="waves-effect" href="{{url('/')}}"><i class="material-icons">home</i>Torna a Smartbit</a></li-->
         <li><a class="waves-effect" href="#{{url('/')}}"><i class="material-icons">assignment_turned_in</i>Pianificazioni</a></li>
         <li><a class="waves-effect" href="#{{url('/')}}"><i class="material-icons">memory</i>Magazzino pezzi</a></li>
         @endif
