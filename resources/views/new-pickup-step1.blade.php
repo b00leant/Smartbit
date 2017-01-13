@@ -12,7 +12,7 @@
                     </div>
                 </div>
               </nav>
-              <div class="container">
+              <div class="container" style="margin-top:20px">
                   
                   <form method="POST" id="create" action="{{ url('create-pickup') }}">
                       {{ csrf_field() }}

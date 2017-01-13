@@ -12,7 +12,7 @@
                     </div>
                 </div>
               </nav>
-              <div class="container ">
+              <div class="container" style="margin-top:20px">
                   <form method="POST" id="create" action="{{ url('select-repair-delivery') }}">
                       {{ csrf_field() }}
                       <input type="hidden" name="center" value="{{$center}}"/>
