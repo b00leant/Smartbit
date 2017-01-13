@@ -46,8 +46,8 @@
         <!--i class="material-icons prefix">place</i-->
         <input required type="text" name="addr_complete" value="" style="background-color:#FFFFFF;text-align:center;" placeholder="Indirizzo" class="autocomplete address" autocomplete="off" id="addr_complete">
         <label for="addr_complete">Indirizzo</label>
+        </form>
     </div>
-    </form>
     <div class="col s12" id="map" style="height:50%;position:absolute;"></div>
     <!--div class="col s12" id="preview" style="height:50%;position:absolute;"></div-->
 </div>
