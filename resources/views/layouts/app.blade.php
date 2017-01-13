@@ -539,7 +539,7 @@
                 console.log(json_repairs);
             });
  		    $('.hide-side-lab').on('click',function(){
- 		        $('div#slide-lab.side-nav').css('left',0);
+ 		        $('div#slide-lab.side-nav').css('left','100%');
  		        $(this).sideNav('hide');
  		    });
  		    $('.tooltipped').tooltip({delay: 50});
