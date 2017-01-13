@@ -37,12 +37,14 @@ class LabController extends Controller
                         $today = Carbon::today();
                         $repair->inizio = $today;
                         $repair->save();
+                        app('App\Http\Controllers\SMSController')->sendSMSLabStatus($repair->id);
                         break;
                     case 'iniziata':
                         $repair->stato = 'finita';
                         $today = Carbon::today();
                         $repair->fine = $today;
                         $repair->save();
+                        app('App\Http\Controllers\SMSController')->sendSMSLabStatus($repair->id);
                         break;
                     /*case 'finita':
                         $repair->stato = 'pronta';
