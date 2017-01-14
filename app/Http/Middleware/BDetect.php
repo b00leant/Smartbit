@@ -16,7 +16,7 @@ class BDetect
      */
     public function handle($request, Closure $next)
     {
-        if(BrowserDetect::isIEVersion(9, true)){
+        if(BrowserDetect::isIEVersion(10, true)){
             return redirect('/not-supported');
         }else{
             return $next($request);
