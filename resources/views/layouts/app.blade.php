@@ -621,7 +621,33 @@
             
         });*/
  		$(document).ready(function(){
- 		    
+ 		    lastEvent = void 0;
+
+            heldKeys = {};
+            
+            window.onkeydown = function(event) {
+                event = event || window.event; //IE does not pass the event object
+                if (lastEvent && lastEvent.keyCode === event.keyCode) {
+                    return;
+                }
+                lastEvent = event;
+                heldKeys[event.keyCode] = true;
+            
+                var keyCode = event.which || event.keyCode; //key property also different
+            
+                switch (keyCode) {
+                    case 80:
+                        return myamp.userInput("positiv");
+                    case 81:
+                        return myamp.userInput("negativ");
+                }
+            };
+            
+            window.onkeyup = function(event) {
+                event = event || window.event;
+                lastEvent = null;
+                return delete heldKeys[event.keyCode];
+            };
  		    
  		    $('.date_delivery').pickadate({
                 selectMonths: true, // Creates a dropdown to control month
