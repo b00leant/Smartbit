@@ -23,6 +23,8 @@ Route::get('/logout',function(){
     return redirect('/');
 });
 
+Route::get('/not-supported', 'HomeController@ns')->middleware('auth');
+
 Route::get('/#riparazioni', 'RepairController@index')->middleware('auth');
 
 Route::get('/new#repair', 'RepairController@create')->middleware('auth');

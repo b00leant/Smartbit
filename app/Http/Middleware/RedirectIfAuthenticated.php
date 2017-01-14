@@ -20,7 +20,7 @@ class RedirectIfAuthenticated
         if (Auth::guard($guard)->check()) {
             if(BrowserDetect::isIEVersion(10, true)){
                 Auth::logout();
-                return redirect('/');
+                return redirect('/not-supported');
             }else{
                 return redirect('/');
             }

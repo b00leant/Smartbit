@@ -28,6 +28,9 @@ class HomeController extends Controller
     public function index(){
         //
     }
+    public function ns(){
+        return View::make('ns');
+    }
     public function info(){
         return View::make('about');
     }
