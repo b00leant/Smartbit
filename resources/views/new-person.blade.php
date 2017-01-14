@@ -11,7 +11,7 @@
 <div class="row" style="padding-top: 100px;">
     <div class="divider"></div>
         <div class="col s12 m6 l6">
-            <div class="input-field col s6">
+            <div class="input-field col s12">
                 {{ csrf_field() }}
                 <!--[if !IE]> -->
                 <i class="material-icons prefix">account_circle</i>
@@ -22,20 +22,26 @@
                 <input required type="text" name="nome" value="" autocomplete="off" id="name" class="">
                 <label for="name">Nome</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col s12">
+                <!--[if !IE]> -->
+                <i class="material-icons prefix">account_circle</i>
+                <!-- <![endif]-->
+                <!--[if lt IE 9]>
+                <i class="material-icons prefix">&#xE853;</i>
+                <![endif]-->
                 <input required type="text" name="cognome"  value="" autocomplete="off" id="cognome" class="">
                 <label for="cognome">Cognome</label>
             </div>
-            <div class="input-field col s12">
+            {{-- <div class="input-field col s12">
                 <!--[if !IE]> -->
                 <i class="material-icons prefix">cake</i>
                 <!-- <![endif]-->
                 <!--[if lt IE 9]>
                 <i class="material-icons prefix">&#xE7E9;</i>
                 <![endif]-->
-                <input required type="date" name="datanascita" value="" autocomplete="off" id="birthday" class="datanascita">
+                <input type="date" name="datanascita" value="" autocomplete="off" id="birthday" class="datanascita">
                 <label for="birthday">Data di nascita</label>
-            </div>
+            </div> --}}
         </div>
         <div class="col s12 m6 l6">
             <div class="input-field col s12">
