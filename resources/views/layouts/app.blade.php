@@ -627,9 +627,9 @@
         });*/
  		$(document).ready(function(){
  		    
- 		    if(!Modernizr.input.placeholder) {
+ 		    /*if(!Modernizr.input.placeholder) {
                 //insert placeholder polyfill script here.
-            }
+            }*/
  		    
  		    lastEvent = void 0;
 
