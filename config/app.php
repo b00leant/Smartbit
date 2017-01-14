@@ -147,6 +147,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        
 
         /*
          * Application Service Providers...
@@ -162,7 +163,8 @@ return [
         Crabbly\FPDF\FpdfServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         Milon\Barcode\BarcodeServiceProvider::class,
-        Limatheus\SmsGateway\SmsGatewayServiceProvider::class
+        Limatheus\SmsGateway\SmsGatewayServiceProvider::class,
+        hisorange\BrowserDetect\Provider\BrowserDetectService::class
     ],
 
     /*
@@ -212,6 +214,7 @@ return [
         'DNS1D' => Milon\Barcode\Facades\DNS1DFacade::class,
         'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,
         'SMSGateway' => Limatheus\SmsGateway\Facade::class,
+        'BrowserDetect' => hisorange\BrowserDetect\Facade\Parser::class,
     ],
 
 ];
