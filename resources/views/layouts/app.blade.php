@@ -40,8 +40,9 @@
     <title>SmartBit</title>
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
+    <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous"-->
+    <link rel="stylesheet" src="{{ asset('css/font-awesome.min.css') }}">
+    <!--link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700"-->
 
     <!-- Styles -->
     <style type="text/css">
@@ -456,8 +457,10 @@
     @yield('content')
 
     <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    <!--script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script-->
+    <script src="{{ asset('js/jquery/jquery-2.1.1.js') }}"></script>
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script-->
+    <script src="{{ asset('js/modernizr/modernizr.js') }}"></script>
     <!-- Compiled and minified JavaScript -->
     <!--script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script-->
     <!-- JavaScripts -->
@@ -604,8 +607,9 @@
     <script src="{{ asset('js/edit_delivery.js') }}"></script>
     <script src="{{ asset('js/edit_backdelivery.js') }}"></script>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+    <!--script src="{{ asset('js/html2canvas.js') }}"></script-->
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script-->
+    <script src="{{ asset('js/jspdf/dist/jspdf.debug.js') }}"></script>
     <script src="{{ asset('js/html2canvas.js') }}"></script>
     <script src="{{ asset('js/JsBarcode.all.min.js') }}"></script>
     @if(Route::getCurrentRoute()->getPath() === 'lab')
