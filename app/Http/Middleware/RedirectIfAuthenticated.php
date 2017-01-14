@@ -18,12 +18,7 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            if(BrowserDetect::isIEVersion(10, true)){
-                Auth::logout();
-                return redirect('/not-supported');
-            }else{
                 return redirect('/');
-            }
         }
 
         return $next($request);
