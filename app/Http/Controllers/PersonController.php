@@ -48,19 +48,28 @@ class PersonController extends Controller
     
     public function handleCreateToUse(Request $request){
         if($request->has('nome') and $request->has('cognome') and
-        $request->has('email') and $request->has('datanascita') and
         $request->has('telefono') and $request->has('addr_complete')){
             $array = $request->all();
-            $datanascita = $request->input('datanascita');
-            $date = date_create_from_format('Y-m-d', $datanascita);
-            $person = new App\Person([
-                'nome' => ucfirst(strtolower($request->input('nome'))),
-                'cognome'=> ucfirst(strtolower($request->input('cognome'))),
-                'email'=> $request->input('email'),
-                'telefono'=> $request->input('telefono'),
-                'residenza'=> $request->input('addr_complete'),
-                'data_nascita'=> $date,
-            ]);
+                $datanascita = $request->input('datanascita');
+                if($request->has('datanascita')){
+                    $date = date_create_from_format('Y-m-d', $datanascita);
+                }else{
+                    $date = null;
+                }
+                if($request->has('email')){
+                    $email = $request->input('email');
+                }else{
+                    $email = null;
+                }
+                $person = new App\Person([
+                    'nome' => ucfirst(strtolower($request->input('nome'))),
+                    'cognome'=> ucfirst(strtolower($request->input('cognome'))),
+                    'email'=> $email,
+                    'telefono'=> $request->input('telefono'),
+                    'residenza'=> $request->input('addr_complete'),
+                    'data_nascita'=> $date,
+                ]);
+            
             $person->save();   
             $id = $person->id;
             $nomecompleto = $person->nome.' '.$person->cognome;
@@ -83,17 +92,28 @@ class PersonController extends Controller
     }
     
     public function handleCreateNewPerson(Request $request){
-        $array = $request->all();
-        $datanascita = $request->input('datanascita');
-        $date = date_create_from_format('Y-m-d', $datanascita);
-        $person = new App\Person([
-            'nome' => ucfirst(strtolower($request->input('nome'))),
-            'cognome'=> ucfirst(strtolower($request->input('cognome'))),
-            'email'=> $request->input('email'),
-            'telefono'=> $request->input('telefono'),
-            'residenza'=> $request->input('addr_complete'),
-            'data_nascita'=> $date,
-        ]);
+        if($request->has('nome') and $request->has('cognome') and
+        $request->has('telefono') and $request->has('addr_complete')){
+            $array = $request->all();
+                $datanascita = $request->input('datanascita');
+                if($request->has('datanascita')){
+                    $date = date_create_from_format('Y-m-d', $datanascita);
+                }else{
+                    $date = null;
+                }
+                if($request->has('email')){
+                    $email = $request->input('email');
+                }else{
+                    $email = null;
+                }
+                $person = new App\Person([
+                    'nome' => ucfirst(strtolower($request->input('nome'))),
+                    'cognome'=> ucfirst(strtolower($request->input('cognome'))),
+                    'email'=> $email,
+                    'telefono'=> $request->input('telefono'),
+                    'residenza'=> $request->input('addr_complete'),
+                    'data_nascita'=> $date,
+                ]);
         $person->save();   
         $id = $person->id;
         $nomecompleto = $person->nome.' '.$person->cognome;

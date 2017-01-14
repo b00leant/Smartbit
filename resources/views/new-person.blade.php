@@ -51,7 +51,7 @@
                 <!--[if lt IE 9]>
                 <i class="material-icons prefix">&#xE0E1;</i>
                 <![endif]-->
-                <input required type="email" name="email"  value="" autocomplete="off" id="email" class="validate">
+                <input type="email" name="email"  value="" autocomplete="off" id="email" class="validate">
                 <label for="email" data-error="wrong" data-success="right">Email</label>
             </div>
             <div class="input-field col s12">
