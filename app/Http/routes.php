@@ -10,7 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'bdetect'], function () {
     Route::get('/lab', 'LabController@home')->middleware('auth');
 
     Route::auth();
