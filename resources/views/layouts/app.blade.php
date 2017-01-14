@@ -118,23 +118,46 @@
             <ul class="left">
                 <a href="#" data-activates="slide-out" class="sbmenu" 
                 style="height:64px;line-height:64px:margin;float: left;position: relative;z-index: 1;height: auto;margin: 0 0px;">
+                    <!--[if !IE]> -->
                     <i class="material-icons">menu</i>
+                    <!-- <![endif]-->
+                    <!--[if lt IE 9]>
+                    <i class="material-icons">&#xE5D2;</i>
+                    <![endif]-->
                 </a>
                 <li class="hide-on-small-only">
-                        <a href="{{url('/')}}"><i class="material-icons">home</i></a>
+                        <a href="{{url('/')}}">
+                            <!--[if !IE]> -->
+                            <i class="material-icons">home</i>
+                            <!-- <![endif]-->
+                            <!--[if lt IE 9]>
+                            <i class="material-icons">&#xE88A;</i>
+                            <![endif]-->
+                        </a>
                 </li>
                 <li class="hide-on-small-only">
-                    <a href="{{url('/#del')}}"><i class="material-icons">local_shipping</i></a>
+                    <a href="{{url('/#del')}}">
+                        <!--[if !IE]> -->
+                        <i class="material-icons">local_shipping</i>
+                        <!-- <![endif]-->
+                        <!--[if lt IE 9]>
+                        <i class="material-icons">&#xE558;</i>
+                        <![endif]-->
+                    </a>
                 </li>
             </ul>
             <ul class="right">
                 <a href="#" class="" 
                 style="height:64px;line-height:64px:margin;float: left;position: relative;z-index: 1;height: auto;margin: 0 0px;">
-                    <i class="material-icons">notifications</i>
+                    <!--[if !IE]> -->
+                        <i class="material-icons">notifications</i>
+                        <!-- <![endif]-->
+                        <!--[if lt IE 9]>
+                        <i class="material-icons">&#xE7F4;</i>
+                        <![endif]-->
                 </a>
             </ul>
             <a href="{{url('/lab')}}" class="brand-logo center">SmartLAB</a>
-            <!--a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a-->
         </div>
     </nav>
     {{------------------ DEFINISCO NAVIGAZIONE NEL LATO ADMIN ----------------}}
@@ -142,17 +165,37 @@
     <nav class="z-depth-1" style="position:fixed;z-index:4;">
             <div class="nav-wrapper">
                 <ul class="left">
-                    <li><a class="sbmenu" style="height: 64px;line-height: 64px;float: left;position: relative;z-index: 1;height: auto;margin: 0 0px;" data-activates="slide-out"><i class="material-icons">menu</i></a></li>
+                    <li><a class="sbmenu" style="height: 64px;line-height: 64px;float: left;position: relative;z-index: 1;height: auto;margin: 0 0px;" data-activates="slide-out">
+                            <!--[if !IE]> -->
+                            <i class="material-icons">menu</i>
+                            <!-- <![endif]-->
+                            <!--[if lt IE 9]>
+                            <i class="material-icons">&#xE5D2;</i>
+                            <![endif]-->
+                        </a></li>
                     <li class="hide-on-small-only">
-                        <a href="{{url('/')}}"><i class="material-icons">home</i></a>
+                        <a href="{{url('/')}}">
+                            <!--[if !IE]> -->
+                            <i class="material-icons">home</i>
+                            <!-- <![endif]-->
+                            <!--[if lt IE 9]>
+                            <i class="material-icons">&#xE88A;</i>
+                            <![endif]-->
+                        </a>
                     </li>
                     <li class="hide-on-small-only">
-                        <a href="{{url('/#del')}}"><i class="material-icons">local_shipping</i></a>
+                        <a href="{{url('/#del')}}">
+                            <!--[if !IE]> -->
+                            <i class="material-icons">local_shipping</i>
+                            <!-- <![endif]-->
+                            <!--[if lt IE 9]>
+                            <i class="material-icons">&#xE558;</i>
+                            <![endif]-->
+                        </a>
                     </li>
                 </ul>
                 
                 <a href="/" class="brand-logo center">Smartbit</a>
-                <!--a href="#" data-activates="slide-out"><i class="material-icons">menu</i></a-->
             </div>
         </nav>
     {{------------------ DEFINISCO NAVIGAZIONE NELLA HOME ADMIN -------------}}
@@ -163,7 +206,12 @@
                 <ul class="left">
                     <a href="#" data-activates="slide-out" class="sbmenu" 
                     style="height:64px;line-height:64px:margin;float: left;position: relative;z-index: 1;height: auto;margin: 0 0px;">
+                        <!--[if !IE]> -->
                         <i class="material-icons">menu</i>
+                        <!-- <![endif]-->
+                        <!--[if lt IE 9]>
+                        <i class="material-icons">&#xE5D2;</i>
+                        <![endif]-->
                     </a>
                 </ul>
                 <ul class="tabs tabs-transparent" style="overflow-x:hidden">
@@ -202,7 +250,12 @@
                 <ul class="left">
                     <a class="hide-slide-lab" 
                     style="height:64px;line-height:64px:margin;float: left;position: relative;z-index: 1;height: auto;margin: 0 0px;">
-                        <i class="material-icons white-text">arrow_back</i>
+                        <!--[if !IE]> -->
+                        <i class="material-icons">arrow_back</i>
+                        <!-- <![endif]-->
+                        <!--[if lt IE 9]>
+                        <i class="material-icons">&#xE5C4;</i>
+                        <![endif]-->
                     </a>
                 </ul>
                 <h3  class="brand-logo center">Info</h3>
@@ -228,7 +281,12 @@
             <div class="section info_owner col s12 m6">
                 <div class="container">
                     <h4 class="smartbit-text" style="padding:0.5em;color:white;text-align:center">
-                        <i class="medium material-icons">perm_identity</i>
+                        <!--[if !IE]> -->
+                        <i class="material-icons">perm_identity</i>
+                        <!-- <![endif]-->
+                        <!--[if lt IE 9]>
+                        <i class="material-icons">&#xE8A6;</i>
+                        <![endif]-->
                     </h4>
                     <div class="divider"></div>
                     <p class="repair_info_nome">Nome: </p>
@@ -242,7 +300,12 @@
             <div class="section info_device col s12 m6">
                 <div class="container">
                     <h4 class="smartbit-text" style="padding:0.5em;color:white;text-align:center">
-                        <i class="medium material-icons">phone_iphone</i>
+                        <!--[if !IE]> -->
+                        <i class="material-icons">phone_iphone</i>
+                        <!-- <![endif]-->
+                        <!--[if lt IE 9]>
+                        <i class="material-icons">&#xE325;</i>
+                        <![endif]-->
                     </h4>
                     <div class="divider"></div>
                     <p class="repair_info_modello">Modello:</p>
@@ -256,7 +319,12 @@
             <div class="section note_rip col s12">
                 <div class="section">
                     <div class="input-field col note-field1 s12">
-                        <i class="material-icons prefix">info_outline</i>
+                        <!--[if !IE]> -->
+                        <i class="material-icons">info_outline</i>
+                        <!-- <![endif]-->
+                        <!--[if lt IE 9]>
+                        <i class="material-icons">&#xE88F;</i>
+                        <![endif]-->
                         <textarea readonly id="icon_prefix2" class="materialize-textarea"></textarea>
                         <label class="active" for="icon_prefix2">Dettagli</label>
                     </div>
@@ -266,7 +334,12 @@
                 <div class="section">
                     <input type="hidden" name="id_rip"/>
                     <div class="hide note-field input-field col s12">
-                        <i class="material-icons prefix">mode_edit</i>
+                        <!--[if !IE]> -->
+                        <i class="material-icons">mode_edit</i>
+                        <!-- <![endif]-->
+                        <!--[if lt IE 9]>
+                        <i class="material-icons">&#xE254;</i>
+                        <![endif]-->
                         <textarea id="textarea1" class="materialize-textarea"></textarea>
                         <label for="textarea1">Note</label>
                     </div>
@@ -278,10 +351,20 @@
                 <button class="btn change-state-lab waves-effect hide waves-light smartbit" onclick="change_state();">
                 </button>
                 <button data-target="modal-change" class="btn hide finish-state-lab waves-effect waves-light smartbit">Finisci
-                    <i class="material-icons right">send</i>
+                    <!--[if !IE]> -->
+                    <i class="material-icons">send</i>
+                    <!-- <![endif]-->
+                    <!--[if lt IE 9]>
+                    <i class="material-icons">&#xE163;</i>
+                    <![endif]-->
                 </button>
                 <button class="btn hide update-lab waves-effect waves-light smartbit" onclick="update_lab();">Salva
-                    <i class="material-icons right">save</i>
+                    <!--[if !IE]> -->
+                    <i class="material-icons">save</i>
+                    <!-- <![endif]-->
+                    <!--[if lt IE 9]>
+                    <i class="material-icons">&#xE161;</i>
+                    <![endif]-->
                 </button>
             </div>
         </div>
@@ -301,23 +384,64 @@
           @endif
           <a href="#!name"><span class="white-text name">{{ Auth::user()->name }}</span></a>
           <a href="#!email"><span class="white-text email">{{ Auth::user()->email }}</span></a>
-          <a href="{{url('logout')}}"><span class="white-text email"><i class="material-icons">exit_to_app</i></span></a>
+          <a href="{{url('logout')}}"><span class="white-text email">
+            <!--[if !IE]> -->
+            <i class="material-icons">exit_to_app</i>
+            <!-- <![endif]-->
+            <!--[if lt IE 9]>
+            <i class="material-icons">&#xE879;</i>
+            <![endif]-->
+            </span></a>
         </div></li>
         @if(Route::getCurrentRoute()->getPath() != '/')
-        <li><a class="waves-effect" href="{{url('/')}}"><i class="material-icons">home</i>Torna a Smartbit</a></li>
+        <li><a class="waves-effect" href="{{url('/')}}">
+            <!--[if !IE]> -->
+            <i class="material-icons">home</i>
+            <!-- <![endif]-->
+            <!--[if lt IE 9]>
+            <i class="material-icons">&#xE88A;</i>
+            <![endif]-->
+        Torna a Smartbit</a></li>
         @endif
         @if(Auth::user()->id == 1 or Auth::user()->id == 2)
         @if(Route::getCurrentRoute()->getPath() != '/')
         @endif
         @if(Route::getCurrentRoute()->getPath() != 'lab')
         
-        <li><a class="waves-effect" href="{{url('/lab')}}"><i class="material-icons">build</i>Vai al laboratorio</a></li>
+        <li><a class="waves-effect" href="{{url('/lab')}}">
+            <!--[if !IE]> -->
+            <i class="material-icons">build</i>
+            <!-- <![endif]-->
+            <!--[if lt IE 9]>
+            <i class="material-icons">&#xE869;</i>
+            <![endif]-->
+            Vai al laboratorio</a></li>
         @else
-        <!--li><a class="waves-effect" href="{{url('/')}}"><i class="material-icons">home</i>Torna a Smartbit</a></li-->
-        <li><a class="waves-effect" href="#{{url('/')}}"><i class="material-icons">assignment_turned_in</i>Pianificazioni</a></li>
-        <li><a class="waves-effect" href="#{{url('/')}}"><i class="material-icons">memory</i>Magazzino pezzi</a></li>
+        <li><a class="waves-effect" href="#{{url('/')}}">
+            <!--[if !IE]> -->
+            <i class="material-icons">assignment_turned_in</i>
+            <!-- <![endif]-->
+            <!--[if lt IE 9]>
+            <i class="material-icons">&#xE862;</i>
+            <![endif]-->
+            Pianificazioni</a></li>
+        <li><a class="waves-effect" href="#{{url('/')}}">
+            <!--[if !IE]> -->
+            <i class="material-icons">memory</i>
+            <!-- <![endif]-->
+            <!--[if lt IE 9]>
+            <i class="material-icons">&#xE322;</i>
+            <![endif]-->
+            Magazzino pezzi</a></li>
         @endif
-        {{-- <li><a class="waves-effect" href="{{url('deliveries')}}"><i class="material-icons">local_shipping</i>Vai alle consegne</a></li> --}}
+        {{-- <li><a class="waves-effect" href="{{url('deliveries')}}">
+            <!--[if !IE]> -->
+            <i class="material-icons">local_shipping</i>
+            <!-- <![endif]-->
+            <!--[if lt IE 9]>
+            <i class="material-icons">&#xE558;</i>
+            <![endif]-->
+            Vai alle consegne</a></li> --}}
         @endif
         
 
@@ -620,21 +744,36 @@
         <div class="home row">
   <div class="col s12 m4">
     <div class="center promo promo-example">
+      <!--[if !IE]> -->
       <i class="material-icons large amber-text text-darken-1">flash_on</i>
+      <!-- <![endif]-->
+      <!--[if lt IE 9]>
+      <i class="material-icons large amber-text text-darken-1">&#xE3E7;</i>
+      <![endif]-->
       <p class="white-text promo-caption">Servizio efficiente</p>
       <p class="white-text light center">Noi di Smartbit facciamo del nostro meglio per riparare i vostri dispositivi in meno tempo possibile.</p>
     </div>
   </div>
   <div class="col s12 m4">
     <div class="center promo promo-example">
-      <i class="material-icons large amber-text text-darken-1">remove_red_eye</i>{{-- gps_fixed --}}
+      <!--[if !IE]> -->
+      <i class="material-icons large amber-text text-darken-1">remove_red_eye</i>
+      <!-- <![endif]-->
+      <!--[if lt IE 9]>
+      <i class="material-icons large amber-text text-darken-1">&#xE417;</i>
+      <![endif]-->{{-- gps_fixed --}}
       <p class="white-text promo-caption">Tracciabilità</p>
       <p class="white-text light center">Grazie al nostro sistema di Tracking sai sempre in che stato si trova la tua riparazione.</p>
     </div>
   </div>
   <div class="col s12 m4">
     <div class="center promo promo-example">
+      <!--[if !IE]> -->
       <i class="material-icons large amber-text text-darken-1">notifications_active</i>
+      <!-- <![endif]-->
+      <!--[if lt IE 9]>
+      <i class="material-icons large amber-text text-darken-1">&#xE7F7;</i>
+      <![endif]-->
       <p class="white-text promo-caption">Notificato, sempre</p>
       <p class="white-text light center">Con il nostro sistema di notifiche asincrone, email e SMS sei sempre aggiornato.</p>
     </div>

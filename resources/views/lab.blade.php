@@ -30,13 +30,40 @@
               <a data-activates="slide-lab" data-id="{{$repair->id}}" class="collection-item lab-item">
                 <div class="secondary-content">
                   @if($repair->stato === 'creata')
+                  <!--[if !IE]> -->
                   <i class="material-icons tooltipped" style="color:grey" data-tooltip="Creata">hourglass_empty</i>
+                  <!-- <![endif]-->
+                  <!--[if lt IE 9]>
+                  <i class="material-icons tooltipped" style="color:grey" data-tooltip="Creata">&#xE88B;</i>
+                  <![endif]-->
                   @elseif($repair->stato === 'iniziata')
+                  <!--[if !IE]> -->
                   <i class="material-icons tooltipped" style="color:grey" data-tooltip="Iniziata">done</i>
+                  <!-- <![endif]-->
+                  <!--[if lt IE 9]>
+                  <i class="material-icons tooltipped" style="color:grey" data-tooltip="Iniziata">&#xE876;</i>
+                  <![endif]-->
                   @elseif($repair->stato === 'finita')
+                  <!--[if !IE]> -->
                   <i class="material-icons tooltipped" style="color:grey" data-tooltip="Finita (non ancora pronta)">done_all</i>
+                  <!-- <![endif]-->
+                  <!--[if lt IE 9]>
+                  <i class="material-icons tooltipped" style="color:grey" data-tooltip="Finita (non ancora pronta)">&#xE877;</i>
+                  <![endif]-->
                   @elseif($repair->stato === 'pronta')
+                  <!--[if !IE]> -->
                   <i class="material-icons tooltipped" style="color:#4CAF50" data-tooltip="Pronta per il ritiro">done_all</i>
+                  <!-- <![endif]-->
+                  <!--[if lt IE 9]>
+                  <i class="material-icons tooltipped" style="color:grey" data-tooltip="Pronta per il ritiro">&#xE877;</i>
+                  <![endif]-->
+                  @elseif($repair->stato === 'consegnata')
+                  <!--[if !IE]> -->
+                  <i class="material-icons tooltipped" style="color:#4CAF50" data-tooltip="Consegnata">tag_faces</i>
+                  <!-- <![endif]-->
+                  <!--[if lt IE 9]>
+                  <i class="material-icons tooltipped" style="color:grey" data-tooltip="Consegnata">&#xE420;</i>
+                  <![endif]-->
                   @else
                   <i class="material-icons tooltipped" style="color:grey" data-tooltip="senza stato">error</i>
                   @endif
@@ -49,6 +76,10 @@
           @if($repairs_pages->nextPageUrl() != null)
           <a class="btn-floating btn waves-effect waves-light refresh-lab smartbit" href="page=2">
             <i class="material-icons">refresh</i>
+                  <!-- <![endif]-->
+                  <!--[if lt IE 9]>
+                  <i class="material-icons>&#xE5D5;</i>
+                  <![endif]-->
           </a>
           @endif
         </div>

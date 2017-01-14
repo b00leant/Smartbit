@@ -23,15 +23,40 @@
                         @endif
                         <div class="secondary-content">
                             @if($repair->stato === 'creata')
+                            <!--[if !IE]> -->
                             <i class="material-icons tooltipped" style="color:grey" data-tooltip="Creata">hourglass_empty</i>
+                            <!-- <![endif]-->
+                            <!--[if lt IE 9]>
+                            <i class="material-icons tooltipped" style="color:grey" data-tooltip="Creata">&#xE88B;</i>
+                            <![endif]-->
                             @elseif($repair->stato === 'iniziata')
+                            <!--[if !IE]> -->
                             <i class="material-icons tooltipped" style="color:grey" data-tooltip="Iniziata">done</i>
+                            <!-- <![endif]-->
+                            <!--[if lt IE 9]>
+                            <i class="material-icons tooltipped" style="color:grey" data-tooltip="Iniziata">&#xE876;</i>
+                            <![endif]-->
                             @elseif($repair->stato === 'finita')
+                            <!--[if !IE]> -->
                             <i class="material-icons tooltipped" style="color:grey" data-tooltip="Finita (non ancora pronta)">done_all</i>
+                            <!-- <![endif]-->
+                            <!--[if lt IE 9]>
+                            <i class="material-icons tooltipped" style="color:grey" data-tooltip="Finita (non ancora pronta)">&#xE877;</i>
+                            <![endif]-->
                             @elseif($repair->stato === 'pronta')
+                            <!--[if !IE]> -->
                             <i class="material-icons tooltipped" style="color:#4CAF50" data-tooltip="Pronta per il ritiro">done_all</i>
+                            <!-- <![endif]-->
+                            <!--[if lt IE 9]>
+                            <i class="material-icons tooltipped" style="color:grey" data-tooltip="Pronta per il ritiro">&#xE877;</i>
+                            <![endif]-->
                             @elseif($repair->stato === 'consegnata')
+                            <!--[if !IE]> -->
                             <i class="material-icons tooltipped" style="color:#4CAF50" data-tooltip="Consegnata">tag_faces</i>
+                            <!-- <![endif]-->
+                            <!--[if lt IE 9]>
+                            <i class="material-icons tooltipped" style="color:grey" data-tooltip="Consegnata">&#xE420;</i>
+                            <![endif]-->
                             @else
                             <i class="material-icons tooltipped" style="color:grey" data-tooltip="senza stato">error</i>
                             @endif
@@ -40,15 +65,36 @@
                     
                 @endforeach
                 <ul class="pagination repairs" style="text-align:center">
-                    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                    <li class="disabled"><a href="#!">
+                        <!--[if !IE]> -->
+                        <i class="material-icons">chevron_left</i>
+                        <!-- <![endif]-->
+                        <!--[if lt IE 9]>
+                        <i class="material-icons">&#xE5CB;</i>
+                        <![endif]-->
+                    </a></li>
                     <li class="active"><a href="page=1">1</a></li>
                     @for($i = 1; $i < $repairs_pages->lastPage(); $i++)
                     <li class="waves-effect"><a href="page={{$i+1}}">{{$i+1}}</a></li>
                     @endfor
                     @if($repairs_pages->nextPageUrl() != null)
-                        <li class="waves-effect"><a href="page={{$repairs_pages->nextPageUrl() + 2}}"><i class="material-icons">chevron_right</i></a></li>
+                        <li class="waves-effect"><a href="page={{$repairs_pages->nextPageUrl() + 2}}">
+                            <!--[if !IE]> -->
+                            <i class="material-icons">chevron_right</i>
+                            <!-- <![endif]-->
+                            <!--[if lt IE 9]>
+                            <i class="material-icons">&#xE5CC;</i>
+                            <![endif]-->
+                            </a></li>
                     @else
-                        <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                        <li class="disabled"><a href="#!">
+                            <!--[if !IE]> -->
+                            <i class="material-icons">chevron_right</i>
+                            <!-- <![endif]-->
+                            <!--[if lt IE 9]>
+                            <i class="material-icons">&#xE5CC;</i>
+                            <![endif]-->
+                            </a></li>
                     @endif
                     </ul>
             @endif
@@ -57,9 +103,30 @@
             <li class="collection-header">
                 <h4>Spedizioni</h4>
                 @if(Auth::user()->id === 1 or Auth::user()->id === 2)
-                <a href="{{ url('new-pickup') }}" style="margin-top:1em" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Imposta ritiro</a>
-                <a href="{{ url('new-delivery') }}" style="margin-top:1em" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Crea Spedizione</a>
-                <a href="{{ url('new-tech-sup') }}" style="margin-top:1em" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Crea Centro</a>
+                <a href="{{ url('new-pickup') }}" style="margin-top:1em" class="waves-effect waves-light btn">
+                    <!--[if !IE]> -->
+                    <i class="material-icons left">add</i>
+                    <!-- <![endif]-->
+                    <!--[if lt IE 9]>
+                    <i class="material-icons left">&#xE145;</i>
+                    <![endif]-->
+                    Imposta ritiro</a>
+                <a href="{{ url('new-delivery') }}" style="margin-top:1em" class="waves-effect waves-light btn">
+                    <!--[if !IE]> -->
+                    <i class="material-icons left">add</i>
+                    <!-- <![endif]-->
+                    <!--[if lt IE 9]>
+                    <i class="material-icons left">&#xE145;</i>
+                    <![endif]-->
+                Crea Spedizione</a>
+                <a href="{{ url('new-tech-sup') }}" style="margin-top:1em" class="waves-effect waves-light btn">
+                    <!--[if !IE]> -->
+                    <i class="material-icons left">add</i>
+                    <!-- <![endif]-->
+                    <!--[if lt IE 9]>
+                    <i class="material-icons left">&#xE145;</i>
+                    <![endif]-->
+                Crea Centro</a>
                 @endif
             </li>
             @if(isset($deliveries))
@@ -67,7 +134,12 @@
             @if($delivery->stato == 'creata')
             <a href="delivery/{{$delivery->id}}" class="collection-item avatar black-text">
                 <span data-badge-caption="" class="new badge">da spedire</span>
+                <!--[if !IE]> -->
                 <i class="material-icons circle green">location_on</i>
+                <!-- <![endif]-->
+                <!--[if lt IE 9]>
+                <i class="material-icons circle green">&#xE0C8;</i>
+                <![endif]-->
                 <span class="title">{{$delivery->technicalSupport->nome}}</span>
                 <p>spedizione: {{$delivery->task_consegna}}
                 <br>dispositivi da spedire: {{count($delivery->repairs)}}</p>
@@ -76,7 +148,12 @@
             @elseif($delivery->stato == 'da_ritirare')
             <a href="delivery/{{$delivery->id}}" class="collection-item avatar black-text">
                 <span data-badge-caption="" class="new badge">da ritirare</span>
+                <!--[if !IE]> -->
                 <i class="material-icons circle green">local_shipping</i>
+                <!-- <![endif]-->
+                <!--[if lt IE 9]>
+                <i class="material-icons circle green">&#xE558;</i>
+                <![endif]-->
                 <span class="title">{{$delivery->technicalSupport->nome}}</span>
                 <p>da ritirare il: @if(!isset($delivery->task_ritiro))
                 ???
@@ -94,8 +171,20 @@
                   <form>
                     <div class="input-field">
                       <input id="search" class="autocomplete2show people "  onkeyup="handleCollectionShow();" autocomplete="off" type="search" required>
-                      <label for="search"><i class="material-icons">search</i></label>
-                      <i class="material-icons" onclick="handleFocusOut();">close</i>
+                      <label for="search">
+                          <!--[if !IE]> -->
+                        <i class="material-icons">search</i>
+                        <!-- <![endif]-->
+                        <!--[if lt IE 9]>
+                        <i class="material-icons">&#xE8B6;</i>
+                        <![endif]-->
+                          </label>
+                        <!--[if !IE]> -->
+                        <i class="material-icons" onclick="handleFocusOut();">close</i>
+                        <!-- <![endif]-->
+                        <!--[if lt IE 9]>
+                        <i class="material-icons" onclick="handleFocusOut();">&#xE5CD;</i>
+                        <![endif]-->
                     </div>
                   </form>
                 </div>
@@ -104,7 +193,12 @@
                 <div class="collection-header">
                     <h4>Clienti</h4>
                     <a class="btn-floating btn waves-effect waves-light smartbit" href="{{ url('create-person') }}">
+                        <!--[if !IE]> -->
                         <i class="material-icons">add</i>
+                        <!-- <![endif]-->
+                        <!--[if lt IE 9]>
+                        <i class="material-icons">&#xE145;</i>
+                        <![endif]-->
                     </a>
                 </div>
                 <!--li class="collection-item avatar">
@@ -116,7 +210,12 @@
                 @if(isset($people_pages))
                 @foreach($people_pages as $person)
                 <a href="{{url('person/'.$person->id)}}" class="collection-item avatar">
+                    <!--[if !IE]> -->
                     <i class="material-icons circle  amber accent-4">perm_identity</i>
+                    <!-- <![endif]-->
+                    <!--[if lt IE 9]>
+                    <i class="material-icons circle  amber accent-4">&#xE8A6;</i>
+                    <![endif]-->
                     <span class="title">{{$person->nome}} {{$person->cognome}}</span>
                     <p>@if(count($person->repairs) ==1)
                     una riparazione
@@ -130,7 +229,12 @@
                 <ul class="pagination people" style="text-align:center">
                     <li class="disabled">
                         <a href="#!">
+                            <!--[if !IE]> -->
                             <i class="material-icons">chevron_left</i>
+                            <!-- <![endif]-->
+                            <!--[if lt IE 9]>
+                            <i class="material-icons">&#xE5CB;</i>
+                            <![endif]-->
                         </a>
                     </li>
                     <li class="active">
@@ -140,10 +244,22 @@
                     @endfor @if($people_pages->nextPageUrl()!=null)
                     <li class="waves-effect">
                         <a href="page={{$people_pages['last_page'] + 2}}">
+                            <!--[if !IE]> -->
                             <i class="material-icons">chevron_right</i>
+                            <!-- <![endif]-->
+                            <!--[if lt IE 9]>
+                            <i class="material-icons">&#xE5CC;</i>
+                            <![endif]-->
                         </a>
                     </li>
-                    @else <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li> @endif
+                    @else <li class="disabled"><a href="#!">
+                        <!--[if !IE]> -->
+                        <i class="material-icons">chevron_right</i>
+                        <!-- <![endif]-->
+                        <!--[if lt IE 9]>
+                        <i class="material-icons">&#xE5CC;</i>
+                        <![endif]-->
+                        </a></li> @endif
                     </ul>
             @endif
             </div>

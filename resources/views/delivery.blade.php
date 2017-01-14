@@ -23,12 +23,24 @@
                         data-address="{{$centerobj->indirizzo}}"
                         data-title="{{$centerobj->nome}}"
                         data-id="{{$centerobj->id}}" class="collection-item avatar">
-                      <i class="material-icons smartbit circle">location_on</i>
+                      <!--[if !IE]> -->
+                <i class="material-icons circle">location_on</i>
+                <!-- <![endif]-->
+                <!--[if lt IE 9]>
+                <i class="material-icons circle">&#xE0C8;</i>
+                <![endif]-->
                       <span class="title">{{$centerobj->nome}}</span>
                       <!--p>{{$centerobj->indirizzo}} <br>
                          recapito: {{$centerobj->telefono}}
                       </p-->
-                      <span href="#!" class="secondary-content"><i class="material-icons">add</i></span>
+                      <span href="#!" class="secondary-content">
+                          <!--[if !IE]> -->
+                        <i class="material-icons">add</i>
+                        <!-- <![endif]-->
+                        <!--[if lt IE 9]>
+                        <i class="material-icons">&#xE145;</i>
+                        <![endif]-->
+                      </span>
                     </a>
                 @endforeach
             </div>
@@ -79,12 +91,22 @@
                         data-id="{{$delivery->technicalSupport->id}}"
                         href=""
                         class="collection-item avatar">
-                      <i class="material-icons smartbit circle">location_on</i>
+                      <!--[if !IE]> -->
+                <i class="material-icons circle">location_on</i>
+                <!-- <![endif]-->
+                <!--[if lt IE 9]>
+                <i class="material-icons circle">&#xE0C8;</i>
+                <![endif]-->
                       <span class="title">{{$delivery->technicalSupport->nome}}</span>
                       <p>{{$delivery->technicalSupport->indirizzo}} <br>
                          recapito: {{$delivery->technicalSupport->telefono}}
                       </p>
-                      <span href="#!" class="hide secondary-content"><i class="material-icons">edit</i></span>
+                      <span href="#!" class="hide secondary-content"><!--[if !IE]> -->
+                    <i class="material-icons">edit</i>
+                    <!-- <![endif]-->
+                    <!--[if lt IE 9]>
+                    <i class="material-icons">&#xE3C9;</i>
+                    <![endif]--></span>
                     </a>
                 </ul>
                 <ul id="edit-delivery-repairs" class="collection with-header">
@@ -93,7 +115,14 @@
                     @foreach($delivery->repairs as $repair)
                     <a data-id="{{$repair->id}}" data-show="{{$repair->device->model}} ({{$repair->person->nome}} {{$repair->person->cognome}})" class="edit-delivery-repair collection-item">
                         {{$repair->device->model}} ({{$repair->person->nome}} {{$repair->person->cognome}})
-                        <span style="cursor:pointer" class="hide remove-repair-from-delivery secondary-content"><i class="material-icons">delete</i></span>
+                        <span style="cursor:pointer" class="hide remove-repair-from-delivery secondary-content">
+                            <!--[if !IE]> -->
+            <i class="material-icons">delete</i>
+            <!-- <![endif]-->
+            <!--[if lt IE 9]>
+            <i class="material-icons">&#xE872;</i>
+            <![endif]-->
+                            </span>
                     </a>
                     @endforeach
                     @else
@@ -102,7 +131,12 @@
                   </ul>
                   <div class="col s12" style="text-align:center">
                       <a href="" class="trigger-to-add-repairs hide btn-floating btn-large waves-effect waves-light smartbit">
-                            <i class="material-icons">add</i>
+                            <!--[if !IE]> -->
+                        <i class="material-icons">add</i>
+                        <!-- <![endif]-->
+                        <!--[if lt IE 9]>
+                        <i class="material-icons">&#xE145;</i>
+                        <![endif]-->
                         </a>
                   </div>
                   <input type="hidden" name="repairs_to_update" value="">
@@ -117,19 +151,44 @@
         @if(Auth::user()->id===1)
         <div class="col s12 center-align">
             <a  class="activate-edit-mode-delivery waves-effect waves-light btn-flat smartbit" style="color:white">
-                <i class="material-icons">edit</i>
+                <!--[if !IE]> -->
+                    <i class="material-icons">edit</i>
+                    <!-- <![endif]-->
+                    <!--[if lt IE 9]>
+                    <i class="material-icons">&#xE3C9;</i>
+                    <![endif]-->
             </a>
             <a class="hide cancel-edit-delivery waves-effect waves-light btn-flat red" style="color:white">
-                <i class="material-icons">cancel</i>
+                <!--[if !IE]> -->
+            <i class="material-icons">cancel</i>
+            <!-- <![endif]-->
+            <!--[if lt IE 9]>
+            <i class="material-icons">&#xE5C9;</i>
+            <![endif]-->
             </a>
             <a class="hide update-delivery waves-effect waves-light btn-flat smartbit" style="color:white">
-                <i class="material-icons">save</i>
+                <!--[if !IE]> -->
+            <i class="material-icons">save</i>
+            <!-- <![endif]-->
+            <!--[if lt IE 9]>
+            <i class="material-icons">&#xE161;</i>
+            <![endif]-->
             </a>
             <a class=" waves-effect go-delivery waves-light btn-flat smartbit" href="#modal-chose-go" style="color:white">
-                <i class="material-icons">local_shipping</i>
+                <!--[if !IE]> -->
+            <i class="material-icons">local_shipping</i>
+            <!-- <![endif]-->
+            <!--[if lt IE 9]>
+            <i class="material-icons">&#xE558;</i>
+            <![endif]-->
             </a>
             <a class="delete-delivery waves-effect waves-light btn-flat red"  href="#modal1" style="color:white">
-                <i class="material-icons">delete</i>
+                <!--[if !IE]> -->
+            <i class="material-icons">delete</i>
+            <!-- <![endif]-->
+            <!--[if lt IE 9]>
+            <i class="material-icons">&#xE872;</i>
+            <![endif]-->
             </a>
         </div>
     @endif
@@ -156,12 +215,24 @@
                         data-address="{{$centerobj->indirizzo}}"
                         data-title="{{$centerobj->nome}}"
                         data-id="{{$centerobj->id}}" class="collection-item avatar">
-                      <i class="material-icons smartbit circle">location_on</i>
+                      <!--[if !IE]> -->
+                <i class="material-icons circle">location_on</i>
+                <!-- <![endif]-->
+                <!--[if lt IE 9]>
+                <i class="material-icons circle">&#xE0C8;</i>
+                <![endif]-->
                       <span class="title">{{$centerobj->nome}}</span>
                       <!--p>{{$centerobj->indirizzo}} <br>
                          recapito: {{$centerobj->telefono}}
                       </p-->
-                      <span href="#!" class="secondary-content"><i class="material-icons">add</i></span>
+                      <span href="#!" class="secondary-content">
+                          <!--[if !IE]> -->
+                        <i class="material-icons">add</i>
+                        <!-- <![endif]-->
+                        <!--[if lt IE 9]>
+                        <i class="material-icons">&#xE145;</i>
+                        <![endif]-->
+                      </span>
                     </a>
                 @endforeach
             </div>
@@ -211,12 +282,24 @@
                     data-title="{{$delivery->technicalSupport->nome}}"
                     data-id="{{$delivery->technicalSupport->id}}"
                     class="collection-item avatar">
-                  <i class="material-icons smartbit circle">location_on</i>
+                  <!--[if !IE]> -->
+                <i class="material-icons circle">location_on</i>
+                <!-- <![endif]-->
+                <!--[if lt IE 9]>
+                <i class="material-icons circle">&#xE0C8;</i>
+                <![endif]-->
                   <span class="title">{{$delivery->technicalSupport->nome}}</span>
                   <p>{{$delivery->technicalSupport->indirizzo}} <br>
                      recapito: {{$delivery->technicalSupport->telefono}}
                   </p>
-                  <span href="#!" class="hide secondary-content"><i class="material-icons">edit</i></span>
+                  <span href="#!" class="hide secondary-content">
+                      <!--[if !IE]> -->
+                    <i class="material-icons">edit</i>
+                    <!-- <![endif]-->
+                    <!--[if lt IE 9]>
+                    <i class="material-icons">&#xE3C9;</i>
+                    <![endif]-->
+                      </span>
                 </a>
             </ul>
             <ul id="back-delivery-repairs" class="collection with-header">
@@ -225,7 +308,14 @@
                 @foreach($delivery->repairs as $repair)
                  <a data-id="{{$repair->id}}" data-show="{{$repair->device->model}} ({{$repair->seriale}})" class="back-delivery-repair collection-item"> 
                     {{$repair->device->model}} ({{$repair->seriale}})
-                     <span style="cursor:pointer" class="hide remove-repair-from-delivery secondary-content"><i class="material-icons">delete</i></span> 
+                     <span style="cursor:pointer" class="hide remove-repair-from-delivery secondary-content">
+                         <!--[if !IE]> -->
+            <i class="material-icons">delete</i>
+            <!-- <![endif]-->
+            <!--[if lt IE 9]>
+            <i class="material-icons">&#xE872;</i>
+            <![endif]-->
+                     </span> 
                  </a> 
                 @endforeach
                 @else
@@ -234,7 +324,12 @@
               </ul>
               <div class="col s12" style="text-align:center">
                   <a href="" class="hide trigger-to-add-repairs-back btn-floating btn-large waves-effect waves-light smartbit">
+                        <!--[if !IE]> -->
                         <i class="material-icons">add</i>
+                        <!-- <![endif]-->
+                        <!--[if lt IE 9]>
+                        <i class="material-icons">&#xE145;</i>
+                        <![endif]-->
                     </a>
               </div>
               <input type="hidden" name="repairs_to_update" value="">
@@ -249,19 +344,44 @@
     @if(Auth::user()->id===1 or Auth::user()->id===2)
     <div class="col s12 center-align">
         <a  class="activate-back-mode-delivery waves-effect waves-light btn-flat smartbit" style="color:white">
-            <i class="material-icons">edit</i>
+            <!--[if !IE]> -->
+                    <i class="material-icons">edit</i>
+                    <!-- <![endif]-->
+                    <!--[if lt IE 9]>
+                    <i class="material-icons">&#xE3C9;</i>
+                    <![endif]-->
         </a>
         <a class="hide cancel-back-delivery waves-effect waves-light btn-flat red" style="color:white">
+            <!--[if !IE]> -->
             <i class="material-icons">cancel</i>
+            <!-- <![endif]-->
+            <!--[if lt IE 9]>
+            <i class="material-icons">&#xE5C9;</i>
+            <![endif]-->
         </a>
         <a class="hide update-back-delivery waves-effect waves-light btn-flat smartbit" style="color:white">
+            <!--[if !IE]> -->
             <i class="material-icons">save</i>
+            <!-- <![endif]-->
+            <!--[if lt IE 9]>
+            <i class="material-icons">&#xE161;</i>
+            <![endif]-->
         </a>
         <a class=" waves-effect go-back-delivery waves-light btn-flat smartbit" href="#modal-chose-go" style="color:white">
+            <!--[if !IE]> -->
             <i class="material-icons">local_shipping</i>
+            <!-- <![endif]-->
+            <!--[if lt IE 9]>
+            <i class="material-icons">&#xE558;</i>
+            <![endif]-->
         </a>
         <a class="delete-delivery waves-effect waves-light btn-flat red"  href="#modal1" style="color:white">
-                <i class="material-icons">delete</i>
+            <!--[if !IE]> -->
+            <i class="material-icons">delete</i>
+            <!-- <![endif]-->
+            <!--[if lt IE 9]>
+            <i class="material-icons">&#xE872;</i>
+            <![endif]-->
         </a>
     </div>
     @endif

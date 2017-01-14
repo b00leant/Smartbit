@@ -19,6 +19,12 @@ function autocompleteModels(){
     $('input.autocomplete.devices').searchModels();
 }
 
+$('.autocomplete-content').on('click', 'li', function () {            
+     $('.autocomplete-content').hide();
+});
+
+$('input.autocomplete.devices').on('keyup',function(){ $('.autocomplete-content').show();})
+
 $.fn.searchModels = function(){
     var $autocomplete = $('<ul style="width: 100%;position: absolute;"class="autocomplete-content dropdown-content"></ul>');
     $('input.autocomplete.devices').keyup(function(){
