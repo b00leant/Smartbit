@@ -33,7 +33,12 @@
 
     <div class="fixed-action-btn">
         <button class="create_repair btn-floating btn-large smartbit" type="submit" form="create">
-            <i class="large material-icons">done</i>
+            <!--[if !IE]> -->
+        <i class="material-icons large">done</i>
+        <!-- <![endif]-->
+        <!--[if lt IE 9]>
+        <i class="material-icons large">&#xE876;</i>
+        <![endif]-->
         </button>
     </div>
     </div>

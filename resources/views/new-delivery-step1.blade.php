@@ -27,12 +27,24 @@
                       </div>
                       @foreach($tech_sups as $center)
                       <a data-id="{{$center->id}}" class="center-item collection-item avatar">
-                          <i class="material-icons smartbit circle">location_on</i>
+                          <!--[if !IE]> -->
+                        <i class="material-icons circle smartbit">location_on</i>
+                        <!-- <![endif]-->
+                        <!--[if lt IE 9]>
+                        <i class="material-icons circle smartbit">&#xE0C8;</i>
+                        <![endif]-->
                           <span class="title">{{$center->nome}}</span>
                           <p>{{$center->indirizzo}} <br>
                              recapito: {{$center->telefono}}
                           </p>
-                          <span href="#!" class="secondary-content"><i class="material-icons">add</i></span>
+                          <span href="#!" class="secondary-content">
+                              <!--[if !IE]> -->
+                                <i class="material-icons">add</i>
+                                <!-- <![endif]-->
+                                <!--[if lt IE 9]>
+                                <i class="material-icons">&#xE145;</i>
+                                <![endif]-->
+                          </span>
                         </a>
                       @endforeach
                       @endif
@@ -42,7 +54,12 @@
         </div>
         <div class="fixed-action-btn">
         <button class="create_repair btn-floating btn-large smartbit" type="submit" form="create">
-          <i class="large material-icons">done</i>
+          <!--[if !IE]> -->
+        <i class="material-icons large">done</i>
+        <!-- <![endif]-->
+        <!--[if lt IE 9]>
+        <i class="material-icons large">&#xE876;</i>
+        <![endif]-->
         </button>
         </div>
         <!--div class="fixed-action-btn" style="left:23px">

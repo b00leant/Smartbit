@@ -13,7 +13,12 @@
         <div class="col s12 m6 l6">
             <div class="input-field col s6">
                 {{ csrf_field() }}
+                <!--[if !IE]> -->
                 <i class="material-icons prefix">account_circle</i>
+                <!-- <![endif]-->
+                <!--[if lt IE 9]>
+                <i class="material-icons prefix">&#xE853;</i>
+                <![endif]-->
                 <input required type="text" name="nome" value="" autocomplete="off" id="name" class="">
                 <label for="name">Nome</label>
             </div>
@@ -22,19 +27,34 @@
                 <label for="cognome">Cognome</label>
             </div>
             <div class="input-field col s12">
-                <i class="material-icons prefix">today</i>
+                <!--[if !IE]> -->
+                <i class="material-icons prefix">cake</i>
+                <!-- <![endif]-->
+                <!--[if lt IE 9]>
+                <i class="material-icons prefix">&#xE7E9;</i>
+                <![endif]-->
                 <input required type="date" name="datanascita" value="" autocomplete="off" id="birthday" class="datanascita">
                 <label for="birthday">Data di nascita</label>
             </div>
         </div>
         <div class="col s12 m6 l6">
             <div class="input-field col s12">
+                <!--[if !IE]> -->
                 <i class="material-icons prefix">mail_outline</i>
+                <!-- <![endif]-->
+                <!--[if lt IE 9]>
+                <i class="material-icons prefix">&#xE0E1;</i>
+                <![endif]-->
                 <input required type="email" name="email"  value="" autocomplete="off" id="email" class="validate">
                 <label for="email" data-error="wrong" data-success="right">Email</label>
             </div>
             <div class="input-field col s12">
+                <!--[if !IE]> -->
                 <i class="material-icons prefix">phone</i>
+                <!-- <![endif]-->
+                <!--[if lt IE 9]>
+                <i class="material-icons prefix">&#xE0CD;</i>
+                <![endif]-->
                 <input required type="tel" name="telefono" value="" autocomplete="off" id="tel">
                 <label for="tel">Telefono</label>
             </div>
@@ -53,7 +73,12 @@
 
 <div class="fixed-action-btn">
         <button class="create_repair btn-floating btn-large smartbit" type="submit" form="create">
-          <i class="large material-icons">done</i>
+          <!--[if !IE]> -->
+        <i class="material-icons large">done</i>
+        <!-- <![endif]-->
+        <!--[if lt IE 9]>
+        <i class="material-icons large">&#xE876;</i>
+        <![endif]-->
         </button>
     </div>
     </form>

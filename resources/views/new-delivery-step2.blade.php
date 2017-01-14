@@ -42,13 +42,23 @@
         @if(count($repairs))
         <div class="fixed-action-btn">
         <button class="create_repair btn-floating btn-large smartbit" type="submit" form="create">
-          <i class="large material-icons">done</i>
+          <!--[if !IE]> -->
+        <i class="material-icons large">done</i>
+        <!-- <![endif]-->
+        <!--[if lt IE 9]>
+        <i class="material-icons large">&#xE876;</i>
+        <![endif]-->
         </button>
         </div>
         @else
         <div class="fixed-action-btn" style="left:23px">
         <a href="{{url('/#del')}}" class="create_repair btn-floating btn-large smartbit" type="submit" form="create">
-          <i class="large material-icons">arrow_back</i>
+          <!--[if !IE]> -->
+        <i class="material-icons large">arrow_back</i>
+        <!-- <![endif]-->
+        <!--[if lt IE 9]>
+        <i class="material-icons lrge">&#xE5C4;</i>
+        <![endif]-->
         </a>
         </div>
         @endif
