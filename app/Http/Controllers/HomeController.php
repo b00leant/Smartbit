@@ -29,7 +29,7 @@ class HomeController extends Controller
         //
     }
     public function ns(){
-        return View::make('ns');
+        return View::make('not-supported');
     }
     public function info(){
         return View::make('about');

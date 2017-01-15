@@ -22,7 +22,7 @@ Route::group(['middleware' => 'bdetect'], function () {
         return redirect('/');
     });
     
-    Route::get('/not-supported', 'HomeController@ns')->middleware('auth');
+    Route::get('/not-supported', 'HomeController@ns');
     
     Route::get('/#riparazioni', 'RepairController@index')->middleware('auth');
     
