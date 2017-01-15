@@ -55,13 +55,15 @@
                             @else
                             <i class="material-icons tooltipped" style="color:grey" data-tooltip="senza stato">error</i>
                             @endif
-                            @if($repair->garanzia === true)
+                        
+                        </div>
+                        @if($repair->garanzia === true)
                         <span data-badge-caption="" class="new badge green">garanzia</span>
                         @endif
                         @if($repair->assistenza === true)
                         <span data-badge-caption="" class="new badge green">assistenza</span>
                         @endif
-                        </div>Modello: {{$repair->device->model}} ({{$repair->person_name()}})
+                        Modello: {{$repair->device->model}} ({{$repair->person_name()}})
                     </a>
                     
                 @endforeach
