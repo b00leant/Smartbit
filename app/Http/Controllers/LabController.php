@@ -79,7 +79,13 @@ class LabController extends Controller
     public function index(Request $request){
         if($request->ajax()){
             $index = $request->input('index');
-            $repairs = App\Repair::where('stato','!=','ritirata')->where('stato','!=','finita')->paginate(10);
+            $repairs = App\Repair::where('stato','!=','ritirata')
+            ->where('stato','!=','finita')
+            ->where('stato','!=','consegnata')
+            ->where('stato','!=','pronta')
+            ->where('stato','!=','in_assistenza')
+            ->where('stato','!=','ritirata_dal_centro_assistenza')
+            ->paginate(10);
             foreach($repairs as $repair){
                 $repair->device();
                 $repair->person();
@@ -95,7 +101,11 @@ class LabController extends Controller
         if(Auth::user()->id === 1 or Auth::user()->id === 2){
             $repairs = App\Repair::where('stato','!=','pronta')
             ->where('stato','!=','ritirata')->
-            where('stato','!=','finita')->where('stato','!=','consegnata')->paginate(10);
+            where('stato','!=','finita')
+            ->where('stato','!=','consegnata')
+            ->where('stato','!=','in_assistenza')
+            ->where('stato','!=','ritirata_dal_centro_assistenza')
+            ->paginate(10);
             return View::make('lab')->with(['repairs_pages'=>$repairs]);
         }else{
             return redirect('/');
