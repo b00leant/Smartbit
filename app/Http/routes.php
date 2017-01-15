@@ -107,4 +107,4 @@ Route::group(['middleware' => 'bdetect'], function () {
     Route::post('sms-status-repair/{id}',['uses' => 'AjaxController@sendSMSRepairStatus'])->middleware('auth');
     
     //Route::get('/ajax-search-models', 'AjaxController@searchModels');
-}
+});
