@@ -17,7 +17,7 @@ class BDetect
     public function handle($request, Closure $next)
     {
         //if(BrowserDetect::browserFamily() == 'Edge'){
-        if(BrowserDetect::isIEVersion(9, true)){
+        if(BrowserDetect::isIEVersion(9)){
             return redirect('/not-supported');
         }else{
             return $next($request);
