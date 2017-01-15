@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use \BrowserDetect;
+use BrowserDetect;
 
 class BDetect
 {
@@ -16,8 +16,8 @@ class BDetect
      */
     public function handle($request, Closure $next)
     {
-        //if(BrowserDetect::browserFamily() == 'Edge'){
-        if(BrowserDetect::isIEVersion(9)){
+        if(BrowserDetect::isIEVersion(10,true)){
+        //if(BrowserDetect::isIE()){
             return redirect('/not-supported');
         }else{
             return $next($request);

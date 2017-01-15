@@ -10,20 +10,21 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::auth();
-    
-Route::get('/', 'HomeController@home');
 
 Route::get('/logout',function(){
     Auth::logout();
     return redirect('/');
 });
-    
+
+Route::get('/not-supported', 'HomeController@ns');
+
 Route::group(['middleware' => 'bdetect'], function () {
     
-    Route::get('/lab', 'LabController@home')->middleware('auth');
+    Route::auth();
     
-    Route::get('/not-supported', 'HomeController@ns');
+    Route::get('/', 'HomeController@home');
+    
+    Route::get('/lab', 'LabController@home')->middleware('auth');
     
     Route::get('/#riparazioni', 'RepairController@index')->middleware('auth');
     
