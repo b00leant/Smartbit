@@ -28,6 +28,8 @@ $('.date').pickadate({
      repairs_to_update_to_delivery[$(this).data('id')] = $(this).data('show');
      backup_old_repairs[$(this).data('id')] = $(this).data('show');
  });
+ console.log('dispositivi da spedire:');
+ console.log(repairs_to_update_to_delivery);
  backup_old_center['id'] = $('#edit-delivery-center.collection .collection-item').data('id');
  backup_old_center['indirizzo'] = $('#edit-delivery-center.collection .collection-item').data('address');
  backup_old_center['recapito'] = $('#edit-delivery-center.collection .collection-item').data('rec');
@@ -90,8 +92,8 @@ $('.date').pickadate({
             $('#edit-delivery-repairs').append(header);
          for(id in backup_old_repairs){
              if(id !==null){
-                 //console.log('quelli che stanno per essere rimessi sono:');
-                 //console.log(backup_old_repairs[id]);
+                 console.log('quelli che stanno per essere rimessi sono:');
+                 console.log(backup_old_repairs[id]);
                  $('#edit-delivery-repairs').append(
                  '<a data-id="'+id+'"'+
                  'class="edit-delivery-repair collection-item"'+
@@ -105,7 +107,7 @@ $('.date').pickadate({
          for(var i=0;i<backup_old_repairs.length;i++){
                 delete backup_old_repairs[i];
             }
-         $('#edit-delivery-repairs a.edit-delivery-repair span').on('click',function(){
+         $('#edit-delivery-repairs a.edit-delivery-repair span.remove-repair-from-delivery').on('click',function(){
                 var id = $(this).closest('a').data('id');
                 remove_repairs_from_list(id);
  		    });
@@ -144,14 +146,17 @@ $('.date').pickadate({
  
  //gestione rimozione riparazione per spedizione (NON MODAL)
  function remove_repairs_from_list(id){
+     console.log('sto eliminando id n° '+id);
      delete repairs_to_update_to_delivery[id];
-       //console.log('riparazioni da aggiornare :');
-       //console.log(repairs_to_update_to_delivery);
+       console.log('riparazioni da aggiornare :');
+       console.log(repairs_to_update_to_delivery);
         $('#modal-chose-repair .modal-content .collection .collection-item[data-id="'+
         id+'"]').removeClass('hide');
+        $('#modal-chose-repair .modal-content .collection .collection-item[data-id="'+
+        id+'"]').removeClass('white-text').addClass('black-text');
      $('#edit-delivery-repairs a.edit-delivery-repair[data-id="'+id+'"]').remove();
  }
- $('#edit-delivery-repairs a.edit-delivery-repair span').on(
+ $('#edit-delivery-repairs a.edit-delivery-repair span.remove-repair-from-delivery').on(
      'click',function(){
         var id = $(this).closest('a').data('id');
         remove_repairs_from_list(id);
@@ -174,8 +179,8 @@ $('.date').pickadate({
      });
      if($(this).hasClass('active')){
          center_to_add_to_delivery = null
-         //console.log('centro scelto: '+center_to_add_to_delivery);
-         //console.log(center_to_add_to_delivery);
+         console.log('centro scelto: '+center_to_add_to_delivery);
+         console.log(center_to_add_to_delivery);
          $(this).children('i').removeClass('smartbit').addClass('smartbit-text white');
          $(this).removeClass('active white-text').addClass('smartbit-text');
      }else{
@@ -184,8 +189,8 @@ $('.date').pickadate({
          center_to_add_to_delivery['recapito'] = $(this).data('rec');
          center_to_add_to_delivery['indirizzo'] = $(this).data('address');
          center_to_add_to_delivery['nome'] = $(this).data('title');
-         //console.log('centro scelto: '+center_to_add_to_delivery);
-         //console.log(center_to_add_to_delivery);
+         console.log('centro scelto: '+center_to_add_to_delivery);
+         console.log(center_to_add_to_delivery);
          $(this).addClass('active white-text');
      }
  });
@@ -195,14 +200,14 @@ $('.date').pickadate({
      'click',function(){
      if($(this).hasClass('active')){
             delete repairs_to_update_to_delivery[$(this).data('id')];
-            //console.log('riparazioni scelte :');
-            //console.log(repairs_to_update_to_delivery);
+            console.log('riparazioni scelte :');
+            console.log(repairs_to_update_to_delivery);
          $(this).removeClass('active white-text');
      }else{
          //center_to_add_to_delivery = $(this).data('id');
          repairs_to_update_to_delivery[$(this).data('id')] = $(this).text();
-         //console.log('riparazioni scelte :');
-            //console.log(repairs_to_update_to_delivery);
+         console.log('riparazioni scelte :');
+         console.log(repairs_to_update_to_delivery);
          $(this).addClass('active white-text');
      }
  });
@@ -222,8 +227,8 @@ $('.date').pickadate({
             $('#edit-delivery-repairs').append(header);
          for(id in repairs_to_update_to_delivery){
              if(id !==null){
-                 //console.log('quelli che stanno per essere rimessi sono:');
-                 //console.log(repairs_to_update_to_delivery[id]);
+                 console.log('quelli che stanno per essere rimessi sono:');
+                 console.log(repairs_to_update_to_delivery[id]);
                  $('#edit-delivery-repairs').append(
                  '<a data-id="'+id+'"'+
                  'class="edit-delivery-repair collection-item"'+
@@ -271,14 +276,86 @@ $('.date').pickadate({
    console.log('dada settata: '+$('input[name="date"]').val());
    if(Object.keys(repairs_to_update_to_delivery).length == 0){
      Materialize.toast('Non puoi spedire 0 telefoni, che ne dici di eliminare la spedizione?', 4000);
+     $('input[name="center_to_update"]').val('');
+       var a = '<a data-rec="'+backup_old_center['recapito']+'"'+
+              'data-address="'+backup_old_center['indirizzo']+'"'+
+              'data-title="'+backup_old_center['nome']+'"'+
+              'data-id="'+backup_old_center['id']+'"'+
+              'href="#modal-chose-center"'+
+              'class="edit-delivery-center collection-item avatar">'+
+              '<i class="material-icons smartbit circle">location_on</i>'+
+              '<span class="title">'+backup_old_center['nome']+'</span>'+
+              '<p class="truncate">'+backup_old_center['indirizzo']+'<br>'+
+              'recapito: '+backup_old_center['recapito']+
+              '</p>'+
+              '<span class="secondary-content"><i class="material-icons">edit</i></span>'+
+              '</a>';
+       var header = $('#edit-delivery-center.collection .collection-header');
+       $('#edit-delivery-center.collection').empty();
+       $('#edit-delivery-center.collection').append(header);
+       $('#edit-delivery-center.collection').append(a);
+ $('#modal-chose-repair .modal-content .collection .collection-item').each(function(){
+             if($(this).hasClass('active')){
+                 $(this).removeClass('active').addClass('hide');
+             }
+         });
+         $('input[name="repairs_to_update"]').val('');
+         var header = $('#edit-delivery-repairs .collection-header');
+         $('#edit-delivery-repairs').empty();
+            $('#edit-delivery-repairs').append(header);
+         for(id in backup_old_repairs){
+             if(id !==null){
+                 console.log('quelli che stanno per essere rimessi sono:');
+                 console.log(backup_old_repairs[id]);
+                 $('#edit-delivery-repairs').append(
+                 '<a data-id="'+id+'"'+
+                 'class="edit-delivery-repair collection-item"'+
+                 'data-show="'+backup_old_repairs[id]+'">'+
+                 backup_old_repairs[id]+
+                 '<span style="cursor:pointer" class="remove-repair-from-delivery secondary-content">'+
+                 '<i class="material-icons">delete</i></span></a>'
+                 );
+             }
+         }
+         for(var i=0;i<backup_old_repairs.length;i++){
+                delete backup_old_repairs[i];
+            }
+         $('#edit-delivery-repairs a.edit-delivery-repair span.remove-repair-from-delivery').on('click',function(){
+                var id = $(this).closest('a').data('id');
+                remove_repairs_from_list(id);
+ 		    });
+ 	       center_to_add_to_delivery['id'] = $('#edit-delivery-center.collection .collection-item').data('id');
+         center_to_add_to_delivery['indirizzo'] = $('#edit-delivery-center.collection .collection-item').data('address');
+         center_to_add_to_delivery['recapito'] = $('#edit-delivery-center.collection .collection-item').data('rec');
+         center_to_add_to_delivery['nome'] = $('#edit-delivery-center.collection .collection-item').data('title');
+          $('#edit-delivery-repairs a.edit-delivery-repair').each(function(){
+             repairs_to_update_to_delivery[$(this).data('id')] = $(this).data('show');
+             backup_old_repairs[$(this).data('id')] = $(this).data('show');
+         });
+   $('input[name="date"]').val(backup_old_date);
+   
+     $('a.update-delivery').addClass('hide');
+     $('a.go-delivery').removeClass('hide');
+     $('a.delete-delivery').removeClass('hide');
+     $('a.activate-edit-mode-delivery').removeClass('hide');
+     $('a.cancel-edit-delivery').addClass('hide');
+     $('input[name="date"]').attr('disabled','');
+     $('input[name="date"]').prop('readonly',true).removeClass('date').removeClass('picker__input');
+     
+     $('a.trigger-to-add-repairs').addClass('hide').removeClass('edit-delivery-repair').attr('href','');
+     $('#edit-delivery-center.collection .collection-item').attr('href','');
+     $('#edit-delivery-center.collection .collection-item').removeClass('edit-delivery-center');
+     $('#edit-delivery-repairs.collection .collection-item span.secondary-content').addClass('hide');
+     $('#edit-delivery-center.collection .collection-item span.secondary-content').addClass('hide');
+     
    }else{
      var data_preview = {
             'repairs_update':repairs_to_update_to_delivery,
             'centers_update':center_to_add_to_delivery,
             'date':$('input[name="date"]').val()
         };
-    //console.log('si sta per richiedere: ');
-    //console.log(data_preview);
+    console.log('si sta per richiedere: ');
+    console.log(data_preview);
      $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -296,13 +373,13 @@ $('.date').pickadate({
     }).done(function (data){
         backup_old_center = center_to_add_to_delivery;
         backup_old_repairs = repairs_to_update_to_delivery;
-      /*console.log(data);
+      console.log(data);
       console.log('----');
       console.log('backup_rapairs:');
       console.log(backup_old_repairs);
       console.log('----');
       console.log('backup_center:');
-      console.log(backup_old_center);*/
+      console.log(backup_old_center);
       Materialize.toast('Modifiche salvate! 😀', 4000);
       $('a.update-delivery').addClass('hide');
      $('a.go-delivery').removeClass('hide');

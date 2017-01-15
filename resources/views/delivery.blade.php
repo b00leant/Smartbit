@@ -9,7 +9,7 @@
             <p>Una volta stampata la ricevuta non potrai più modificarla</p>
         </div>
         <div class="modal-footer">
-            <a  target="_blank" class="modal-action modal-close waves-effect waves-light btn-flat  smartbit white-text">Stampa e vai!</a>
+            <a  target="_blank" class="print-delivery modal-action modal-close waves-effect waves-light btn-flat  smartbit white-text">Stampa e vai!</a>
             <a class=" modal-action modal-close waves-effect waves-light btn-flat">Annulla</a>
         </div>
     </div>
@@ -55,8 +55,8 @@
             <h4>Aggiungi Dispositivi da spedire</h4>
             <p>Scegli dalla lista:</p>
             <ul class="collection with-header">
-                    @if(isset($repairs))
-                    @foreach($repairs as $repair)
+                    @if(isset($repairs_to_send))
+                    @foreach($repairs_to_send as $repair)
                     <li data-id="{{$repair->id}}" class="collection-item">{{$repair->device->model}} ({{$repair->person->nome}} {{$repair->person->cognome}})</li>
                     @endforeach
                     @else
@@ -201,7 +201,7 @@
             <p>Una volta stampata la ricevuta non potrai più modificarla</p>
         </div>
         <div class="modal-footer">
-            <a  target="_blank" class="modal-action modal-close waves-effect waves-light btn-flat  smartbit white-text">Stampa e vai!</a>
+            <a  target="_blank" class="print-pickup modal-action modal-close waves-effect waves-light btn-flat  smartbit white-text">Stampa e vai!</a>
             <a class=" modal-action modal-close waves-effect waves-light btn-flat">Annulla</a>
         </div>
     </div>
@@ -247,8 +247,8 @@
             <h4>Aggiungi Dispositivi da ritirare</h4>
             <p>Scegli dalla lista:</p>
             <ul class="collection with-header">
-                    @if(isset($repairs))
-                    @foreach($repairs as $repair)
+                    @if(isset($repairs_to_pickup))
+                    @foreach($repairs_to_pickup as $repair)
                     <li data-id="{{$repair->id}}" data-show="{{$repair->device->model}} ({{$repair->seriale}})" class="collection-item">{{$repair->device->model}} ({{$repair->person->nome}} {{$repair->person->cognome}})</li>
                     @endforeach
                     @else

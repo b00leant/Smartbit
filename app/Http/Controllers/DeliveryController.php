@@ -41,7 +41,8 @@ class DeliveryController extends Controller
         if($request->has('center')){
             $repairs_to_send = App\Repair::where(['assistenza'=>true])
             ->where('stato','!=','finita')
-            ->where('stato','!=','consegnata')->get();
+            ->where('stato','!=','consegnata')
+            ->where('delivery_id','=',null)->get();
             foreach($repairs_to_send as $repair){
                 $repair->device();
                 $repair->person();
@@ -133,7 +134,12 @@ class DeliveryController extends Controller
             $delivery->repairs();
             $repairs_to_send = App\Repair::where(['assistenza'=>true])
             ->where('stato','!=','finita')
-            ->where('stato','!=','consegnata')->get();
+            ->where('stato','!=','consegnata')
+            ->where('delivery_id','=',null)->get();
+            $repairs_to_pickup = App\Repair::where(['assistenza'=>true])
+            ->where('stato','!=','finita')
+            ->where('stato','!=','consegnata')
+            ->where('delivery_id','!=',null)->get();
             foreach($repairs_to_send as $repair){
                 $repair->device();
                 $repair->person();
@@ -145,7 +151,8 @@ class DeliveryController extends Controller
             $tech_sups = App\TechnicalSupport::all();
             $delivery->technicalSupport();
             return View::make('delivery')->with([
-                'repairs'=>$repairs_to_send,
+                'repairs_to_send'=>$repairs_to_send,
+                'repairs_to_pickup'=>$repairs_to_pickup,
                 'tech_sups'=>$tech_sups,
                 'delivery'=>$delivery]);
         }catch(ModelNotFoundException $ex){

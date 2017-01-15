@@ -97,3 +97,9 @@ $('a.print-repair').on('click',function(){
 $('a.print-ddt').on('click',function(){
     
 });
+
+$('a.print-delivery').on('click',function(){
+    var doc = new jsPDF();
+    doc.text(20, 30, 'DDT: Lista spedizione Smartbit S.R.L');
+    doc.setFontSize(10);
+});

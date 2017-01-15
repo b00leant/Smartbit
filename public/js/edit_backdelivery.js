@@ -127,18 +127,18 @@ $('.date').pickadate({
  }
  
  //gestione rimozione riparazione per spedizione (NON MODAL)
- function remove_repairs_from_list(id){
+ function remove_repairs_from_list_back(id){
      delete repairs_to_update_to_delivery_back[id];
-       console.log('riparazioni da aggiornare :');
+       console.log('riparazioni da aggiornare dal ritiro:');
        console.log(repairs_to_update_to_delivery_back);
         $('#modal-chose-repair-back .modal-content .collection .collection-item[data-id="'+
-        id+'"]').removeClass('hide');
+        id+'"]').removeClass('hide').removeClass('white-text').addClass('black-text');
      $('#back-delivery-repairs a.back-delivery-repair[data-id="'+id+'"]').remove();
  }
- $('#back-delivery-repairs a.back-delivery-repair span').on(
+ $('#back-delivery-repairs a.back-delivery-repair span.remove-repair-from-delivery-back').on(
      'click',function(){
         var id = $(this).closest('a').data('id');
-        remove_repairs_from_list(id);
+        remove_repairs_from_list_back(id);
  });
  
  //gestione modal di scelta di riparazioni
@@ -188,9 +188,9 @@ $('.date').pickadate({
          for(var i=0;i<repairs_to_update_to_delivery_back.length;i++){
                 delete repairs_to_update_to_delivery_back[i];
             }
-         $('#back-delivery-repairs a.back-delivery-repair span').on('click',function(){
+         $('#back-delivery-repairs a.back-delivery-repair span.remove-repair-from-delivery-back').on('click',function(){
                 var id = $(this).closest('a').data('id');
-                remove_repairs_from_list(id);
+                remove_repairs_from_list_back(id);
  		    });
  		    console.log('riparazioni da ritirare');
  		    console.log(repairs_to_update_to_delivery_back);
@@ -201,6 +201,58 @@ $('.date').pickadate({
    console.log('dada settata: '+$('input[name="date"]').val());
    if(Object.keys(repairs_to_update_to_delivery_back).length == 0){
      Materialize.toast('Non puoi ritirare 0 telefoni, che ne dici di eliminare il ritiro?', 4000);
+     $('input[name="center_to_update"]').val('');
+       
+       var header = $('#edit-delivery-center.collection .collection-header');
+       
+ $('#modal-chose-repair-back .modal-content .collection .collection-item').each(function(){
+             if($(this).hasClass('active')){
+                 $(this).removeClass('active').addClass('hide');
+             }
+         });
+         $('input[name="repairs_to_update"]').val('');
+         var header = $('#back-delivery-repairs .collection-header');
+         $('#back-delivery-repairs').empty();
+            $('#back-delivery-repairs').append(header);
+         for(id in backup_old_repairs_back){
+             if(id !==null){
+                 //console.log('quelli che stanno per essere rimessi sono:');
+                 //console.log(backup_old_repairs[id]);
+                 $('#back-delivery-repairs').append(
+                 '<a data-id="'+id+'"'+
+                 'class="back-delivery-repair collection-item"'+
+                 'data-show="'+backup_old_repairs_back[id]+'">'+
+                 backup_old_repairs_back[id]+
+                 '<span style="cursor:pointer" class="remove-repair-from-delivery-back secondary-content">'+
+                 '<i class="material-icons">delete</i></span></a>'
+                 );
+             }
+         }
+         for(var i=0;i<backup_old_repairs_back.length;i++){
+                delete backup_old_repairs_back[i];
+            }
+         $('#back-delivery-repairs a.back-delivery-repair span').on('click',function(){
+                var id = $(this).closest('a').data('id');
+                remove_repairs_from_list(id);
+ 		    });
+ 	     
+          $('#back-delivery-repairs a.back-delivery-repair').each(function(){
+             repairs_to_update_to_delivery_back[$(this).data('id')] = $(this).data('show');
+             backup_old_repairs_back[$(this).data('id')] = $(this).data('show');
+         });
+   $('input[name="date"]').val(backup_old_date_back);
+   
+     $('a.update-back-delivery').addClass('hide');
+     $('a.go-back-delivery').removeClass('hide');
+     $('a.activate-back-mode-delivery').removeClass('hide');
+     $('a.cancel-back-delivery').addClass('hide');
+     $('input[name="date"]').attr('disabled','');
+     $('input[name="date"]').prop('readonly',true).removeClass('date').removeClass('picker__input');
+     
+     $('a.trigger-to-add-repairs-back').addClass('hide').removeClass('back-delivery-repair').attr('href','');
+     $('#back-delivery-center.collection .collection-item').attr('href','');
+     $('#back-delivery-repairs.collection .collection-item span.secondary-content').addClass('hide');
+     $('#back-delivery-center.collection .collection-item span.secondary-content').addClass('hide');
    }else{
      var data_preview = {
             'repairs_update':repairs_to_update_to_delivery_back,
