@@ -252,10 +252,10 @@
                     <a class="hide-slide-lab" 
                     style="height:64px;line-height:64px:margin;float: left;position: relative;z-index: 1;height: auto;margin: 0 0px;">
                         <!--[if !IE]> -->
-                        <i class="material-icons">arrow_back</i>
+                        <i class="material-icons white-text">arrow_back</i>
                         <!-- <![endif]-->
                         <!--[if lt IE 9]>
-                        <i class="material-icons">&#xE5C4;</i>
+                        <i class="material-icons white-text">&#xE5C4;</i>
                         <![endif]-->
                     </a>
                 </ul>
