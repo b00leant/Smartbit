@@ -75,7 +75,7 @@
                         <span data-badge-caption="" class="new badge green" style="margin-right:0.5em">garanzia</span>
                         @endif
                         @if($repair->assistenza === 1 or $repair->assistenza === true)
-                        <span data-badge-caption="" class="new badge green" style="margin-right:0.5em">assistenza</span>
+                        {{-- <span data-badge-caption="" class="new badge green" style="margin-right:0.5em">assistenza</span> --}}
                         @endif
                         Modello: {{$repair->device->model}} ({{$repair->person_name()}})
                     </a>
