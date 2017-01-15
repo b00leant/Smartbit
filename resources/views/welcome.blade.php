@@ -52,6 +52,20 @@
                             <!--[if lt IE 9]>
                             <i class="material-icons tooltipped" style="color:grey" data-tooltip="Consegnata">&#xE420;</i>
                             <![endif]-->
+                            @elseif($repair->stato === 'in_assistenza')
+                            <!--[if !IE]> -->
+                            <i class="material-icons tooltipped" style="color:grey" data-tooltip="In Centro Assistenza">location_on</i>
+                            <!-- <![endif]-->
+                            <!--[if lt IE 9]>
+                            <i class="material-icons tooltipped" style="color:grey" data-tooltip="In Centro Assistenza">&#xE0C8;</i>
+                            <![endif]-->
+                            @elseif($repair->stato === 'ritirata_dal_centro_assistenza')
+                            <!--[if !IE]> -->
+                            <i class="material-icons tooltipped" style="color:#4CAF50" data-tooltip="Tornata dall'assistenza">location_on</i>
+                            <!-- <![endif]-->
+                            <!--[if lt IE 9]>
+                            <i class="material-icons tooltipped" style="color:grey" data-tooltip="Tornata dall'assistenza">&#xE0C8;</i>
+                            <![endif]-->
                             @else
                             <i class="material-icons tooltipped" style="color:grey" data-tooltip="senza stato">error</i>
                             @endif

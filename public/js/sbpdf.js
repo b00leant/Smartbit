@@ -102,4 +102,27 @@ $('a.print-delivery').on('click',function(){
     var doc = new jsPDF();
     doc.text(20, 30, 'DDT: Lista spedizione Smartbit S.R.L');
     doc.setFontSize(10);
+    doc.text(20,45, 'presso il centro riparazione specializzato: '+backup_old_center.nome);
+    doc.text(20,50, '('+backup_old_center.indirizzo+')');
+    var offset = 5;
+    doc.text(20,60, 'riparazioni da stampare:');
+    for(var i in backup_old_repairs){
+        doc.text(20, 15 + (offset * i),'- '+backup_old_repairs[i]);
+    }
+    doc.text(20,260,'in data: '+backup_old_date);
+    doc.save('ddt.pdf');
+});
+$('a.print-pickup').on('click',function(){
+    var doc = new jsPDF();
+    doc.text(20, 30, 'DDT: Lista ritiro Smartbit S.R.L');
+    doc.setFontSize(10);
+    doc.text(20,45, 'presso il centro riparazione specializzato: '+backup_old_center_back.nome);
+    doc.text(20,50, '('+backup_old_center_back.indirizzo+')');
+    var offset = 5;
+    doc.text(20,60, 'riparazioni da stampare:');
+    for(var i in backup_old_repairs_back){
+        doc.text(20, 25 + (offset * i),'- '+backup_old_repairs_back[i]);
+    }
+    doc.text(20,260,'in data: '+backup_old_date_back);
+    doc.save('ddt-ritiro.pdf');
 });

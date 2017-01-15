@@ -74,9 +74,9 @@ Route::group(['middleware' => 'bdetect'], function () {
     
     Route::get('delivery/{id}',['uses'=>'DeliveryController@show'])->middleware('auth');
     
-    Route::get('delivery-go/{id}',['uses'=>'PDFController@ddt'])->middleware('auth');
+    Route::get('delivery-go/{id}',['uses'=>'DeliveryController@ddt'])->middleware('auth');
     
-    Route::get('pickup-go/{id}',['uses'=>'PDFController@ddtPickup'])->middleware('auth');
+    Route::get('pickup-go/{id}',['uses'=>'DeliveryController@ddtPickup'])->middleware('auth');
     
     Route::get('/ricevuta/{id}',['uses'=>'PDFController@ricevuta'])->middleware('auth');
     

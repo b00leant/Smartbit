@@ -139,7 +139,7 @@ class DeliveryController extends Controller
             $repairs_to_pickup = App\Repair::where(['assistenza'=>true])
             ->where('stato','!=','finita')
             ->where('stato','!=','consegnata')
-            ->where('delivery_id','!=',null)->get();
+            ->where('delivery_id','not',null)->get();
             foreach($repairs_to_send as $repair){
                 $repair->device();
                 $repair->person();
@@ -226,6 +226,39 @@ class DeliveryController extends Controller
             }
         }else{
             return $response;
+        }
+    }
+    public function ddt($id){
+        try{
+            $delivery = App\Delivery::where(['id'=>$id])->firstOrFail();
+            $delivery->stato = 'spedita';
+            $delivery->save();
+            foreach($delivery->repairs as $repair){
+                $repair->delivery()->dissociate();
+                $repair->stato = 'in_assistenza';
+                $repair->save();
+            }
+            $delivery->delete();
+            return redirect('/#del');
+        }catch(ModelNotFoundException $ex){
+            return redirect('/#del');
+        }
+    }
+    public function ddtPickup($id){
+        try{
+            $delivery = App\Delivery::where(['id'=>$id])->firstOrFail();
+            $delivery->stato = 'ritirata';
+            $delivery->save();
+            $repairs = $delivery->repairs;
+            foreach($delivery->repairs as $repair){
+                $repair->delivery()->dissociate();
+                $repair->stato = 'ritirata_dal_centro_assistenza';
+                $repair->save();
+            }
+            $delivery->delete();
+            return redirect('/#del');
+        }catch(ModelNotFoundException $ex){
+            return redirect('/#del');
         }
     }
     //
