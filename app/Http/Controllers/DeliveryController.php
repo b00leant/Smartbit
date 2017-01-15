@@ -139,7 +139,7 @@ class DeliveryController extends Controller
             $repairs_to_pickup = App\Repair::where(['assistenza'=>true])
             ->where('stato','!=','finita')
             ->where('stato','!=','consegnata')
-            ->where('delivery_id','not',null)->get();
+            ->where('delivery_id','!=',null)->get();
             foreach($repairs_to_send as $repair){
                 $repair->device();
                 $repair->person();
