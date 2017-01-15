@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use \BrowserDetect;
+use BrowserDetect;
 
 class BDetect
 {
