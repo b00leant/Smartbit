@@ -57,10 +57,10 @@
                             @endif
                         
                         </div>
-                        @if($repair->garanzia === 1)
+                        @if($repair->garanzia === 1 or $repair->garanzia === true)
                         <span data-badge-caption="" class="new badge green" style="margin-right:0.5em">garanzia</span>
                         @endif
-                        @if($repair->assistenza === 1)
+                        @if($repair->assistenza === 1 or $repair->assistenza === true)
                         <span data-badge-caption="" class="new badge green" style="margin-right:0.5em">assistenza</span>
                         @endif
                         Modello: {{$repair->device->model}} ({{$repair->person_name()}})
