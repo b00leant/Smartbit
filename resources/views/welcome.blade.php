@@ -5,7 +5,29 @@
     <div class="col s12">
         <div class="section">
             <div id="rip" class="collection with-header container">
-              
+            <nav>
+                <div class="nav-wrapper">
+                  <form>
+                    <div class="input-field">
+                      <input id="search" class="autocomplete2showREP repairs "  onkeyup="handleRepairsCollectionShow();" autocomplete="off" type="search" required>
+                      <label for="search">
+                          <!--[if !IE]> -->
+                        <i class="material-icons">search</i>
+                        <!-- <![endif]-->
+                        <!--[if lt IE 9]>
+                        <i class="material-icons">&#xE8B6;</i>
+                        <![endif]-->
+                          </label>
+                        <!--[if !IE]> -->
+                        <i class="material-icons" onclick="handleFocusOut();">close</i>
+                        <!-- <![endif]-->
+                        <!--[if lt IE 9]>
+                        <i class="material-icons" onclick="handleFocusOut();">&#xE5CD;</i>
+                        <![endif]-->
+                    </div>
+                  </form>
+                </div>
+            </nav>  
             <div class="collection-header">
                 <h4>Riparazioni</h4>
                 <a class="btn-floating btn waves-effect waves-light smartbit" href="{{ url('select-repair-owner') }}">

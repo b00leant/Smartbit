@@ -38,6 +38,8 @@ Route::group(['middleware' => 'bdetect'], function () {
     
     Route::get('/ajax-people', 'AjaxController@people')->middleware('auth');
     
+    Route::get('/ajax-repairs', 'AjaxController@repairs')->middleware('auth');
+    
     Route::post('/repairs-pagination','RepairController@index')->middleware('auth');
     
     Route::post('/people-pagination','PersonController@index')->middleware('auth');
@@ -109,4 +111,5 @@ Route::group(['middleware' => 'bdetect'], function () {
     Route::post('sms-status-repair/{id}',['uses' => 'AjaxController@sendSMSRepairStatus'])->middleware('auth');
     
     //Route::get('/ajax-search-models', 'AjaxController@searchModels');
+
 });

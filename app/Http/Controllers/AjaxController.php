@@ -54,6 +54,21 @@ class AjaxController extends Controller
             }
         }
     }
+    public function repairs(Request $request){
+        if ($request->ajax()){
+            $repairs = App\Repair::all();
+            foreach($repairs as $repair){
+                $repair->person;
+                $repair->device;
+            }
+            if (!$repairs->isEmpty()){
+                return $repairs;
+            }else{
+                $response = array(['success' => 'false','errors'=>'non si trova'],400);
+                return $response;
+            }
+        }
+    }
     public function searchModels(Request $request)
     {
         if ($request->ajax()){

@@ -746,6 +746,8 @@
             });
             autocompleteModels();
             autocompletePeople();
+            
+            autocompleteRepairs();
             //autocompleteParts();
             $(document).ready(function(){
               $('.parallax').parallax();
