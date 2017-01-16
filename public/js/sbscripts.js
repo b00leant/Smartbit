@@ -1,8 +1,9 @@
 function handleFocusOut(){
     $('ul.pagination').show();
     $('input.people.autocomplete2show').val('');
+    $('input.repairs.autocomplete2showREP').val('');
     $('div.collection.with-header.people').show();
-    $('div.collection.with-header.people').show();
+    $('div.collection.with-header.repairs').show();
     $('ul.dropdown-content').hide();
 }
 
