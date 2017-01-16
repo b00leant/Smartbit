@@ -2,6 +2,7 @@ function handleFocusOut(){
     $('ul.pagination').show();
     $('input.people.autocomplete2show').val('');
     $('div.collection.with-header.people').show();
+    $('div.collection.with-header.people').show();
     $('ul.dropdown-content').hide();
 }
 
@@ -9,6 +10,13 @@ function handleCollectionShow(){
     if($('input.autocomplete.people').val()!=''){
         $('ul.pagination').hide();
         $('div.collection.with-header.people').hide();
+        $('ul.dropdown-content').show();
+    }else{
+        
+    }
+    if($('input.autocomplete2showREP.repairs').val()!=''){
+        $('ul.pagination').hide();
+        $('div.collection.with-header.repairs').hide();
         $('ul.dropdown-content').show();
     }else{
         
