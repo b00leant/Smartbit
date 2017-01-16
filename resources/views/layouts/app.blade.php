@@ -465,7 +465,7 @@
     <!--script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script-->
     <!-- JavaScripts -->
     <script src="{{ asset('js/bin/materialize.js') }}"></script>
-    <script src="{{ asset('js/sbscripts.js') }}"></script>
+    
     
     @if(Route::getCurrentRoute()->getPath() === '/' and Auth::guest())
     <script async defer
@@ -606,7 +606,8 @@
     <script src="{{ asset('js/sbaddress.js') }}"></script>
     <script src="{{ asset('js/edit_delivery.js') }}"></script>
     <script src="{{ asset('js/edit_backdelivery.js') }}"></script>
-    
+    <script src="{{ asset('js/sbscripts.js') }}"></script>
+    <script src="{{ asset('js/autocompleteRepairs.js') }}"></script>
     <!--script src="{{ asset('js/html2canvas.js') }}"></script-->
     <!--script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script-->
     <script src="{{ asset('js/jspdf/dist/jspdf.debug.js') }}"></script>
@@ -744,10 +745,7 @@
                   return false;
                 }
             });
-            autocompleteModels();
-            autocompletePeople();
             
-            autocompleteRepairs();
             //autocompleteParts();
             $(document).ready(function(){
               $('.parallax').parallax();

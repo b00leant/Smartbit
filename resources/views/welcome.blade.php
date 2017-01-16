@@ -9,7 +9,7 @@
                 <div class="nav-wrapper">
                   <form>
                     <div class="input-field">
-                      <input id="search" class="autocomplete2showREP repairs "  onkeyup="handleRepairsCollectionShow();" autocomplete="off" type="search" required>
+                      <input id="search" class="autocomplete2showREP repairs"  onkeyup="handleCollectionShow();" autocomplete="off" type="search" required>
                       <label for="search">
                           <!--[if !IE]> -->
                         <i class="material-icons">search</i>
