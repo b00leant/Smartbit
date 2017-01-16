@@ -9,6 +9,8 @@
             html, body {
                 background: url('http://sf.co.ua/16/01/wallpaper-5da9.jpg');
                 height: 100%;
+                background-size: cover;
+                background-repeat: no-repeat;
             }
 
             body {
