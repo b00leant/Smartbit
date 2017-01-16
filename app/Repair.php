@@ -14,11 +14,15 @@ class Repair extends Model
         'device_id',
         'seriale',
         'creazione',
-        'stato'
+        'stato',
+        'technical_support_id'
         ];
     
     public function delivery(){
         return $this->belongsTo('App\Delivery');
+    }
+    public function technicalSupport(){
+        return $this->belongsTo('App\TechnicalSupport');
     }
     public function person_name(){
         $person = $this->person;

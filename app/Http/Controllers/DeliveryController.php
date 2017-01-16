@@ -42,6 +42,7 @@ class DeliveryController extends Controller
             $repairs_to_send = App\Repair::where(['assistenza'=>true])
             ->where('stato','!=','finita')
             ->where('stato','!=','consegnata')
+            ->where('stato','!=','in_assistenza')
             ->where('delivery_id','=',null)->get();
             foreach($repairs_to_send as $repair){
                 $repair->device();
@@ -137,9 +138,8 @@ class DeliveryController extends Controller
             ->where('stato','!=','consegnata')
             ->where('delivery_id','=',null)->get();
             $repairs_to_pickup = App\Repair::where(['assistenza'=>true])
-            ->where('stato','!=','finita')
-            ->where('stato','!=','consegnata')
-            ->where('delivery_id','!=',null)->get();
+            ->where('stato','=','in_assistenza')
+            ->where('technical_support_id','=',''.$delivery->technicalSupport->id)->get();
             foreach($repairs_to_send as $repair){
                 $repair->device();
                 $repair->person();
@@ -233,10 +233,12 @@ class DeliveryController extends Controller
             $delivery = App\Delivery::where(['id'=>$id])->firstOrFail();
             $delivery->stato = 'spedita';
             $delivery->save();
+            $tech_sup = $delivery->technicalSupport;
             foreach($delivery->repairs as $repair){
                 $repair->delivery()->dissociate();
                 $repair->stato = 'in_assistenza';
                 $repair->save();
+                $tech_sup->repairs()->save($repair);
             }
             $delivery->delete();
             return redirect('/#del');
@@ -252,6 +254,7 @@ class DeliveryController extends Controller
             $repairs = $delivery->repairs;
             foreach($delivery->repairs as $repair){
                 $repair->delivery()->dissociate();
+                $repair->technicalSupport()->dissociate();
                 $repair->stato = 'ritirata_dal_centro_assistenza';
                 $repair->save();
             }

@@ -14,7 +14,9 @@ class TechnicalSupport extends Model
         'telefono'
         ];
     protected $table = 'technical_supports';
-    
+    public function repairs(){
+        return $this->hasMany('App\Repair');
+    }
     public function deliveries(){
         return $this->hasMany('App\Delivery');
     }
