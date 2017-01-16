@@ -10,7 +10,7 @@ function handleFocusOut(){
 function handleCollectionShow(){
     if($('input.autocomplete.people').val()!=''){
         $('ul.pagination').hide();
-        $('div.collection.with-header.repairs').hide();
+        $('div.collection.with-header.people').hide();
         $('ul.dropdown-content').show();
     }else{
         
