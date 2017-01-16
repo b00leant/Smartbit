@@ -13,14 +13,18 @@ function handleCollectionShow(){
         $('div.collection.with-header.people').hide();
         $('ul.dropdown-content').show();
     }else{
-        
+        $('div.collection.with-header.people').show();
+        $('div.collection.with-header.repairs').show();
+        $('ul.dropdown-content').hide();
     }
     if($('input.autocomplete2showREP.repairs').val()!=''){
         $('ul.pagination').hide();
         $('div.collection.with-header.repairs').hide();
         $('ul.dropdown-content').show();
     }else{
-        
+        $('div.collection.with-header.people').show();
+        $('div.collection.with-header.repairs').show();
+        $('ul.dropdown-content').hide();
     }
 }
 
