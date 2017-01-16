@@ -7,7 +7,7 @@ function handleFocusOut(){
     $('ul.dropdown-content').hide();
 }
 
-function handleCollectionShow(){
+function handleCollectionShowPeople(){
     if($('input.autocomplete.people').val()!=''){
         $('ul.pagination').hide();
         $('div.collection.with-header.people').hide();
@@ -16,6 +16,8 @@ function handleCollectionShow(){
         $('div.collection.with-header.people').show();
         $('ul.dropdown-content').hide();
     }
+}
+function handleCollectionShowRepairs(){
     if($('input.autocomplete2showREP.repairs').val()!=''){
         $('ul.pagination').hide();
         $('div.collection.with-header.repairs').hide();

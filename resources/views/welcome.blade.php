@@ -9,7 +9,7 @@
                     <div class="nav-wrapper">
                       <form>
                         <div class="input-field">
-                          <input placeholder="Cerca per seriale" id="search" class="autocomplete2showREP repairs"  onkeyup="handleCollectionShow();" autocomplete="off" type="search" required>
+                          <input placeholder="Cerca per seriale" id="search" class="autocomplete2showREP repairs"  onkeyup="handleCollectionShowRepairs();" autocomplete="off" type="search" required>
                           <label for="search">
                               <!--[if !IE]> -->
                             <i class="material-icons">search</i>
@@ -212,7 +212,7 @@
                 <div class="nav-wrapper">
                   <form>
                     <div class="input-field">
-                      <input id="search" class="autocomplete2show people "  onkeyup="handleCollectionShow();" autocomplete="off" type="search" required>
+                      <input id="search" class="autocomplete2show people "  onkeyup="handleCollectionShowPeople();" autocomplete="off" type="search" required>
                       <label for="search">
                           <!--[if !IE]> -->
                         <i class="material-icons">search</i>
