@@ -3127,8 +3127,7 @@ a {
 
 html {
   line-height: 1.5;
-  font-family: "Abel", sans-serif; /*"Roboto", sans-serif;*/
-  font-weight: bold;
+  font-family: "Roboto", sans-serif;
   /* aggiunto io */
   font-style: normal;
 	font-variant: normal;

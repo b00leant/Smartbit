@@ -44,6 +44,8 @@
     <link rel="stylesheet" src="{{ asset('css/font-awesome.min.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
     <!--link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700"-->
 
     <!-- Styles -->
@@ -111,7 +113,7 @@
     @if(Auth::guest())
     <nav class="z-depth-1" style="position:fixed;z-index:4;">
     <div class="nav-wrapper">
-        <a href="/" class="brand-logo center">Smartbit</a>
+        <a href="/" class="brand-logo center" style="font-family: 'Source Code Pro', cursive;">Smartbit</a>
     </div>
 </nav>
     {{------------------ DEFINISCO NAVIGAZIONE NEL LABORATORIO ---------------}}
@@ -198,14 +200,14 @@
                     </li>
                 </ul>
                 
-                <a href="/" class="brand-logo center">Smartbit</a>
+                <a href="/" class="brand-logo center" style="font-family: 'Source Code Pro', cursive;">Smartbit</a>
             </div>
         </nav>
     {{------------------ DEFINISCO NAVIGAZIONE NELLA HOME ADMIN -------------}}
     @else
     <nav class="z-depth-1 nav-extended" style="position:fixed;z-index:4;">
             <div class="nav-wrapper">
-                <a href="/" class="brand-logo center">Smartbit</a>
+                <a href="/" class="brand-logo center" style="font-family: 'Source Code Pro', cursive;">Smartbit</a>
                 <ul class="left">
                     <a href="#" data-activates="slide-out" class="sbmenu" 
                     style="height:64px;line-height:64px:margin;float: left;position: relative;z-index: 1;height: auto;margin: 0 0px;">

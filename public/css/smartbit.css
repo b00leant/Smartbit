@@ -115,3 +115,6 @@ main > div:first-child{
 main > div.home:first-child{
     padding-top: 54px; /*165px;*/
 }
+.brand-logo:hover{
+    color:#ffab00;
+}
