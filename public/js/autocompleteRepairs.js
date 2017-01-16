@@ -94,8 +94,8 @@ $.fn.autocompletesb2showREP = function(options){
                             var autocompleteOption = $('<li data-seriale="'+data[key].seriale+'" data-modello="'+data[key].modello+'" data-proprietario="'+data[key].proprietario+'"></li>');
                             autocompleteOption.append('<a href="/repair/'+data[key].id+'"><span>'+data[key].modello+' ('+data[key].seriale +')</span></a>');
                             $autocomplete.append(autocompleteOption);
+                            highlight(val, autocompleteOption);
                             i++;
-                            //highlight(val, autocompleteOption);
                         }else{
                             /*
                             var autocompleteOption = $('<li><span>Aggiungi Cliente</span></li>');
