@@ -746,7 +746,11 @@
                 }
             });
             
-            //autocompleteParts();
+            autocompleteModels();
+            autocompletePeople();
+            autocompleteRepairs();
+            
+            
             $(document).ready(function(){
               $('.parallax').parallax();
             })

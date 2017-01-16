@@ -1,6 +1,4 @@
-autocompleteModels();
-autocompletePeople();
-autocompleteRepairs();
+
             
 function autocompleteRepairs(){
     $.ajaxSetup({
