@@ -628,6 +628,10 @@
         });*/
  		$(document).ready(function(){
  		    
+ 		    autocompleteModels();
+            autocompletePeople();
+            autocompleteRepairs();
+ 		    
  		    /*if(!Modernizr.input.placeholder) {
                 //insert placeholder polyfill script here.
             }*/
@@ -746,9 +750,7 @@
                 }
             });
             
-            autocompleteModels();
-            autocompletePeople();
-            autocompleteRepairs();
+            
             
             
             $(document).ready(function(){
