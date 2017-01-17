@@ -72,7 +72,6 @@ class LabController extends Controller
             }
         }
     }
-    
     public function finishLab($id){
         try{
             $repair = App\Repair::where(['id'=>$id])->firstOrFail();
