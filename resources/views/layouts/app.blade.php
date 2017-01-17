@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     
     <html itemscope itemtype="http://schema.org/LocalBusiness">
 
@@ -34,8 +34,6 @@
     <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('images/Icon-76@2x.png') }}" />
     <link rel="apple-touch-icon" sizes="58x58" href="{{ asset('images/Icon-Small@2x.png') }}" />
     
-    <!--meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, user-scalable=no' name='viewport' /-->
-    <!--meta name="viewport" content="width=device-width, initial-scale=1"-->
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>SmartBit</title>
 
