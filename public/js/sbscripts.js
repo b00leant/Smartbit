@@ -82,14 +82,14 @@ $.fn.searchModels = function(){
             success: function(result){
                 $input.focusout(function(){
                     console.log(clicky);
-                    console.log(clicky[0]);
+                    console.log(clicky[0].className);
                     console.log(JSON.stringify(clicky[0]));
                     if($('input[name="brand"]').val()=='' && $('input[name="model"]').val()==''){
                     $('input.devices').val('');
-                    if(!clicky[0] == $('span.device-list-ajax')){
-                        console.log($('span.device-list-ajax'));
-                        console.log('beccato!');
+                    if(JSON.stringify(clicky[0]) != 'span.device-list-ajax'){
                         $autocomplete.empty();
+                    }else{
+                        console.log('beccato!');
                     }
                 }
                 });
