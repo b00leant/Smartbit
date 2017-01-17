@@ -82,6 +82,7 @@ $.fn.searchModels = function(){
             success: function(result){
                 $input.focusout(function(){
                     console.log(clicky);
+                    console.log(clicky[0]);
                     console.log(clicky['context']);
                     console.log(JSON.stringify(clicky['context']));
                     if($('input[name="brand"]').val()=='' && $('input[name="model"]').val()==''){
