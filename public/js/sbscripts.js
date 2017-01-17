@@ -1,3 +1,16 @@
+var clicky;
+
+    $(document).mousedown(function(e) {
+        // The latest element clicked
+        clicky = $(e.target);
+    });
+
+    // when 'clicky == null' on blur, we know it was not caused by a click
+    // but maybe by pressing the tab key
+    $(document).mouseup(function(e) {
+        clicky = null;
+    });
+
 $('.brand-logo').on('mouseover',function(){
     $('.brand-logo-part').css('color','#ffab00');
 });
@@ -68,9 +81,12 @@ $.fn.searchModels = function(){
             },
             success: function(result){
                 $input.focusout(function(){
+                    console.log(clicky);
                     if($('input[name="brand"]').val()=='' && $('input[name="model"]').val()==''){
                     $('input.devices').val('');
-                    $autocomplete.empty();
+                    if(!clicky[0].hasClass('device-list-ajax')){
+                        $autocomplete.empty();
+                    }
                 }
                 });
                 console.log(result);
@@ -81,7 +97,7 @@ $.fn.searchModels = function(){
                         for(var i = 0; i < 6; i++){
                             if(result[i]){
                                 var autocompleteOption = $('<li data-model="'+result[i].DeviceName+'" data-brand="'+result[i].Brand+'"></li>');
-                                autocompleteOption.append('<span>'+result[i].DeviceName+'</span>');
+                                autocompleteOption.append('<span class="device-list-ajax">'+result[i].DeviceName+'</span>');
                                 $autocomplete.append(autocompleteOption);
                             }
                         }
@@ -331,8 +347,6 @@ $('.datanascita').pickadate({
 function handleFocusOutDevices(){
     if($('input[name="brand"]').val()=='' && $('input[name="model"]').val()==''){
         $('input.devices').val('');
-        
-        
     }
 }
 
