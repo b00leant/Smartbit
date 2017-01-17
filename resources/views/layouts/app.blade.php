@@ -595,11 +595,11 @@
           map: map,
           url: 'https://www.google.it/maps/place/SmartBit+srl/@41.7754322,12.9219192,17z/data=!4m13!1m7!3m6!1s0x13257c4bd7fa4e6b:0x4f05bd31eb2115e3!2sVia+Casilina,+343,+00038+Valmontone+RM!3b1!8m2!3d41.7754322!4d12.9241079!3m4!1s0x13257c4bd7f94c29:0x7358b3e1dbf0f754!8m2!3d41.7754322!4d12.9241079'
         });
-        google.maps.event.addDomListener(window, "resize", function() {
+        /*google.maps.event.addDomListener(window, "resize", function() {
          var center = map.getCenter();
          google.maps.event.trigger(map, "resize");
          map.setCenter(center); 
-        });
+        });*/
         google.maps.event.addListener(marker, 'click', function() {
           //window.location.href = marker.url;
           window.open(marker.url,'_blank');
