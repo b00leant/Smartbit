@@ -36,9 +36,8 @@ function handleCollectionShowRepairs(){
     }
 }
 
-function autocompleteModels(){
-    $('input.autocomplete.devices').searchModels();
-}
+
+
 
 $('.autocomplete-content').on('click', 'li', function () {            
      $('.autocomplete-content').hide();
@@ -49,9 +48,11 @@ $('input.autocomplete.devices').on('keyup',function(){ $('.autocomplete-content'
 $.fn.searchModels = function(){
     var $autocomplete = $('<ul style="width: 100%;position: absolute;"class="autocomplete-content dropdown-content"></ul>');
     $('input.autocomplete.devices').keyup(function(){
+        $('input[name="brand"]').val('');
+        $('input[name="model"]').val('');
+        console.log('sto cercando.. '+$('input.autocomplete.devices').val());
         $('ul.dropdown-content').remove();
         var $input = $(this);
-        var model = $(this).val();
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
@@ -62,24 +63,28 @@ $.fn.searchModels = function(){
             type: 'GET',
             data:{
                 'token':'15045954778ae6eec5a699010275f8def0c38edc83b69bab',
-                'device':model,
+                'device':$input.val(),
                 'limit':'10',
             },
             success: function(result){
-                //var len = result.length;
                 console.log(result);
-                $autocomplete.empty();
-                $('input.autocomplete.devices').after($autocomplete);
-                if($input.val()!=''){
-                    for(var i = 0; i < 6; i++) {
-                        if(result[i].DeviceName !== undefined){
-                            var autocompleteOption = $('<li data-model="'+result[i].DeviceName+'" data-brand="'+result[i].Brand+'"></li>');
-                            autocompleteOption.append('<span>'+result[i].DeviceName+'</span>');
-                            $autocomplete.append(autocompleteOption);
-                        }
-                    }
+                console.log('.....elaboro.....');
+                if(result.length === 0){
+                    
                 }else{
+                    $('input.autocomplete.devices').after($autocomplete);
+                    if($input.val()!=''){
+                        for(var i = 0; i < 6; i++) {
+                            if(result[i]){
+                                var autocompleteOption = $('<li data-model="'+result[i].DeviceName+'" data-brand="'+result[i].Brand+'"></li>');
+                                autocompleteOption.append('<span>'+result[i].DeviceName+'</span>');
+                                $autocomplete.append(autocompleteOption);
+                            }
+                        }
+                    }else{
+                    }
                 }
+                
                 $autocomplete.on('click', 'li', function () {
                 $('button.insert_person i').html('send');
                 $('input[name="model"]').val($(this).data('model'));
@@ -101,6 +106,8 @@ $.fn.searchModels = function(){
         });
     });
 };
+
+$('input.autocomplete.devices').searchModels();
 
 function autocompletePeople(){
     $.ajaxSetup({
@@ -326,8 +333,6 @@ function handleFocusOutDevices(){
 }
 
 function handleKeyUpDevices(){
-    $('input[name="brand"]').val('');
-    $('input[name="model"]').val('');
 }
 
 $('input.autocomplete.devices').focusout(function(){

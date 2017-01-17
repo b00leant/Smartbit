@@ -19,7 +19,7 @@
                 <input type="hidden" name="id" value="">
                 <input type="hidden" name="brand" value="">
                 <input type="hidden" name="model" value="">
-                <input required type="text" name="devicecomplete" value="" autocomplete="off" onkeyup="handleKeyUpDevices()" id="autocomplete-devices" class="autocomplete devices">
+                <input required type="text" name="devicecomplete" value="" autocomplete="off" id="autocomplete-devices" class="autocomplete devices">
                 <label for="autocomplete-devices">Modello/Sigla</label>
             </div>
             <div class="input-field col s12">

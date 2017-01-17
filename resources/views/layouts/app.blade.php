@@ -472,12 +472,14 @@
     <!--Import jQuery before materialize.js-->
     <!--script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script-->
     <script src="{{ asset('js/jquery/jquery-2.1.1.js') }}"></script>
-     <!--script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script--> 
-     <!--script src="{{ asset('js/modernizr/modernizr.js') }}"></script--> 
+    <!--script src="//cdnjs.cloudflare.com/ajax/libs/coffee-script/1.7.1/coffee-script.min.js"></script>
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script--> 
+    <script src="{{ asset('js/modernizr/modernizr.js') }}"></script>
     <!-- Compiled and minified JavaScript -->
     <!--script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script-->
     <!-- JavaScripts -->
     <script src="{{ asset('js/bin/materialize.js') }}"></script>
+    
     
     
     @if(Route::getCurrentRoute()->getPath() === '/')
@@ -640,14 +642,15 @@
             
         });*/
  		$(document).ready(function(){
- 		    
- 		    autocompleteModels();
+ 		    if(!Modernizr.canvas) {
+ 		        $('.seencanvas').remove();
+                //insert placeholder polyfill script here.
+            }
+            
+ 		    //autocompleteModels();
             autocompletePeople();
             autocompleteRepairs();
  		    
- 		    /*if(!Modernizr.input.placeholder) {
-                //insert placeholder polyfill script here.
-            }*/
  		    
  		    lastEvent = void 0;
 
@@ -791,6 +794,7 @@
   	    });
     </script>
 </main>
+<canvas width="900" height="500" class="seen-canvas" id="seen-canvas"></canvas>
 @if(Route::getCurrentRoute()->getPath() === '/')
 <footer class="page-footer" style="position:relative;
     width: 100%;
@@ -851,6 +855,7 @@
     <!--a class="grey-text text-lighten-4 right" href="#!">More Links</a-->
         </div>
     </div>
+    
 </footer>
 @endif
 </body>
