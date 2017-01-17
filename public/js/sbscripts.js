@@ -87,6 +87,8 @@ $.fn.searchModels = function(){
                     if($('input[name="brand"]').val()=='' && $('input[name="model"]').val()==''){
                     $('input.devices').val('');
                     if(!clicky[0] == $('span.device-list-ajax')){
+                        console.log($('span.device-list-ajax'));
+                        console.log('beccato!');
                         $autocomplete.empty();
                     }
                 }
