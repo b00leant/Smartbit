@@ -640,10 +640,6 @@
             
         });*/
  		$(document).ready(function(){
- 		    if(!Modernizr.canvas) {
- 		        $('.seencanvas').remove();
-                //insert placeholder polyfill script here.
-            }
             
  		    //autocompleteModels();
             autocompletePeople();
@@ -792,7 +788,6 @@
   	    });
     </script>
 </main>
-<canvas width="900" height="500" class="seen-canvas" id="seen-canvas"></canvas>
 @if(Route::getCurrentRoute()->getPath() === '/')
 <footer class="page-footer" style="position:relative;
     width: 100%;
