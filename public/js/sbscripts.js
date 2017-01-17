@@ -86,7 +86,7 @@ $.fn.searchModels = function(){
                     console.log(JSON.stringify(clicky['context']));
                     if($('input[name="brand"]').val()=='' && $('input[name="model"]').val()==''){
                     $('input.devices').val('');
-                    if(!clicky[0].hasClass('device-list-ajax')){
+                    if(!clicky[0] == $('span.device-list-ajax')){
                         $autocomplete.empty();
                     }
                 }
