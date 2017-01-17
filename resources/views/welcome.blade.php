@@ -3,7 +3,7 @@
 @if(Auth::check())
 <style type="text/css">
     body{
-        background-image: url('{{asset("images/dark_dotted2_@2X.png")}}');
+        background-image: url('{{assets('images/dark_dotted2_@2X.png')}}');
         background-repeat: repeat;
     }
 </style>
