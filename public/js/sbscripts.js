@@ -67,6 +67,12 @@ $.fn.searchModels = function(){
                 'limit':'10',
             },
             success: function(result){
+                $input.focusout(function(){
+                    if($('input[name="brand"]').val()=='' && $('input[name="model"]').val()==''){
+                    $('input.devices').val('');
+                    $autocomplete.empty();
+                }
+                });
                 console.log(result);
                 console.log('.....elaboro.....');
                 $autocomplete.empty();
@@ -325,6 +331,7 @@ $('.datanascita').pickadate({
 function handleFocusOutDevices(){
     if($('input[name="brand"]').val()=='' && $('input[name="model"]').val()==''){
         $('input.devices').val('');
+        
         
     }
 }
