@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App;
 use View;
+use SMSGateway;
 use Carbon;
 use App\Http\Requests;
 use Illuminate\Http\Request;
@@ -292,6 +293,7 @@ class DeliveryController extends Controller
                 $repair->save();
                 $tech_sup->repairs()->save($repair);
                 $tech_sup->save();
+                app('App\Http\Controllers\SMSContoller')->sendDeliverySMS($repair->id);
             }
             $delivery->delete();
             return redirect('/home#del');
@@ -304,12 +306,14 @@ class DeliveryController extends Controller
             $delivery = App\Delivery::where(['id'=>$id])->firstOrFail();
             $delivery->stato = 'ritirata';
             $delivery->save();
+            $tech_sup = $delivery->technicalSupport;
             $repairs = $delivery->repairs;
             foreach($delivery->repairs as $repair){
                 $repair->delivery()->dissociate();
                 $repair->technicalSupport()->dissociate();
                 $repair->stato = 'ritirata_dal_centro_assistenza';
                 $repair->save();
+                app('App\Http\Controllers\SMSContoller')->sendPickupSMS($repair->id,$tech_sup->id);
             }
             $delivery->delete();
             return redirect('/home#del');
