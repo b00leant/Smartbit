@@ -24,7 +24,7 @@ Route::group(['middleware' => 'bdetect'], function () {
     
     Route::get('/','HomeController@root');
     
-    Route::get('/home', 'HomeController@home');//->middleware('auth');
+    Route::get('/home', 'HomeController@home')->middleware('auth');
     
     Route::get('/lab', 'LabController@home')->middleware('auth');
     
