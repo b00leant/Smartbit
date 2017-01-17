@@ -1,6 +1,12 @@
 @extends('layouts.app')
 @section('content')
 @if(Auth::check())
+<style type="text/css">
+    body{
+        background-image: url("dark_dotted2_@2X.png");
+        background-repeat: repeat;
+    }
+</style>
 <div class="row">
     <div class="col s12">
         <div class="section">
