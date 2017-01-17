@@ -51,7 +51,7 @@ $.fn.searchModels = function(){
         $('input[name="brand"]').val('');
         $('input[name="model"]').val('');
         console.log('sto cercando.. '+$('input.autocomplete.devices').val());
-        $('ul.dropdown-content').remove();
+        $('ul.autocomplete.content.dropdown-content').remove();
         var $input = $(this);
         $.ajaxSetup({
             headers: {
@@ -69,12 +69,10 @@ $.fn.searchModels = function(){
             success: function(result){
                 console.log(result);
                 console.log('.....elaboro.....');
-                if(result.length === 0){
-                    
-                }else{
+                $autocomplete.empty();
                     $('input.autocomplete.devices').after($autocomplete);
                     if($input.val()!=''){
-                        for(var i = 0; i < 6; i++) {
+                        for(var i = 0; i < 6; i++){
                             if(result[i]){
                                 var autocompleteOption = $('<li data-model="'+result[i].DeviceName+'" data-brand="'+result[i].Brand+'"></li>');
                                 autocompleteOption.append('<span>'+result[i].DeviceName+'</span>');
@@ -83,7 +81,6 @@ $.fn.searchModels = function(){
                         }
                     }else{
                     }
-                }
                 
                 $autocomplete.on('click', 'li', function () {
                 $('button.insert_person i').html('send');
