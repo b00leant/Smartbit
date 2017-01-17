@@ -121,3 +121,7 @@ main > div.home:first-child{
 .brand-logo-part{
     font-family: "Asap", sans-serif;
 }
+body{
+    background-image: url("dark_dotted2_@2X.png");
+    background-repeat: repeat;
+}
