@@ -81,9 +81,7 @@ $.fn.searchModels = function(){
             },
             success: function(result){
                 $input.focusout(function(){
-                    console.log(clicky);
-                    console.log(clicky[0].className);
-                    console.log(JSON.stringify(clicky[0]));
+                    console.log(clicky.className);
                     if($('input[name="brand"]').val()=='' && $('input[name="model"]').val()==''){
                     $('input.devices').val('');
                     if(JSON.stringify(clicky[0]) != 'span.device-list-ajax'){
