@@ -46,6 +46,7 @@
     <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
     <!--link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700"-->
 
     <!-- Styles -->
@@ -113,7 +114,7 @@
     @if(Auth::guest())
     <nav class="z-depth-1" style="position:fixed;z-index:4;">
     <div class="nav-wrapper">
-        <a href="/" class="brand-logo center" style="font-family: 'Source Code Pro', cursive;">Smartbit</a>
+        <a href="/" class="brand-logo center">Smart<span class="brand-logo-part">BIT</span></a>
     </div>
 </nav>
     {{------------------ DEFINISCO NAVIGAZIONE NEL LABORATORIO ---------------}}
@@ -131,7 +132,7 @@
                     <![endif]-->
                 </a>
                 <li class="hide-on-small-only">
-                        <a href="{{url('/')}}">
+                        <a href="{{url('/home')}}">
                             <!--[if !IE]> -->
                             <i class="material-icons">home</i>
                             <!-- <![endif]-->
@@ -141,7 +142,7 @@
                         </a>
                 </li>
                 <li class="hide-on-small-only">
-                    <a href="{{url('/#del')}}">
+                    <a href="{{url('/home#del')}}">
                         <!--[if !IE]> -->
                         <i class="material-icons">local_shipping</i>
                         <!-- <![endif]-->
@@ -166,7 +167,7 @@
         </div>
     </nav>
     {{------------------ DEFINISCO NAVIGAZIONE NEL LATO ADMIN ----------------}}
-    @elseif(Route::getCurrentRoute()->getPath() != '/')
+    @elseif(Route::getCurrentRoute()->getPath() != 'home')
     <nav class="z-depth-1" style="position:fixed;z-index:4;">
             <div class="nav-wrapper">
                 <ul class="left">
@@ -179,7 +180,7 @@
                             <![endif]-->
                         </a></li>
                     <li class="hide-on-small-only">
-                        <a href="{{url('/')}}">
+                        <a href="{{url('/home')}}">
                             <!--[if !IE]> -->
                             <i class="material-icons">home</i>
                             <!-- <![endif]-->
@@ -189,7 +190,7 @@
                         </a>
                     </li>
                     <li class="hide-on-small-only">
-                        <a href="{{url('/#del')}}">
+                        <a href="{{url('/home#del')}}">
                             <!--[if !IE]> -->
                             <i class="material-icons">local_shipping</i>
                             <!-- <![endif]-->
@@ -200,14 +201,14 @@
                     </li>
                 </ul>
                 
-                <a href="/" class="brand-logo center" style="font-family: 'Source Code Pro', cursive;">Smartbit</a>
+                <a href="/" class="brand-logo center">Smart<span class="brand-logo-part">BIT</span></a>
             </div>
         </nav>
     {{------------------ DEFINISCO NAVIGAZIONE NELLA HOME ADMIN -------------}}
     @else
     <nav class="z-depth-1 nav-extended" style="position:fixed;z-index:4;">
             <div class="nav-wrapper">
-                <a href="/" class="brand-logo center" style="font-family: 'Source Code Pro', cursive;">Smartbit</a>
+                <a href="/" class="brand-logo center">Smart<span class="brand-logo-part">BIT</span></a>
                 <ul class="left">
                     <a href="#" data-activates="slide-out" class="sbmenu" 
                     style="height:64px;line-height:64px:margin;float: left;position: relative;z-index: 1;height: auto;margin: 0 0px;">
@@ -363,6 +364,14 @@
                     <i class="material-icons">&#xE163;</i>
                     <![endif]-->
                 </button>
+                <button data-target="modal-deliverable" class="btn hide deliverable-lab waves-effect waves-light smartbit">Spedisci
+                    <!--[if !IE]> -->
+                    <i class="material-icons">local_shipping</i>
+                    <!-- <![endif]-->
+                    <!--[if lt IE 9]>
+                    <i class="material-icons">&#xE558;</i>
+                    <![endif]-->
+                </button>
                 <button class="btn hide update-lab waves-effect waves-light smartbit" onclick="update_lab();">Salva
                     <!--[if !IE]> -->
                     <i class="material-icons">save</i>
@@ -398,8 +407,8 @@
             <![endif]-->
             </span></a>
         </div></li>
-        @if(Route::getCurrentRoute()->getPath() != '/')
-        <li><a class="waves-effect" href="{{url('/')}}">
+        @if(Route::getCurrentRoute()->getPath() != 'home')
+        <li><a class="waves-effect" href="{{url('/home')}}">
             <!--[if !IE]> -->
             <i class="material-icons">home</i>
             <!-- <![endif]-->
@@ -409,7 +418,7 @@
         Torna a Smartbit</a></li>
         @endif
         @if(Auth::user()->id == 1 or Auth::user()->id == 2)
-        @if(Route::getCurrentRoute()->getPath() != '/')
+        @if(Route::getCurrentRoute()->getPath() != 'home')
         @endif
         @if(Route::getCurrentRoute()->getPath() != 'lab')
         
@@ -422,7 +431,7 @@
             <![endif]-->
             Vai al laboratorio</a></li>
         @else
-        <li><a class="waves-effect" href="#{{url('/')}}">
+        <li><a class="waves-effect" href="#{{url('/home')}}">
             <!--[if !IE]> -->
             <i class="material-icons">assignment_turned_in</i>
             <!-- <![endif]-->
@@ -430,7 +439,7 @@
             <i class="material-icons">&#xE862;</i>
             <![endif]-->
             Pianificazioni</a></li>
-        <li><a class="waves-effect" href="#{{url('/')}}">
+        <li><a class="waves-effect" href="#{{url('/home')}}">
             <!--[if !IE]> -->
             <i class="material-icons">memory</i>
             <!-- <![endif]-->
@@ -471,7 +480,7 @@
     <script src="{{ asset('js/bin/materialize.js') }}"></script>
     
     
-    @if(Route::getCurrentRoute()->getPath() === '/' and Auth::guest())
+    @if(Route::getCurrentRoute()->getPath() === '/')
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAK6y8tZ4VlyEKfCUzV7LvxTNLN6Me6S8&callback=autocompleteAddress">
     </script>
@@ -782,7 +791,7 @@
   	    });
     </script>
 </main>
-@if(Auth::guest())
+@if(Route::getCurrentRoute()->getPath() === '/')
 <footer class="page-footer" style="position:relative;
     width: 100%;
     bottom: 0;margin-top:0;padding-top:1em;border-top: solid 0.5em #ffb300">

@@ -337,7 +337,7 @@
             <div class="input field col s12">
                 <h4>Data Ritiro</h4>
                 <input type="hidden" name="dlid_" value="{{$delivery->id}}">
-                <input disabled style="color:black" type="date" name="date" value="{{ Carbon\Carbon::today()->format('Y-m-d') }}" readonly>
+                <input disabled style="color:black" type="date" name="date" value="{{ $delivery->task_ritiro }}" readonly>
             </div>
         </div>
     </div>
@@ -375,7 +375,7 @@
             <i class="material-icons">&#xE558;</i>
             <![endif]-->
         </a>
-        <a class="delete-delivery waves-effect waves-light btn-flat red"  href="#modal1" style="color:white">
+        <a class="delete-back-delivery waves-effect waves-light btn-flat red"  href="#modal1" style="color:white">
             <!--[if !IE]> -->
             <i class="material-icons">delete</i>
             <!-- <![endif]-->

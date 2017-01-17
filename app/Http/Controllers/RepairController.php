@@ -208,10 +208,10 @@ class RepairController extends Controller
                 $repair->person()->dissociate();
                 $repair->delete();
             }
-            return redirect('/');
+            return redirect('/home');
         }catch (ModelNotFoundException $ex) {
                 // Error handling code
-                return redirect('/');//->action('PeopleConteoller@createToUse');
+                return redirect('/home');//->action('PeopleConteoller@createToUse');
                 //return View::make('checktest')->with('nomecompleto','AIAH, MI SA CHE HAI FATTO IL FURBETTO');
         }
     }
@@ -220,9 +220,9 @@ class RepairController extends Controller
             $repair = App\Repair::where(['id'=>$id])->firstOrFail();
             $repair->stato = 'consegnata';
             $repair->save();
-            return redirect('/#rip');
+            return redirect('/home#rip');
         }catch(ModelNotFoundException $ex){
-            return redirect('/#rip');
+            return redirect('/home#rip');
         }
     }
     /*public function delete()

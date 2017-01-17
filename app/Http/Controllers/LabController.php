@@ -46,6 +46,13 @@ class LabController extends Controller
                         $repair->save();
                         app('App\Http\Controllers\SMSController')->sendSMSLabStatus($repair->id);
                         break;
+                    case 'ritirata_dal_centro_assistenza':
+                        $repair->stato = 'finita';
+                        $today = Carbon::today();
+                        $repair->fine = $today;
+                        $repair->save();
+                        app('App\Http\Controllers\SMSController')->sendSMSLabStatus($repair->id);
+                        break;
                     /*case 'finita':
                         $repair->stato = 'pronta';
                         $repair->save();
@@ -80,11 +87,12 @@ class LabController extends Controller
         if($request->ajax()){
             $index = $request->input('index');
             $repairs = App\Repair::where('stato','!=','ritirata')
+            ->where('stato','!=','in_lista_per_centro')
             ->where('stato','!=','finita')
             ->where('stato','!=','consegnata')
             ->where('stato','!=','pronta')
             ->where('stato','!=','in_assistenza')
-            ->where('stato','!=','ritirata_dal_centro_assistenza')
+            //->where('stato','!=','ritirata_dal_centro_assistenza')
             ->paginate(10);
             foreach($repairs as $repair){
                 $repair->device();
@@ -96,19 +104,29 @@ class LabController extends Controller
             return $response;
         }
     }
-    
+    public function deliverableLab($id){
+        try{
+            $repair = App\Repair::where(['id'=>$id])->firstOrFail();
+            $repair->assistenza = true;
+            $repair->save();
+            return redirect('/home#del');
+        }catch(ModelNotFoundException $ex){
+            return redirect('/lab');
+        }
+    }
     public function home(){
         if(Auth::user()->id === 1 or Auth::user()->id === 2){
             $repairs = App\Repair::where('stato','!=','pronta')
-            ->where('stato','!=','ritirata')->
-            where('stato','!=','finita')
+            ->where('stato','!=','ritirata')
+            ->where('stato','!=','finita')
+            ->where('stato','!=','in_lista_per_centro')
             ->where('stato','!=','consegnata')
             ->where('stato','!=','in_assistenza')
-            ->where('stato','!=','ritirata_dal_centro_assistenza')
+            //->where('stato','!=','ritirata_dal_centro_assistenza')
             ->paginate(10);
             return View::make('lab')->with(['repairs_pages'=>$repairs]);
         }else{
-            return redirect('/');
+            return redirect('/home');
         }
     }
 }

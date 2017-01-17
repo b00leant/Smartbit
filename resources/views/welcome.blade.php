@@ -75,6 +75,13 @@
                             <!--[if lt IE 9]>
                             <i class="material-icons tooltipped" style="color:grey" data-tooltip="Consegnata">&#xE420;</i>
                             <![endif]-->
+                            @elseif($repair->stato === 'in_lista_per_centro')
+                            <!--[if !IE]> -->
+                            <i class="material-icons tooltipped" style="color:grey" data-tooltip="In lista per l'assistenza">local_shipping</i>
+                            <!-- <![endif]-->
+                            <!--[if lt IE 9]>
+                            <i class="material-icons tooltipped" style="color:grey" data-tooltip=="In lista per l'assistenza">&#xE558;</i>
+                            <![endif]-->
                             @elseif($repair->stato === 'in_assistenza')
                             <!--[if !IE]> -->
                             <i class="material-icons tooltipped" style="color:grey" data-tooltip="In Centro Assistenza">location_on</i>
@@ -84,10 +91,10 @@
                             <![endif]-->
                             @elseif($repair->stato === 'ritirata_dal_centro_assistenza')
                             <!--[if !IE]> -->
-                            <i class="material-icons tooltipped" style="color:#4CAF50" data-tooltip="Tornata dall'assistenza">location_on</i>
+                            <i class="material-icons tooltipped" style="color:#4CAF50" data-tooltip="Tornata dall'assistenza">done_all</i>
                             <!-- <![endif]-->
                             <!--[if lt IE 9]>
-                            <i class="material-icons tooltipped" style="color:grey" data-tooltip="Tornata dall'assistenza">&#xE0C8;</i>
+                            <i class="material-icons tooltipped" style="color:#4CAF50" data-tooltip="Tornata dall'assistenza">&#xE877;</i>
                             <![endif]-->
                             @else
                             <i class="material-icons tooltipped" style="color:grey" data-tooltip="senza stato">error</i>
@@ -212,7 +219,7 @@
                 <div class="nav-wrapper">
                   <form>
                     <div class="input-field">
-                      <input id="search" class="autocomplete2show people "  onkeyup="handleCollectionShowPeople();" autocomplete="off" type="search" required>
+                      <input id="search" placeholder="Cerca per nominativo" class="autocomplete2show people "  onkeyup="handleCollectionShowPeople();" autocomplete="off" type="search" required>
                       <label for="search">
                           <!--[if !IE]> -->
                         <i class="material-icons">search</i>

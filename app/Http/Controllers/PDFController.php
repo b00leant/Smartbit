@@ -37,7 +37,7 @@ class PDFController extends Controller
             return PDF::loadHTML($view->render())->stream('/ricevuta.pdf');
             //return response()->download('/ricevuta.pdf');
         }else{
-            return redirect('/#del');
+            return redirect('/home#del');
         }
     }
     public function ddtPickup($id){
@@ -52,7 +52,7 @@ class PDFController extends Controller
             return PDF::loadHTML($view->render())->stream('download.pdf');
             //
         }else{
-            return redirect('/#del');
+            return redirect('/home#del');
         }
     }
 }

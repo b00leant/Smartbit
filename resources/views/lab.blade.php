@@ -43,6 +43,13 @@
                   <!--[if lt IE 9]>
                   <i class="material-icons tooltipped" style="color:grey" data-tooltip="Iniziata">&#xE876;</i>
                   <![endif]-->
+                  @elseif($repair->stato === 'ritirata_dal_centro_assistenza')
+                  <!--[if !IE]> -->
+                  <i class="material-icons tooltipped" style="color:#4CAF50" data-tooltip="Tornata dall'assistenza">done_all</i>
+                  <!-- <![endif]-->
+                  <!--[if lt IE 9]>
+                  <i class="material-icons tooltipped" style="color:#4CAF50" data-tooltip="Tornata dall'assistenza">&#xE877;</i>
+                  <![endif]-->
                   @elseif($repair->stato === 'finita')
                   <!--[if !IE]> -->
                   <i class="material-icons tooltipped" style="color:grey" data-tooltip="Finita (non ancora pronta)">done_all</i>
@@ -99,6 +106,19 @@
     <div class="modal-footer">
       <a class="modal-action modal-close waves-effect waves-red btn-flat">Cancella</a>
       <a class="finish-action modal-action modal-close waves-effect waves-green btn-flat">Okay</a>
+    </div>
+  </div>
+  <!-- Modal Deliverable -->
+  <div id="modal-deliverable" class="modal">
+    <div class="modal-content">
+      <h4>Sei sicuro?</h4>
+      <p>
+        Se accetti, questa riparazione potrà essere inserita in lista per qualunque spedizione centro assistenza.
+      </p>
+    </div>
+    <div class="modal-footer">
+      <a class="modal-action modal-close waves-effect waves-red btn-flat">Cancella</a>
+      <a href="" class="set-deliverable modal-action modal-close waves-effect waves-green btn-flat">Okay</a>
     </div>
   </div>
 @endsection

@@ -22,7 +22,9 @@ Route::group(['middleware' => 'bdetect'], function () {
     
     Route::auth();
     
-    Route::get('/', 'HomeController@home');
+    Route::get('/','HomeController@root')->middleware('auth');
+    
+    Route::get('/home', 'HomeController@home')->middleware('auth');
     
     Route::get('/lab', 'LabController@home')->middleware('auth');
     
@@ -55,6 +57,8 @@ Route::group(['middleware' => 'bdetect'], function () {
     Route::post('/update-note-lab/{id}',['uses'=>'LabController@updateNoteLab'])->middleware('auth');
     
     Route::post('/repair-info','RepairController@info')->middleware('auth');
+    
+    Route::get('/set-deliverable-lab/{id}',['uses'=>'LabController@deliverableLab'])->middleware('auth');
     
     Route::get('person/{id}', ['uses' =>'PersonController@show'])->middleware('auth');
     

@@ -26,7 +26,7 @@ class PeopleTableSeeder extends Seeder
 	            'email' => $faker->email,
 	            'cognome'=> $faker->lastName,
 	            //'data_nascita' => $faker->$randomDate,
-	            'data_nascita' => $faker->time,
+	            'data_nascita' => $faker->date,
 	            'telefono'=> $faker->phoneNumber,
 	            'luogo_nascita'=>$faker->city,
 	        ]);

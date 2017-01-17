@@ -35,6 +35,8 @@
             }
 
             .title {
+                /*color:#a3e3e8;*/
+                color:#3a1c2e;
                 font-size: 72px;
                 margin-bottom: 40px;
             }
@@ -43,7 +45,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Mi dispiace, la tua principessa &#232; in un altro castello :(</div>
+                <div class="title">(404) Mi dispiace, la tua principessa &#232; in un altro castello :(</div>
             </div>
         </div>
     </body>

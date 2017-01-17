@@ -83,7 +83,7 @@ class PersonController extends Controller
                 $request->session()->put('selected-person', $person);
                 return redirect('/select-repair-device');
             }else{
-                return redirect('/#ppl');
+                return redirect('/home#ppl');
             }
         }else{
             return redirect()->back()->withInput();
@@ -117,7 +117,7 @@ class PersonController extends Controller
             $person->save();   
             $id = $person->id;
             $nomecompleto = $person->nome.' '.$person->cognome;
-            return redirect('/#ppl'.$id);
+            return redirect('/home#ppl'.$id);
         }
     }
     
@@ -153,7 +153,7 @@ class PersonController extends Controller
                 //}
             }catch (ModelNotFoundException $ex) {
                 // Error handling code
-                return redirect('/');//->action('PeopleConteoller@createToUse');
+                return redirect('/home');//->action('PeopleConteoller@createToUse');
             }
             
         }

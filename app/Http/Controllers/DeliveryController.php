@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App;
 use View;
+use Carbon;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -24,14 +25,16 @@ class DeliveryController extends Controller
     public function createPickup(Request $request){
         if($request->has('center')){
             try{
+                $date = Carbon\Carbon::today();
                 $delivery = new App\Delivery([
-                'stato'=>'da_ritirare'
+                'stato'=>'da_ritirare',
+                'task_ritiro'=>$date
                 ]);
                 $tech_sup = App\TechnicalSupport::find($request->input('center'));
                 $tech_sup->deliveries()->save($delivery);
                 return redirect('/delivery/'.$delivery->id);
             }catch(ModelNotFoundException $ex){
-                return redirect('/');
+                return redirect('/home');
             }
         }else{
             return back()->withInput();
@@ -42,6 +45,7 @@ class DeliveryController extends Controller
             $repairs_to_send = App\Repair::where(['assistenza'=>true])
             ->where('stato','!=','finita')
             ->where('stato','!=','consegnata')
+            ->where('stato','!=','in_lista_per_centro')
             ->where('stato','!=','in_assistenza')
             ->where('delivery_id','=',null)->get();
             foreach($repairs_to_send as $repair){
@@ -52,7 +56,7 @@ class DeliveryController extends Controller
             return View::make('new-delivery-step2')->with(['repairs'=>$repairs_to_send,
             'center'=>$request->input('center')]);
         }else{
-            return redirect('/#del');
+            return redirect('/home#del');
             //return back()->withInput();
         }
     }
@@ -82,33 +86,74 @@ class DeliveryController extends Controller
             return back()->withInput();
         }
     }
+    //gestito la creazione di due spedizioni nello stesso posto, stessa data
     public function handleCreate(Request $request){
         if($request->has('center') and $request->has('json_repairs') and $request->has('date_delivery')){
             
             $date = date_create_from_format('Y-m-d', $request->input('date_delivery'));
-            
             try{
-                $delivery = new App\Delivery([
-                'stato'=>'creata',
-                'task_consegna'=>$date
-                ]);
-                //$delivery->technicalSupport()->save($tech_sup);
-                //$tech_sup->deliveries()->save($delivery);
-                $tech_sup = App\TechnicalSupport::find($request->input('center'));
-                //where(['id'=>$request->input('center')])->firstOrFail();
-                $tech_sup->deliveries()->save($delivery);
-                $repairs_idz = json_decode($request->input('json_repairs'));
-                foreach($repairs_idz as $id){
-                    $repair = App\Repair::find($id);
-                    //where(['id'=>$id])->firstOrFail();
-                    $repair->delivery()->associate($delivery);
-                    $repair->save();
-                    //$repair->delivery()->save($delivery);
+                $delivery_check = App\Delivery::where('task_consegna','=',$date)->first();
+                if($delivery_check){
+                    $tech_sup_check = $delivery_check->technicalSupport;
+                $tech_sup_check2 = App\TechnicalSupport::where(['id'=>$request->input('center')])->first();
+                if($delivery_check and $tech_sup_check->id === $tech_sup_check2->id){
+                    $repairs_idz = json_decode($request->input('json_repairs'));
+                    foreach($repairs_idz as $id){
+                        $repair = App\Repair::find($id);
+                        //where(['id'=>$id])->firstOrFail();
+                        $repair->delivery()->associate($delivery_check);
+                        $repair->stato = 'in_lista_per_centro';
+                        $repair->save();
+                        //$repair->delivery()->save($delivery);
+                        //return redirect('/delivery/'.$delivery_check->id)->with('error', 'È già stata programmata una spedizione per quel giorno, nello stesso centro!');
+                    }
+                    return redirect('/home#del');
+                }else{
+                        $delivery = new App\Delivery([
+                        'stato'=>'creata',
+                        'task_consegna'=>$date
+                        ]);
+                        //$delivery->technicalSupport()->save($tech_sup);
+                        //$tech_sup->deliveries()->save($delivery);
+                        $tech_sup = App\TechnicalSupport::find($request->input('center'));
+                        //where(['id'=>$request->input('center')])->firstOrFail();
+                        $tech_sup->deliveries()->save($delivery);
+                        $repairs_idz = json_decode($request->input('json_repairs'));
+                        foreach($repairs_idz as $id){
+                            $repair = App\Repair::find($id);
+                            //where(['id'=>$id])->firstOrFail();
+                            $repair->delivery()->associate($delivery);
+                            $repair->stato = 'in_lista_per_centro';
+                            $repair->save();
+                            //$repair->delivery()->save($delivery);
+                        }
+                        return redirect('/home#del');
                 }
-                return redirect('/#del');
+                }else{
+                    $delivery = new App\Delivery([
+                        'stato'=>'creata',
+                        'task_consegna'=>$date
+                        ]);
+                        //$delivery->technicalSupport()->save($tech_sup);
+                        //$tech_sup->deliveries()->save($delivery);
+                        $tech_sup = App\TechnicalSupport::find($request->input('center'));
+                        //where(['id'=>$request->input('center')])->firstOrFail();
+                        $tech_sup->deliveries()->save($delivery);
+                        $repairs_idz = json_decode($request->input('json_repairs'));
+                        foreach($repairs_idz as $id){
+                            $repair = App\Repair::find($id);
+                            //where(['id'=>$id])->firstOrFail();
+                            $repair->delivery()->associate($delivery);
+                            $repair->stato = 'in_lista_per_centro';
+                            $repair->save();
+                            //$repair->delivery()->save($delivery);
+                        }
+                        return redirect('/home#del');
+                }
+                
             }catch(ModelNotFoundException $ex){
-                return redirect('/');
-            }
+                    return redirect('/home');
+                }
         }else{
             return back()->withInput();
         }
@@ -116,16 +161,18 @@ class DeliveryController extends Controller
     public function handleDelete($id){
         try{
             $delivery = App\Delivery::where(['id'=>$id])->firstOrFail();
-            $repairs = App\Repair::where(['delivery_id'=>$id]);
+            $repairs = App\Repair::where(['delivery_id'=>$id])->get();
             foreach($repairs as $repair){
                 $repair->delivery()->dissociate();
+                $repair->stato = 'iniziata';
+                $repair->save();
             }
             $delivery->technicalSupport()->dissociate();
             $delivery->delete();
-            return redirect('/#del');
+            return redirect('/home#del');
         }catch (ModelNotFoundException $ex) {
                 // Error handling code
-                return redirect('/');//->action('PeopleConteoller@createToUse');
+                return redirect('/home');//->action('PeopleConteoller@createToUse');
                 //return View::make('checktest')->with('nomecompleto','AIAH, MI SA CHE HAI FATTO IL FURBETTO');
         }
     }
@@ -136,10 +183,12 @@ class DeliveryController extends Controller
             $repairs_to_send = App\Repair::where(['assistenza'=>true])
             ->where('stato','!=','finita')
             ->where('stato','!=','consegnata')
+            ->where('stato','!=','in_lista_per_centro')
             ->where('delivery_id','=',null)->get();
             $repairs_to_pickup = App\Repair::where(['assistenza'=>true])
             ->where('stato','=','in_assistenza')
-            ->where('delivery_id','!=',null)
+            ->where('stato','!=','in_lista_per_centro')
+            ->where('delivery_id','=',null)
             ->where('technical_support_id','=',''.$delivery->technicalSupport->id)->get();
             foreach($repairs_to_send as $repair){
                 $repair->device();
@@ -157,7 +206,7 @@ class DeliveryController extends Controller
                 'tech_sups'=>$tech_sups,
                 'delivery'=>$delivery]);
         }catch(ModelNotFoundException $ex){
-            return redirect('/#del');
+            return redirect('/home#del');
         }
     }
     public function update(Request $request, $id){
@@ -171,12 +220,14 @@ class DeliveryController extends Controller
                 $repairs = App\Repair::where(['delivery_id'=>$id])->get();
                 foreach($repairs as $repair){
                     $repair->delivery()->dissociate();
+                    $repair->stato = 'creata';
                     $repair->save();
                 }
                 $repairs_to_update = $request['repairs_update'];
                 foreach($repairs_to_update as $key => $value){
                     $repair_new = App\Repair::find($key);
                     $repair_new->delivery()->associate($delivery);
+                    $repair->stato = 'in_lista_per_centro';
                     $repair_new->save();
                 }
                 if($center_req['id']!=null){
@@ -240,11 +291,12 @@ class DeliveryController extends Controller
                 $repair->stato = 'in_assistenza';
                 $repair->save();
                 $tech_sup->repairs()->save($repair);
+                $tech_sup->save();
             }
             $delivery->delete();
-            return redirect('/#del');
+            return redirect('/home#del');
         }catch(ModelNotFoundException $ex){
-            return redirect('/#del');
+            return redirect('/home#del');
         }
     }
     public function ddtPickup($id){
@@ -260,9 +312,9 @@ class DeliveryController extends Controller
                 $repair->save();
             }
             $delivery->delete();
-            return redirect('/#del');
+            return redirect('/home#del');
         }catch(ModelNotFoundException $ex){
-            return redirect('/#del');
+            return redirect('/home#del');
         }
     }
     //
@@ -279,6 +331,6 @@ class DeliveryController extends Controller
             $delivery->technicalSupport();
             return View::make('delivery')->with(['delivery'=>$delivery]);
         }catch(ModelNotFoundException $ex){
-            return redirect('/#del');
+            return redirect('/home#del');
         }
     }*/

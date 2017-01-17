@@ -60,7 +60,12 @@ class HomeController extends Controller
                 'repairs' =>$repairs,
                 'deliveries'=>$deliveries,
                 'people' =>$people]);
+        }else{
+            return redirect('/');
         }
+    }
+    
+    public function root(){
         return View::make('home');
     }
 }

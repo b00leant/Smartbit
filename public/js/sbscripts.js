@@ -1,3 +1,9 @@
+$('.brand-logo').on('mouseover',function(){
+    $('.brand-logo-part').css('color','#ffab00');
+});
+$('.brand-logo').on('mouseout',function(){
+    $('.brand-logo-part').css('color','#fff');
+});
 function handleFocusOut(){
     $('ul.pagination').show();
     $('input.people.autocomplete2show').val('');
@@ -14,6 +20,7 @@ function handleCollectionShowPeople(){
         $('ul.dropdown-content').show();
     }else{
         $('div.collection.with-header.people').show();
+        $('ul.pagination').show();
         $('ul.dropdown-content').hide();
     }
 }
@@ -24,6 +31,7 @@ function handleCollectionShowRepairs(){
         $('ul.dropdown-content').show();
     }else{
         $('div.collection.with-header.repairs').show();
+        $('ul.pagination').show();
         $('ul.dropdown-content').hide();
     }
 }
@@ -596,7 +604,7 @@ function getLab(page) {
 }
 
 function load_repair_info(id){
-    $('.info_owner, .info_device, .note_lab, .note_rip, .change-state-lab, .update-lab, .finish-state-lab').addClass('hide');
+    $('.info_owner, .info_device, .note_lab, .note_rip, .change-state-lab, .update-lab, .finish-state-lab, .deliverable-lab').addClass('hide');
     $('.preloader-wrapper').removeClass('hide');
     console.log('I am about to search id:' + id);
     $.ajaxSetup({
@@ -640,16 +648,35 @@ function load_repair_info(id){
                         $('.change-state-lab').addClass('hide');
                         $('.note-field').removeClass('hide');
                         $('.update-lab').removeClass('hide');
+                        
                         $('.note-field1 textarea').val(data.note);
                         $('.note-field textarea').val(data.note_lab);
                         $('.note-field label').addClass('active');
                         $('.note-field1 label').addClass('active');
                         $('button.change-state-lab').text('Finisci');
+                        if(data.assistenza === true){
+                        }else{
+                            $('.deliverable-lab').removeClass('hide');
+                            $('div#modal-deliverable.modal .modal-footer a.set-deliverable').prop('href','/set-deliverable-lab/'+data.id);
+                        }
                         $('div#modal-change.modal .modal-footer a.finish-action').prop('href','/finish-state-lab/'+data.id);
                         $('input.change-state-lab').val(data.id);
                         $('div#lab.collection a[data-id="'+data.id+'"] a div.secondary-content i').text('done');
                         $('div#lab.collection a[data-id="'+data.id+'"] a div.secondary-content i').css('color','grey');
                         
+                        break;
+                    case 'ritirata_dal_centro_assistenza':
+                        $('.update-lab').addClass('hide');
+                        $('.finish-state-lab').addClass('hide');
+                        $('.change-state-lab').removeClass('hide');
+                        $('.note-field').addClass('hide');
+                        $('.note-field1 textarea').val(data.note);
+                        $('.note-field label').addClass('active');
+                        $('.note-field1 label').addClass('active');
+                        $('button.change-state-lab').text('Ripara');
+                        $('input.change-state-lab').val(data.id)
+                        $('div#lab.collection a[data-id="'+data.id+'"] a div.secondary-content i').text('hourglass_empty');
+                        $('div#lab.collection a[data-id="'+data.id+'"] a div.secondary-content i').css('color','grey');
                         break;
                     /*default:
                         $('.update-lab').addClass('hide');
@@ -705,6 +732,11 @@ function change_state(){
                     $('.note-field textarea').val(data.note_lab);
                     $('button.change-state-lab').addClass('hide');
                     $('div.note-field').removeClass('hide');
+                    if(data.assistenza === true){
+                        }else{
+                            $('.deliverable-lab').removeClass('hide');
+                            $('div#modal-deliverable.modal .modal-footer a.set-deliverable').prop('href','/set-deliverable-lab/'+data.id);
+                        }
                     lab_icon.text('done');
                     lab_icon.css('color','grey');
                     break;

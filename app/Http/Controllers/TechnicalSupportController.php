@@ -23,7 +23,7 @@ class TechnicalSupportController extends Controller
                     'brand'=>$request->input('marca')
                     ]);
             $tech_sup->save();
-            return redirect('/');
+            return redirect('/home');
         }else{
             return back()->withInput();
         }

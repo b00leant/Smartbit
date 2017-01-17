@@ -87,7 +87,7 @@
         </a-->
         
         @if(Auth::user()->id===1 or Auth::user()->id===2 )
-        @if($repair->stato === 'iniziata' or $repair->stato === 'creata')
+        @if($repair->stato === 'iniziata' or $repair->stato === 'creata' or $repair->stato ==='ritirata_dal_centro_assistenza')
         <a href="{{url('lab')}}" data-position="top" data-delay="100" data-tooltip="Laboratorio" class="tooltipped waves-effect waves-light btn-flat amber accent-4" style="color:white">
             <i class="material-icons">settings</i>
         </a>
@@ -98,7 +98,7 @@
             <i class="material-icons">delete</i>
         </a>
         @endif
-        @if($repair->stato === 'finita')
+        @if($repair->stato === 'finita' or $repair->stato === 'ritirata_dal_centro_assistenza')
         <a class="tooltipped waves-effect waves-light btn-flat smartbit" data-position="top" data-delay="100" data-tooltip="Consegna al cliente" href="#modal-giveback" style="color:white">
             <i class="material-icons">done</i>
         </a>
