@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App;
 use View;
-use SMSGateway;
+use \SMSGateway;
 use Carbon;
 use App\Http\Requests;
 use Illuminate\Http\Request;
@@ -164,9 +164,10 @@ class DeliveryController extends Controller
             $delivery = App\Delivery::where(['id'=>$id])->firstOrFail();
             $repairs = App\Repair::where(['delivery_id'=>$id])->get();
             foreach($repairs as $repair){
-                $repair->delivery()->dissociate();
                 $repair->stato = 'iniziata';
                 $repair->save();
+                $repair->delivery()->dissociate();
+                
             }
             $delivery->technicalSupport()->dissociate();
             $delivery->delete();
@@ -285,16 +286,28 @@ class DeliveryController extends Controller
         try{
             $delivery = App\Delivery::where(['id'=>$id])->firstOrFail();
             $delivery->stato = 'spedita';
-            $delivery->save();
-            $tech_sup = $delivery->technicalSupport;
+            $tech_sup_id = $delivery->technicalSupport->id;
+            //$tech_sup = $delivery->technicalSupport;
+            $tech_sup = App\TechnicalSupport::find($tech_sup_id);
             foreach($delivery->repairs as $repair){
-                $repair->delivery()->dissociate();
                 $repair->stato = 'in_assistenza';
                 $repair->save();
                 $tech_sup->repairs()->save($repair);
                 $tech_sup->save();
-                app('App\Http\Controllers\SMSContoller')->sendDeliverySMS($repair->id);
+                $person = $repair->person;
+                $device = $repair->device;
+                $deviceID = 36788;
+                $number = '+39'.$person->telefono;
+                $repair->delivery()->dissociate();
+                $repair->save();
+                $message = 'Smartbit la informa che la sua riparazione è stata appena spedita presso: '."\n\n".'- '.$tech_sup->nome."\n".'- Indirizzo: '.$tech_sup->indirizzo.".\n\n".'Buona giornata da Smartbit!'."🤖";
+                $options = [
+                'send_at' => strtotime('+10 minutes'), // Send the message in 10 minutes
+                'expires_at' => strtotime('+1 hour') // Cancel the message in 1 hour if the message is not yet sent
+                ];
+                $sms_sb = SMSGateway::sendMessageToNumber($number,$message,$deviceID);
             }
+            $delivery->save();
             $delivery->delete();
             return redirect('/home#del');
         }catch(ModelNotFoundException $ex){
@@ -313,7 +326,16 @@ class DeliveryController extends Controller
                 $repair->technicalSupport()->dissociate();
                 $repair->stato = 'ritirata_dal_centro_assistenza';
                 $repair->save();
-                app('App\Http\Controllers\SMSContoller')->sendPickupSMS($repair->id,$tech_sup->id);
+                $person = $repair->person;
+                $device = $repair->device;
+                $deviceID = 36788;
+                $number = '+39'.$person->telefono;
+                $message = 'Smartbit la informa che la sua riparazione è stata appena ritirata presso: '."\n\n".'- '.$tech_sup->nome."\n".'- Indirizzo: '.$tech_sup->indirizzo.".\n\n".'Buona giornata da Smartbit!'."🤖";
+                $options = [
+                'send_at' => strtotime('+10 minutes'), // Send the message in 10 minutes
+                'expires_at' => strtotime('+1 hour') // Cancel the message in 1 hour if the message is not yet sent
+                ];
+                $sms_sb = SMSGateway::sendMessageToNumber($number,$message,$deviceID);
             }
             $delivery->delete();
             return redirect('/home#del');

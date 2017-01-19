@@ -15,7 +15,8 @@ class Repair extends Model
         'seriale',
         'creazione',
         'stato',
-        'technical_support_id'
+        'technical_support_id',
+        'delivery_id'
         ];
     
     public function delivery(){
