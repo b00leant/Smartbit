@@ -4,7 +4,7 @@
 <input type="hidden" name="delivery-pickup-id" value="{{ $delivery->id }}"/>
 @if($delivery->stato == 'creata')
 <div class="row" style="padding-top:70px">
-    <div id="modal-chose-go" class="modal">
+    <div id="modal-chose-go" class="modal modal-fixed-footer">
         <div class="modal-content">
             <h4>Sei sicuro di voler spedire?</h4>
             <p>Una volta stampata la ricevuta non potrai più modificarla</p>
@@ -14,7 +14,7 @@
             <a class=" modal-action modal-close waves-effect waves-light btn-flat">Annulla</a>
         </div>
     </div>
-    <div id="modal-chose-center" class="modal">
+    <div id="modal-chose-center" class="modal modal-fixed-footer">
         <div class="modal-content">
             <h4>Scegli il centro</h4>
             <p>Scegline solo uno</p>
@@ -51,7 +51,7 @@
             <a href="#"  class=" modal-action modal-close waves-effect waves-green btn-flat">Annulla</a>
         </div>
     </div>
-    <div id="modal-chose-repair" class="modal">
+    <div id="modal-chose-repair" class="modal modal-fixed-footer">
         <div class="modal-content">
             <h4>Aggiungi Dispositivi da spedire</h4>
             <p>Scegli dalla lista:</p>
@@ -70,7 +70,7 @@
             <a href="#"  class=" modal-action modal-close waves-effect waves-green btn-flat">Annulla</a>
         </div>
     </div>
-    <div id="modal1" class="modal">
+    <div id="modal1" class="modal modal-fixed-footer">
         <div class="modal-content">
             <h4>Conferma?</h4>
             <p>Sicuro di eliminare la spedizione dal Database di Smartbit?</p>
@@ -196,7 +196,7 @@
 </div>
 @elseif($delivery->stato == 'da_ritirare')
 <div class="row" style="padding-top:70px">
-    <div id="modal-chose-go" class="modal">
+    <div id="modal-chose-go" class="modal modal-fixed-footer">
         <div class="modal-content">
             <h4>Sei sicuro di voler ritirare?</h4>
             <p>Una volta stampata la ricevuta non potrai più modificarla</p>
@@ -206,7 +206,7 @@
             <a class=" modal-action modal-close waves-effect waves-light btn-flat">Annulla</a>
         </div>
     </div>
-    <div id="modal-chose-center" class="modal">
+    <div id="modal-chose-center" class="modal modal-fixed-footer">
         <div class="modal-content">
             <h4>Scegli il centro</h4>
             <p>Scegline solo uno</p>
@@ -243,7 +243,7 @@
             <a href="#"  class=" modal-action modal-close waves-effect waves-green btn-flat">Annulla</a>
         </div>
     </div>
-    <div id="modal-chose-repair-back" class="modal">
+    <div id="modal-chose-repair-back" class="modal modal-fixed-footer">
         <div class="modal-content">
             <h4>Aggiungi Dispositivi da ritirare</h4>
             <p>Scegli dalla lista:</p>
@@ -262,7 +262,7 @@
             <a href="#"  class=" modal-action modal-close waves-effect waves-green btn-flat">Annulla</a>
         </div>
     </div>
-    <div id="modal1" class="modal">
+    <div id="modal1" class="modal modal-fixed-footer">
         <div class="modal-content">
             <h4>Conferma?</h4>
             <p>Sicuro di eliminare la spedizione dal Database di Smartbit?</p>

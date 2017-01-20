@@ -77,6 +77,7 @@ class LabController extends Controller
             $repair = App\Repair::where(['id'=>$id])->firstOrFail();
             $repair->stato = 'finita';
             $repair->save();
+            app('App\Http\Controllers\SMSController')->sendSMSLabStatus($repair->id);
             return redirect('/lab');
         }catch(ModelNotFoundException $ex){
             return redirect('/lab');
