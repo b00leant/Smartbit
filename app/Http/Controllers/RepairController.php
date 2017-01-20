@@ -185,8 +185,9 @@ class RepairController extends Controller
         try{
             $repair = App\Repair::where(['id'=>$id])->firstOrFail();//->get();
             $person = $repair->person;
+            $tech_sup = $repair->technicalSupport;
             $device = $repair->device;
-            return View::make('repair')->with(['repair'=>$repair,'device'=>$device,'person'=>$person]);
+            return View::make('repair')->with(['tech_sup'=>$tech_sup,'repair'=>$repair,'device'=>$device,'person'=>$person]);
         }catch (ModelNotFoundException $ex) {
             // Error handling code
             //return redirect('add-person')->with(['repair'=>$repair,'person'=>$person]);

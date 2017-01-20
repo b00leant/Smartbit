@@ -38,6 +38,10 @@
             <div class="divider"></div>
             <p class="recapito-ricevuta">Recapito: {{$person->telefono}}</p>
             <div class="divider"></div>
+            <p class="recapito-email">Email: {{$person->email}}</p>
+            <div class="divider"></div>
+            <p class="recapito-indirizzo">Indirizzo: {{$person->residenza}}</p>
+            <div class="divider"></div>
         </div>
         <div class="section col s12 m6">
             <div style="text-align:center">
@@ -50,6 +54,24 @@
             <div class="divider"></div>
             <p class="imei-ricevuta">Imei: {{$device->imei}}</p>
             <div class="divider"></div>
+            @if($repair->assistenza === true)
+            <p>
+              <input type="checkbox" id="test7" checked="checked" disabled="disabled" />
+              <label for="test7">Assistenza richiesta</label>
+            </p>
+            <div class="divider"></div>
+            @endif
+            @if($repair->garanzia === true)
+            <p>
+              <input type="checkbox" id="test7" checked="checked" disabled="disabled" />
+              <label for="test7">Garanzia</label>
+            </p>
+            <div class="divider"></div>
+            @endif
+            @if($tech_sup != null)
+            <p class="imei-ricevuta">Centro assistenza: {{$tech_sup->nome}}</p>
+            <div class="divider"></div>
+            @endif
             <div id="to print" style="display:none">
                 <p>Riparazione</p>
                 <p class="today" style="display:none">{{ $repair->created_at }}</p>
