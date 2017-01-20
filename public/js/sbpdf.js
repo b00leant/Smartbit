@@ -99,30 +99,119 @@ $('a.print-ddt').on('click',function(){
 });
 
 $('a.print-delivery').on('click',function(){
-    var doc = new jsPDF();
-    doc.text(20, 30, 'DDT: Lista spedizione Smartbit S.R.L');
-    doc.setFontSize(10);
-    doc.text(20,45, 'presso il centro riparazione specializzato: '+backup_old_center.nome);
-    doc.text(20,50, '('+backup_old_center.indirizzo+')');
-    var offset = 5;
-    doc.text(20,60, 'riparazioni da stampare:');
-    for(var i in backup_old_repairs){
-        doc.text(20, 15 + (offset * i),'- '+backup_old_repairs[i]);
-    }
-    doc.text(20,260,'in data: '+backup_old_date);
-    doc.save('ddt.pdf');
+    $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url:'/delivery-info/'+$('input[name="delivery-pickup-id"]').val(),
+            type: 'GET',
+            data:{
+            },
+            success: function(result){
+                console.log(result);
+                var doc = new jsPDF();
+                doc.text(60, 30, 'DDT: Lista spedizione Smartbit S.R.L');
+                doc.setFontSize(10);
+                doc.text(60,45, 'presso il centro riparazione specializzato: '+backup_old_center.nome);
+                doc.text(60,50, '('+backup_old_center.indirizzo+')');
+                var offset = 25;
+                doc.text(90,60, 'riparazioni da stampare:');
+                var turned = false;
+                var j = 1;
+                for(var i = 0; i< result.repairs.length;i++){
+                    
+                    if(i>7 && 9%j == 0){
+                        j = 1;
+                        doc.addPage();
+                    }
+                    if(i>7 || turned){
+                        turned = true;
+                        doc.rect(48,6 + (offset * j),120,20);
+                        doc.text(50, 10 + (offset * j),'- Seriale: '+result.repairs[i].seriale+' - Modello: '+result.repairs[i].device.model);
+                        doc.text(50, 15 + (offset * j),'- Note: "'+result.repairs[i].note+' " ');
+                        doc.text(50, 20 + (offset * j),'- Imei: '+result.repairs[i].device.imei);
+                        doc.text(50, 25 + (offset * j),'- Proprietario: '+result.repairs[i].person.nome+' '+result.repairs[i].person.cognome);
+                        j++;
+                    }else{
+                        doc.rect(48,46 + (offset * j),120,20);
+                        doc.text(50, 50 + (offset * j),'- Seriale: '+result.repairs[i].seriale+' - Modello: '+result.repairs[i].device.model);
+                        doc.text(50, 55 + (offset * j),'- Note: "'+result.repairs[i].note+' " ');
+                        doc.text(50, 60 + (offset * j),'- Imei: '+result.repairs[i].device.imei);
+                        doc.text(50, 65 + (offset * j),'- Proprietario: '+result.repairs[i].person.nome+' '+result.repairs[i].person.cognome);
+                        j++;
+                    }
+                }
+                doc.text(20,260,'in data: '+backup_old_date);
+                doc.save('ddt.pdf');
+            },
+            error: function (xhr, b, c) {
+                var $insert_person_i = $('a.insert_person i');
+                $insert_person_i.text('add');
+                console.log('response error: \n');
+                console.log(xhr);
+                console.log(b);
+                console.log(c);
+                }
+        });
+    
 });
 $('a.print-pickup').on('click',function(){
-    var doc = new jsPDF();
-    doc.text(20, 30, 'DDT: Lista ritiro Smartbit S.R.L');
-    doc.setFontSize(10);
-    doc.text(20,45, 'presso il centro riparazione specializzato: '+backup_old_center_back.nome);
-    doc.text(20,50, '('+backup_old_center_back.indirizzo+')');
-    var offset = 5;
-    doc.text(20,60, 'riparazioni da stampare:');
-    for(var i in backup_old_repairs_back){
-        doc.text(20, 25 + (offset * i),'- '+backup_old_repairs_back[i]);
-    }
-    doc.text(20,260,'in data: '+backup_old_date_back);
-    doc.save('ddt-ritiro.pdf');
+    $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url:'/delivery-info/'+$('input[name="delivery-pickup-id"]').val(),
+            type: 'GET',
+            data:{
+            },
+            success: function(result){
+                console.log(result);
+                var doc = new jsPDF();
+                doc.text(60, 30, 'DDT: Lista ritiro Smartbit S.R.L');
+                doc.setFontSize(10);
+                doc.text(60,45, 'presso il centro riparazione specializzato: '+backup_old_center_back.nome);
+                doc.text(60,50, '('+backup_old_center_back.indirizzo+')');
+                var offset = 25;
+                doc.text(90,60, 'riparazioni da stampare:');
+                var turned = false;
+                var j = 1;
+                for(var i = 0; i< result.repairs.length;i++){
+                    
+                    if(i>7 && 9%j == 0){
+                        j = 1;
+                        doc.addPage();
+                    }
+                    if(i>7 || turned){
+                        turned = true;
+                        doc.rect(48,6 + (offset * j),120,20);
+                        doc.text(50, 10 + (offset * j),'- Seriale: '+result.repairs[i].seriale+' - Modello: '+result.repairs[i].device.model);
+                        doc.text(50, 15 + (offset * j),'- Note: "'+result.repairs[i].note+' " ');
+                        doc.text(50, 20 + (offset * j),'- Imei: '+result.repairs[i].device.imei);
+                        doc.text(50, 25 + (offset * j),'- Proprietario: '+result.repairs[i].person.nome+' '+result.repairs[i].person.cognome);
+                        j++;
+                    }else{
+                        doc.rect(48,46 + (offset * j),120,20);
+                        doc.text(50, 50 + (offset * j),'- Seriale: '+result.repairs[i].seriale+' - Modello: '+result.repairs[i].device.model);
+                        doc.text(50, 55 + (offset * j),'- Note: "'+result.repairs[i].note+' " ');
+                        doc.text(50, 60 + (offset * j),'- Imei: '+result.repairs[i].device.imei);
+                        doc.text(50, 65 + (offset * j),'- Proprietario: '+result.repairs[i].person.nome+' '+result.repairs[i].person.cognome);
+                        j++;
+                    }
+                }
+                doc.text(20,260,'in data: '+backup_old_date_back);
+                doc.save('ddt-ritiro.pdf');
+            },
+            error: function (xhr, b, c) {
+                var $insert_person_i = $('a.insert_person i');
+                $insert_person_i.text('add');
+                console.log('response error: \n');
+                console.log(xhr);
+                console.log(b);
+                console.log(c);
+                }
+        });
 });

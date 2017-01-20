@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 @if(Auth::check())
+<input type="hidden" name="delivery-pickup-id" value="{{ $delivery->id }}"/>
 @if($delivery->stato == 'creata')
 <div class="row" style="padding-top:70px">
     <div id="modal-chose-go" class="modal">
@@ -9,7 +10,7 @@
             <p>Una volta stampata la ricevuta non potrai più modificarla</p>
         </div>
         <div class="modal-footer">
-            <a  target="_blank" href="{{url('delivery-go/'.$delivery->id)}}" class="print-delivery modal-action modal-close waves-effect waves-light btn-flat  smartbit white-text">Stampa e vai!</a>
+            <a href="{{url('delivery-go/'.$delivery->id)}}" class="print-delivery modal-action modal-close waves-effect waves-light btn-flat  smartbit white-text">Stampa e vai!</a>
             <a class=" modal-action modal-close waves-effect waves-light btn-flat">Annulla</a>
         </div>
     </div>
@@ -201,7 +202,7 @@
             <p>Una volta stampata la ricevuta non potrai più modificarla</p>
         </div>
         <div class="modal-footer">
-            <a  target="_blank" href="{{url('pickup-go/'.$delivery->id)}}" class="print-pickup modal-action modal-close waves-effect waves-light btn-flat  smartbit white-text">Stampa e vai!</a>
+            <a href="{{url('pickup-go/'.$delivery->id)}}" class="print-pickup modal-action modal-close waves-effect waves-light btn-flat  smartbit white-text">Stampa e vai!</a>
             <a class=" modal-action modal-close waves-effect waves-light btn-flat">Annulla</a>
         </div>
     </div>

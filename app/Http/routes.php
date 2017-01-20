@@ -80,6 +80,8 @@ Route::group(['middleware' => 'bdetect'], function () {
     
     Route::get('delivery/{id}',['uses'=>'DeliveryController@show'])->middleware('auth');
     
+    Route::get('delivery-info/{id}',['uses'=>'DeliveryController@info'])->middleware('auth');
+    
     Route::get('delivery-go/{id}',['uses'=>'DeliveryController@ddt'])->middleware('auth');
     
     Route::get('pickup-go/{id}',['uses'=>'DeliveryController@ddtPickup'])->middleware('auth');

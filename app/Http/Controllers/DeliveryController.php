@@ -15,6 +15,22 @@ class DeliveryController extends Controller
     public function home(){
         return View::make('deliveries');
     }
+    public function info(Request $request,$id){
+        if($request->ajax()){
+            try{
+                $delivery = App\Delivery::find($id);
+                foreach($delivery->repairs as $repair){
+                $repair->device;
+                $repair->person;
+                }
+                return $delivery;
+            }catch(ModelNotFoundException $ex){
+                return null;
+            }
+        }else{
+            return null;
+        }
+    }
     public function selectTechnicalSupport(){
         $tech_sups = App\TechnicalSupport::all();
         return View::make('new-delivery-step1')->with(['tech_sups'=>$tech_sups]);
