@@ -28,13 +28,13 @@
     
     <div class="row" style="padding-top:2em">
         <div class="section col s12 m6">
-            <div style="text-align:center">
+            {{-- <div style="text-align:center">
                 <i class="medium material-icons">perm_identity</i>
-            </div>
+            </div> --}}
             <div class="divider"></div>
-            <p class="nome-ricevuta">Nome: {{$person->nome}}</p>
+            <p class="nome-ricevuta">Nome proprietario: {{$person->nome}}</p>
             <div class="divider"></div>
-            <p class="cognome-ricevuta">Cognome: {{$person->cognome}}</p>
+            <p class="cognome-ricevuta">Cognome proprietario: {{$person->cognome}}</p>
             <div class="divider"></div>
             <p class="recapito-ricevuta">Recapito: {{$person->telefono}}</p>
             <div class="divider"></div>
@@ -42,11 +42,13 @@
             <div class="divider"></div>
             <p class="recapito-indirizzo">Indirizzo: {{$person->residenza}}</p>
             <div class="divider"></div>
+            <p class="recapito-indirizzo">Seriale riparaizone: {{$repair->seriale}}</p>
+            <div class="divider"></div>
         </div>
         <div class="section col s12 m6">
-            <div style="text-align:center">
+            {{-- <div style="text-align:center">
                 <i class="medium material-icons">phone_iphone</i>
-            </div>
+            </div> --}}
             <div class="divider"></div>
             <p class="modello-ricevuta">Modello: {{$device->model}}</p>
             <div class="divider"></div>
