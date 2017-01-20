@@ -152,30 +152,30 @@
             <li class="collection-header">
                 <h4>Spedizioni</h4>
                 @if(Auth::user()->id === 1 or Auth::user()->id === 2)
-                <a href="{{ url('new-pickup') }}" style="margin-top:1em" class="waves-effect waves-light btn">
+                <div class="row"><a href="{{ url('new-pickup') }}" style="margin-top:1em;text-align:center" class="col s8 offset-s2 m4 waves-effect waves-light btn-flat">
                     <!--[if !IE]> -->
-                    <i class="material-icons left">add</i>
+                    <i class="material-icons right">add</i>
                     <!-- <![endif]-->
                     <!--[if lt IE 9]>
-                    <i class="material-icons left">&#xE145;</i>
+                    <i class="material-icons right">&#xE145;</i>
                     <![endif]-->
                     Imposta ritiro</a>
-                <a href="{{ url('new-delivery') }}" style="margin-top:1em" class="waves-effect waves-light btn">
+                <a href="{{ url('new-delivery') }}" style="margin-top:1em;text-align:center" class="col s8 offset-s2 m4 waves-effect waves-light btn-flat">
                     <!--[if !IE]> -->
-                    <i class="material-icons left">add</i>
+                    <i class="material-icons right">add</i>
                     <!-- <![endif]-->
                     <!--[if lt IE 9]>
-                    <i class="material-icons left">&#xE145;</i>
+                    <i class="material-icons right">&#xE145;</i>
                     <![endif]-->
                 Crea Spedizione</a>
-                <a href="{{ url('new-tech-sup') }}" style="margin-top:1em" class="waves-effect waves-light btn">
+                <a href="{{ url('new-tech-sup') }}" style="margin-top:1em;text-align:center" class="col s8 offset-s2 m4 waves-effect waves-light btn-flat">
                     <!--[if !IE]> -->
-                    <i class="material-icons left">add</i>
+                    <i class="material-icons right">add</i>
                     <!-- <![endif]-->
                     <!--[if lt IE 9]>
-                    <i class="material-icons left">&#xE145;</i>
+                    <i class="material-icons right">&#xE145;</i>
                     <![endif]-->
-                Crea Centro</a>
+                Crea Centro</a></div>
                 @endif
             </li>
             @if(isset($deliveries))

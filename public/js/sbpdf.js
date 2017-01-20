@@ -204,6 +204,7 @@ $('a.print-pickup').on('click',function(){
                 }
                 doc.text(20,260,'in data: '+backup_old_date_back);
                 doc.save('ddt-ritiro.pdf');
+                
             },
             error: function (xhr, b, c) {
                 var $insert_person_i = $('a.insert_person i');

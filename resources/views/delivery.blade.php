@@ -250,7 +250,7 @@
             <ul class="collection with-header">
                     @if(isset($repairs_to_pickup))
                     @foreach($repairs_to_pickup as $repair)
-                    <li data-id="{{$repair->id}}" data-show="{{$repair->device->model}} ({{$repair->seriale}})" class="collection-item">{{$repair->device->model}} ({{$repair->person->nome}} {{$repair->person->cognome}})</li>
+                    <li data-id="{{$repair->id}}" data-show="{{$repair->device->model}} (IMEI: {{$repair->device->imei}}, {{$repair->person->nome}} {{$repair->person->cognome}})" class="collection-item">{{$repair->device->model}} (IMEI: {{$repair->device->imei}}, {{$repair->person->nome}} {{$repair->person->cognome}})</li>
                     @endforeach
                     @else
                     <span>non sono state trovate riparazioni, riprova!</span>
@@ -307,9 +307,9 @@
                 @if(isset($delivery->repairs))
                 <li class="collection-header"><h4>Dispositivi da ritirare</h4></li>
                 @foreach($delivery->repairs as $repair)
-                 <a data-id="{{$repair->id}}" data-show="{{$repair->device->model}} ({{$repair->seriale}})" class="back-delivery-repair collection-item"> 
-                    {{$repair->device->model}} ({{$repair->seriale}})
-                     <span style="cursor:pointer" class="hide remove-repair-from-delivery secondary-content">
+                 <a data-id="{{$repair->id}}" data-show="{{$repair->device->model}} (IMEI: {{$repair->device->imei}}, {{$repair->person->nome}} {{$repair->person->cognome}})" class="back-delivery-repair collection-item"> 
+                    {{$repair->device->model}} (IMEI: {{$repair->device->imei}}, {{$repair->person->nome}} {{$repair->person->cognome}})
+                     <span style="cursor:pointer" class="hide remove-repair-from-delivery-back secondary-content">
                          <!--[if !IE]> -->
             <i class="material-icons">delete</i>
             <!-- <![endif]-->

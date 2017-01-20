@@ -202,11 +202,13 @@ class DeliveryController extends Controller
             ->where('stato','!=','finita')
             ->where('stato','!=','consegnata')
             ->where('stato','!=','in_lista_per_centro')
-            ->where('delivery_id','=',null)->get();
+            ->where('delivery_id','=',null)
+            ->orWhere('delivery_id','=',$id)->get();
             $repairs_to_pickup = App\Repair::where(['assistenza'=>true])
             ->where('stato','=','in_assistenza')
             ->where('stato','!=','in_lista_per_centro')
             ->where('delivery_id','=',null)
+            ->orWhere('delivery_id','=',$id)
             ->where('technical_support_id','=',''.$delivery->technicalSupport->id)->get();
             foreach($repairs_to_send as $repair){
                 $repair->device();
