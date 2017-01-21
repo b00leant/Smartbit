@@ -75,7 +75,7 @@ $.fn.autocompletesb2showREP = function(options){
             $input.on('keyup', function (e) {
             // Capture Enter
             if (e.which === 13) {
-                $autocomplete.find('li').first().click();
+                //$autocomplete.find('li').first().click();
                 //return;
             }else{
                 $('button.insert_person i').html('add');
