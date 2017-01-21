@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'driver' => getenv('MAIL_DRIVER', 'mailgun'),
+    'driver' => getenv('MAIL_DRIVER', 'smtp'),
 
     /*
     |--------------------------------------------------------------------------
@@ -29,7 +29,8 @@ return [
     |
     */
 
-    'host' => getenv('MAIL_HOST', 'smtp.mailgun.com'),
+    //'host' => getenv('MAIL_HOST', 'smtp.mailgun.com'),
+    'host' => getenv('MAIL_HOST', 'smtp.gmail.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -55,7 +56,7 @@ return [
     |
     */
     
-    'from' => ['address' => getenv('MAIL_FROM'), 'name' => null],
+    'from' => ['address' => getenv('MAIL_FROM'), 'name' => 'Smartbit'],
 
     /*
     |--------------------------------------------------------------------------
