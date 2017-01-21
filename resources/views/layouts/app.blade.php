@@ -642,9 +642,10 @@
  		$(document).ready(function(){
             
  		    //autocompleteModels();
+ 		    @if(Auth::check())
             autocompletePeople();
             autocompleteRepairs();
- 		    
+ 		    @endif
  		    
  		    lastEvent = void 0;
 
