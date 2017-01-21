@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -164,7 +164,8 @@ return [
         Milon\Barcode\BarcodeServiceProvider::class,
         Limatheus\SmsGateway\SmsGatewayServiceProvider::class,
         hisorange\BrowserDetect\Provider\BrowserDetectService::class,
-        Barryvdh\Debugbar\ServiceProvider::class
+        Barryvdh\Debugbar\ServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class
     ],
 
     /*
@@ -214,7 +215,9 @@ return [
         'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,
         'SMSGateway' => Limatheus\SmsGateway\Facade::class,
         'BrowserDetect' => hisorange\BrowserDetect\Facade\Parser::class,
-        'Debugbar' => Barryvdh\Debugbar\Facade::class
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class
     ],
 
 ];
