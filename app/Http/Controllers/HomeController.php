@@ -68,4 +68,8 @@ class HomeController extends Controller
     public function root(){
         return View::make('home');
     }
+    
+    public function rpt(){
+        return View::make('reset-p-test');
+    }
 }

@@ -838,3 +838,31 @@ $('.send_sms_status').on('click',function(){
         console.log(data);
     });
 });
+
+$('a.test-reset-p').on('click',function(){
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.ajax({
+        url : '/password/email',
+        data:{
+            'email':'microtel.tre@gmail.com'
+        },
+        dataType: 'json',
+        type: 'POST'
+    }).done(function (data){
+        console.log(data);
+        if(data.status === 200){
+            Materialize.toast('SMS inviato correttamente! 🤖', 4000);
+        }else{
+            Materialize.toast('Qualcosa è adato storto! 😕', 4000);
+        }
+        setTimeout(function(){
+        },800);
+       
+    }).fail(function(data){
+        console.log(data);
+    });
+});
