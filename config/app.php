@@ -163,7 +163,8 @@ return [
          */
         Milon\Barcode\BarcodeServiceProvider::class,
         Limatheus\SmsGateway\SmsGatewayServiceProvider::class,
-        hisorange\BrowserDetect\Provider\BrowserDetectService::class
+        hisorange\BrowserDetect\Provider\BrowserDetectService::class,
+        Barryvdh\Debugbar\ServiceProvider::class
     ],
 
     /*
@@ -213,6 +214,7 @@ return [
         'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,
         'SMSGateway' => Limatheus\SmsGateway\Facade::class,
         'BrowserDetect' => hisorange\BrowserDetect\Facade\Parser::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class
     ],
 
 ];
