@@ -92,9 +92,13 @@ $.fn.autocompletesb2showREP = function(options){
                         key.toLowerCase().indexOf(val) !== -1 &&
                         key.toLowerCase() !== val && i<6) {
                             var autocompleteOption = $('<li data-seriale="'+data[key].seriale+'" data-modello="'+data[key].modello+'" data-proprietario="'+data[key].proprietario+'"></li>');
-                            autocompleteOption.append('<a href="/repair/'+data[key].id+'"><span>'+data[key].modello+' ('+data[key].seriale +')</span></a>');
+                            var hreflinka = $('<a href="/repair/'+data[key].id+'"><span>'+data[key].modello+'</span></a>');
+                            var autocompleteOptionSerial = $('<span class="seriale">('+data[key].seriale +')</span>');
+                            hreflinka.append(autocompleteOptionSerial);
+                            autocompleteOption.append(hreflinka);
+                            
                             $autocomplete.append(autocompleteOption);
-                            //highlight(val, autocompleteOption);
+                            highlight(val, autocompleteOptionSerial);
                             i++;
                         }else{
                             /*
