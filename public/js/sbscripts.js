@@ -153,6 +153,8 @@ $.fn.searchModels = function(){
                 if(result.status === 'error' && !pas && $('input.devices').val() != ''){
                     console.log('non trovato. chiamo phonearena');
                     pas = true;
+                    $('.help-button').addClass('hide');
+                    $('.device-preloader').removeClass('hide');
                     try_phone_arena($input.val());
                 }else{
                     pas = false;
@@ -196,14 +198,14 @@ $.fn.searchModels = function(){
 };
 
 function try_phone_arena(term){
+    $('.help-button').addClass('hide');
     $('.device-preloader').removeClass('hide');
     $('input.autocomplete.devices').keyup(function(){
         if($('input.autocomplete.devices').val() == ''){
             $('.device-preloader').addClass('hide');
             $('.help-button').removeClass('hide');
         }else{
-            $('.device-preloader').removeClass('hide');
-            $('.help-button').addClass('hide');
+            
         }
         pas = false;
         $autocomplete.empty();
@@ -265,7 +267,8 @@ function try_phone_arena(term){
                 nametip = ''+nametip;
             });
             console.log(tips);
-                $('input.autocomplete.devices').after($autocomplete);
+            $('input.autocomplete.devices').after($autocomplete);
+            
             //show_phone_arena_tips(tips);
             if($input.val()!=''){
                             for(device in tips){
@@ -277,12 +280,12 @@ function try_phone_arena(term){
                                     $autocomplete.append(autocompleteOption);
                                 }
                             }
-                            
+                            $('.device-preloader').addClass('hide');
+                            $('.help-button').removeClass('hide');
                             pas = false;
                     }else{
                     }
-                $('.device-preloader').addClass('hide');
-                $('.help-button').removeClass('hide');
+                
                 $autocomplete.on('click', 'li', function () {
                 $('button.insert_person i').html('send');
                 $('input[name="model"]').val($(this).data('model'));
