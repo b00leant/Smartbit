@@ -10,7 +10,7 @@
     <!-- Aggiungi i tre tag seguenti all'interno del tag head. -->
     <meta itemprop="name" content="SmartBit">
     <meta itemprop="description" content="SmartBit è un&#39;azienda specializzata nella vendita e assistenza di prodotti nel campo della telefonia mobile e dell&#39;informatica. SmartBit inoltre mette a disposizione operazioni di notifica e tracking online per la clientela che richiede i nostri servizi di assistenza tecnica">
-    <meta itemprop="image" content="http://microtelservice.it/favicon.ico">
+    <meta itemprop="image" content="http://smartbit.online/favicon.ico">
     
     <!-- for Facebook -->          
     <meta property="og:title" content="SmartBit" />
