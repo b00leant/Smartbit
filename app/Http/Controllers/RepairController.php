@@ -121,10 +121,17 @@ class RepairController extends Controller
         if($request->session()->has('selected-person')){
             $session_person = $request->session()->get('selected-person');
             $request->session()->pull('selected-person');
-            if($request->has('imei') and $request->has('brand') and $request->has('model')
-            and $request->has('model') and $request->has('id-own') and $request->has('description')){
+            if($request->has('brand') and 
+            $request->has('model') and 
+            $request->has('id-own') and 
+            $request->has('description')){
                 $assistenza = false;
                 $garanzia  = false;
+                if($request->has('imei')){
+                    $imei = $request->input('imei');
+                }else{
+                    $imei = null;
+                }
                 if($request->has('assistenza')){
                     if($request->input('assistenza')==='true'){
                         $assistenza = true;
@@ -147,7 +154,7 @@ class RepairController extends Controller
                 }
                 $today = Carbon::today();
                 $device = new App\Device([
-                    'imei' => $request->input('imei'),
+                    'imei' => $imei,
                     'brand'=> $request->input('brand'),
                     'model'=> $request->input('model')
                     ]);

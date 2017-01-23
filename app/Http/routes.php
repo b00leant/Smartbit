@@ -44,6 +44,10 @@ Route::group(['middleware' => 'bdetect'], function () {
     
     Route::post('/repairs-pagination','RepairController@index')->middleware('auth');
     
+    Route::get('/search-phonearena/{term}',['uses'=>'AjaxController@phonearena'])->middleware('auth');
+    
+    Route::get('/search-phonearena-json/{terms}',['uses'=>'AjaxController@phonearenajson'])->middleware('auth');
+    
     Route::post('/people-pagination','PersonController@index')->middleware('auth');
     
     Route::post('/lab-pagination','LabController@index')->middleware('auth');

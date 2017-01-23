@@ -3,6 +3,17 @@
 @section('content')
 @if(Auth::check())
 <div class="row">
+    <!-- Modal Structure -->
+  <div id="modal-custom" class="modal">
+    <div class="modal-content">
+      <h4>Non trovi il modello?</h4>
+      <p>Sei sicuro che sia un telefono o uno smartphone?</p>
+      <p>Non essere frettoloso, attendi che venga mostrato il risultato o che il loader abbia finito di caricare</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Ho capito</a>
+    </div>
+  </div>
     <h5 class="center">Seleziona il modello per {{$data->nome}} {{$data->cognome}}</h5>
     <div class="divider"></div>
     <script>
@@ -14,15 +25,46 @@
                 <input type="hidden" name="cognome-own" value="{{$data->cognome}}">
                 <input type="hidden" name="id-own" value="{{$data->id}}">
             <div class="input-field col s12">
+                    <p>
+                      <input name="group1" type="radio" id="phone" />
+                      <label for="phone">Telefono/Smartphone</label>
+                    </p>
+                    <p>
+                      <input name="group1" type="radio" id="other" />
+                      <label for="other">Altro</label>
+                    </p>
+                <br>
+            </div>
+            <div class="hide dev-input input-field col s12">
+                <a style="position:absolute;right:0" href="#modal-custom" class="help-button btn-floating btn-small waves-effect waves-light smatbit">
+                    <i class="material-icons">live_help</i>
+                </a>
+                <div class="device-preloader preloader-wrapper hide small active" style="position:absolute;right:0">
+                    <div class="spinner-layer spinner-smartbit-only">
+                      <div class="circle-clipper left">
+                        <div class="circle"></div>
+                      </div><div class="gap-patch">
+                        <div class="circle"></div>
+                      </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                      </div>
+                    </div>
+                  </div>
                 {{ csrf_field() }}
                 <!--i class="material-icons prefix">textsms</i-->
                 <input type="hidden" name="id" value="">
-                <input type="hidden" name="brand" value="">
-                <input type="hidden" name="model" value="">
                 <input required type="text" name="devicecomplete" value="" autocomplete="off" id="autocomplete-devices" class="autocomplete devices">
                 <label for="autocomplete-devices">Modello/Sigla</label>
             </div>
-            <div class="input-field col s12">
+            <div class="hide brand-input input-field col s12">
+                <input type="text" name="brand" id="brand-dev" value="">
+                <label for="model-dev">Marca</label>
+            </div>
+            <div class="hide model-input input-field col s12">
+                <input type="text" name="model" id="model-dev" value="">
+                <label for="model-dev">Modello</label>
+            </div>
+            <div class="hide imei-input input-field col s12">
                 <input required type="text" name="imei"  value="" autocomplete="off" id="imei" class="imei">
                 <label for="imei">Inserisci Imei</label>
             </div>

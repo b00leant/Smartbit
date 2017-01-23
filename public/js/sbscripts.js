@@ -1,4 +1,20 @@
 //openingHours();
+$('input[type="radio"]').on('click',function(){
+    if($('input#phone').is(':checked')){
+        $('.dev-input, .imei-input').removeClass('hide');
+        $('.brand-input, .model-input').addClass('hide');
+        $('input.autocomplete.devices, input.imei').prop('required',true);
+    }if($('input#other').is(':checked')){
+        $('input.autocomplete.devices, input.imei').removeAttr('required');
+        $('.dev-input, .imei-input').addClass('hide');
+        $('input#model-dev').val('');
+        $('input#brand-dev').val('');
+        $('.brand-input, .model-input').removeClass('hide');
+    }
+});
+
+
+var pas = false;
 function openingHours(){
     $.ajaxSetup({
             headers: {
@@ -90,6 +106,14 @@ $('input.autocomplete.devices').on('keyup',function(){ $('.autocomplete-content'
 $.fn.searchModels = function(){
     var $autocomplete = $('<ul style="width: 100%;position: absolute;"class="autocomplete-content dropdown-content"></ul>');
     $('input.autocomplete.devices').keyup(function(){
+        if($('input.autocomplete.devices').val()==''){
+            $('.device-preloader').addClass('hide');
+            $('.help-button').removeClass('hide');
+        }else{
+            $('.device-preloader').removeClass('hide');
+            $('.help-button').addClass('hide');
+        }
+        
         $('input[name="brand"]').val('');
         $('input[name="model"]').val('');
         console.log('sto cercando.. '+$('input.autocomplete.devices').val());
@@ -98,6 +122,7 @@ $.fn.searchModels = function(){
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                
             }
         });
         $.ajax({
@@ -110,7 +135,10 @@ $.fn.searchModels = function(){
             },
             success: function(result){
                 $input.focusout(function(){
-                    console.log(clicky[0].className);
+                    if(clicky != null){
+                        console.log(clicky[0].className);
+                    }
+                    
                     if($('input[name="brand"]').val()=='' && $('input[name="model"]').val()==''){
                     $('input.devices').val('');
                     if(clicky[0].className != 'device-list-ajax'){
@@ -121,9 +149,18 @@ $.fn.searchModels = function(){
                 }
                 });
                 console.log(result);
-                console.log('.....elaboro.....');
-                $autocomplete.empty();
+                
+                if(result.status === 'error' && !pas && $('input.devices').val() != ''){
+                    console.log('non trovato. chiamo phonearena');
+                    pas = true;
+                    try_phone_arena($input.val());
+                }else{
+                    pas = false;
+                    console.log('inserisco risultati in lista');
+                    $autocomplete.empty();
                     $('input.autocomplete.devices').after($autocomplete);
+                    $('.device-preloader').addClass('hide');
+                    $('.help-button').removeClass('hide');
                     if($input.val()!=''){
                         for(var i = 0; i < 6; i++){
                             if(result[i]){
@@ -135,15 +172,15 @@ $.fn.searchModels = function(){
                     }else{
                     }
                 
-                $autocomplete.on('click', 'li', function () {
-                $('button.insert_person i').html('send');
-                $('input[name="model"]').val($(this).data('model'));
-                $('input[name="brand"]').val($(this).data('brand'));
-                $input.val($(this).text().trim());
-                $input.trigger('change');
-                $autocomplete.empty();
-              });
-                
+                    $autocomplete.on('click', 'li', function () {
+                    $('button.insert_person i').html('send');
+                    $('input[name="model"]').val($(this).data('model'));
+                    $('input[name="brand"]').val($(this).data('brand'));
+                    $input.val($(this).text().trim());
+                    $input.trigger('change');
+                    $autocomplete.empty();
+                  });
+                }
             },
             error: function (xhr, b, c) {
                 var $insert_person_i = $('a.insert_person i');
@@ -155,8 +192,116 @@ $.fn.searchModels = function(){
                 }
         });
     });
+        
 };
 
+function try_phone_arena(term){
+    $('.device-preloader').removeClass('hide');
+    $('input.autocomplete.devices').keyup(function(){
+        if($('input.autocomplete.devices').val() == ''){
+            $('.device-preloader').addClass('hide');
+            $('.help-button').removeClass('hide');
+        }else{
+            $('.device-preloader').removeClass('hide');
+            $('.help-button').addClass('hide');
+        }
+        pas = false;
+        $autocomplete.empty();
+    });
+    $('input[name="brand"]').val('');
+    $('input[name="model"]').val('');
+    console.log('sto cercando in phonearena.. '+$('input.autocomplete.devices').val());
+    $('ul.autocomplete-content.dropdown-content').remove();
+    var $autocomplete = $('<ul class="autocomplete-content dropdown-content"></ul>');
+    var $input = $('input.autocomplete.devices'); //$(this);
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+        }
+    });
+    $.ajax({
+        crossOrigin: true,
+        url:'/search-phonearena/'+term,
+        type: 'GET',
+        dataType:'html',
+        data:{
+            //'term':$input.val()
+        },
+        success: function(result){
+            $input.focusout(function(){
+                    if(clicky != null){
+                        console.log(clicky[0].className);
+                    }
+                    
+                    if($('input[name="brand"]').val()=='' && $('input[name="model"]').val()==''){
+                    $('input.devices').val('');
+                    if(clicky[0].className != 'device-list-ajax'){
+                        $autocomplete.empty();
+                    }else{
+                        console.log('beccato!');
+                    }
+                }
+                });
+            var parent_search = $($.parseHTML(result)).find('div#phones');
+            console.log(parent_search);
+            var tips = new Object();
+            var f_c = $(parent_search).find('div.s_listing div.s_block_4').each(function(){
+                console.log('this is '+this);
+                
+                var nameminus = $(this).find('h3 a:not(span a)').attr('href').split('/')[2];
+                //console.log(nameminus);
+                var nameonly = nameminus.split('_')[0];
+                var nametip = nameonly.replace(/-/g, " ");
+                var brand = nametip.split('_')[0];
+                
+                //nametip = nametip.replace('Review', "");
+                //nametip = nametip.replace('Plus', "");
+                //tips[nametip] = $(this).find('h3 a:not(span a)').attr('href');
+                tips[nametip] = {
+                    'brand':brand,
+                    'model':nametip
+                }
+                console.log(nametip);
+                nametip = ''+nametip;
+            });
+            console.log(tips);
+                $('input.autocomplete.devices').after($autocomplete);
+            //show_phone_arena_tips(tips);
+            if($input.val()!=''){
+                            for(device in tips){
+                                if(device){
+                                    console.log('device iterated is');
+                                    console.log(device);
+                                    var autocompleteOption = $('<li data-model="'+device+'" data-brand="'+device.split(' ')[0]+'"></li>');
+                                    autocompleteOption.append('<span class="device-list-ajax">'+device+'</span>');
+                                    $autocomplete.append(autocompleteOption);
+                                }
+                            }
+                            
+                            pas = false;
+                    }else{
+                    }
+                $('.device-preloader').addClass('hide');
+                $('.help-button').removeClass('hide');
+                $autocomplete.on('click', 'li', function () {
+                $('button.insert_person i').html('send');
+                $('input[name="model"]').val($(this).data('model'));
+                $('input[name="brand"]').val($(this).data('brand'));
+                $input.val($(this).text().trim());
+                $input.trigger('change');
+                $autocomplete.empty();
+            });
+        },
+        error: function (xhr, b, c) {
+            var $insert_person_i = $('a.insert_person i');
+            $insert_person_i.text('add');
+            console.log('response error: \n');
+            console.log(xhr);
+            console.log(b);
+            console.log(c);
+            }
+    });
+}
 $('input.autocomplete.devices').searchModels();
 
 function autocompletePeople(){

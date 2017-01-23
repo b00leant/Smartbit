@@ -15,6 +15,30 @@ class AjaxController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function phonearenajson(Request $request, $terms){
+        if($request->ajax()){
+            $terms = json_decode($terms);
+            
+        }else {
+            return null;
+        }
+    }
+    public function phonearena(Request $request, $term){
+        if($request->ajax()){
+            $client = new \GuzzleHttp\Client();
+        $res = $client->request('GET', 'http://www.phonearena.com/search', [
+            'query' => ['term' => $term]
+        ]);
+        echo $res->getStatusCode();
+        // 200
+        echo $res->getHeaderLine('content-type');
+        // 'application/json; charset=utf8'
+        echo $res->getBody();
+        return $res;
+        }else{
+            return null;
+        }
+    }
     public function index()
     {
         //
