@@ -106,7 +106,7 @@
 html, body, .block {
     height: 100%;
 }
-main > .home:nth-child(2) {
+main > .home:nth-child(1) {
         padding-top: 165px;
 }
 main > div:first-child{
