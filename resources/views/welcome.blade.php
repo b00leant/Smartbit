@@ -124,8 +124,8 @@
                     @for($i = 1; $i < $repairs_pages->lastPage(); $i++)
                     <li class="waves-effect"><a href="page={{$i+1}}">{{$i+1}}</a></li>
                     @endfor
-                    @if($repairs_pages->nextPageUrl())
-                        <li class="waves-effect"><a href="page={{$repairs_pages->nextPageUrl() + 2}}">
+                    @if($repairs_pages->nextPageUrl()!=null)
+                        <li class="waves-effect"><a href="page={{$repairs_pages['last_page'] + 2}}">
                             <!--[if !IE]> -->
                             <i class="material-icons">chevron_right</i>
                             <!-- <![endif]-->
