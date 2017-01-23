@@ -13,7 +13,7 @@
 </script>
 
 <div class="row home" style="margin-bottom:0;padding-top:56px">
-    <div class="col s12 l8" style="padding:0">
+    <div class="col s12 l8" style="padding:0;border-right: solid 0.5em #ffb300;">
         <div class="hide welcome-banner col s12 l8" style="padding:0;position:absolute;margin-top:90px;z-index:2">
     <div class="fairyoutl " id="open" style="padding:0">
     </div>
