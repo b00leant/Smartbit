@@ -1,3 +1,4 @@
+
 $.fn.searchAddress = function(){
   $('ul.dropdown-content').empty();
   $('input.autocomplete.address').keyup(function(){
@@ -40,6 +41,7 @@ $.fn.searchAddress = function(){
             var uluru = {lat: lat, lng: lng};
             //$('div#preview').hide();
             $('div#map').show();
+            
             var map = new google.maps.Map(document.getElementById('map'), {
               zoom: 12,
               center: uluru,

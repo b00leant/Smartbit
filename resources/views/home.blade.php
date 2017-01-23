@@ -14,7 +14,7 @@
 
 <div class="row home" style="margin-bottom:0;padding-top:56px">
     <div class="col s12 l8" style="padding:0">
-        <div class="col s12 l8" style="padding:0;position:absolute;margin-top:90px;z-index:2">
+        <div class="hide welcome-banner col s12 l8" style="padding:0;position:absolute;margin-top:90px;z-index:2">
     <div class="fairyoutl " id="open" style="padding:0">
     </div>
     <div class="fairyl " id="open" style="padding:0">
@@ -22,8 +22,8 @@
     <div class="fairyoutr " id="open" style="padding:0">
     </div><div class="fairyr" id="open" style="padding:0">
     </div>
-    <div class="hour-banner white-text" id="open" style="
-    border:0px;background-color: rgb(6, 86, 116);font-size:1.5em">Benvenuto</div>
+    <div class=" hour-banner white-text" id="open" style="
+    border:0px;background-color: rgb(6, 86, 116);font-size:1.5em">Siamo aperti!</div>
 </div>
         <div id="maphome" style="width:100%;height: 525px; position: relative;"></div>
     </div>

@@ -1,11 +1,13 @@
-openingHours();
+//openingHours();
 function openingHours(){
     $.ajaxSetup({
             headers: {
-                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content'),
+                'Access-Control-Allow-Origin': '*'
             }
         });
     $.ajax({
+        dataType: 'jsonp',
         url:'https://maps.googleapis.com/maps/api/place/details/json',
         type: 'GET',
         data:{

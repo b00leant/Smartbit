@@ -481,12 +481,13 @@
     
     
     @if(Route::getCurrentRoute()->getPath() === '/')
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAK6y8tZ4VlyEKfCUzV7LvxTNLN6Me6S8&callback=autocompleteAddress">
-    </script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAK6y8tZ4VlyEKfCUzV7LvxTNLN6Me6S8&libraries=places"></script>
-
+    <!--script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAK6y8tZ4VlyEKfCUzV7LvxTNLN6Me6S8&callback=autocompleteAddress">
+    </script-->
+    
     <script>
+    autocompleteAddress();
     function autocompleteAddress(){
         var position = new google.maps.LatLng(41.775432,12.924108);
         var map = new google.maps.Map(document.getElementById('maphome'), {
@@ -583,7 +584,27 @@
                   stylers: [{color: '#17263c'}]
                 }]
         });
+        var request = {
+          placeId: 'ChIJKUz510t8JRMRVPfw2-GzWHM'
+        };
         
+        var service = new google.maps.places.PlacesService(map);
+        service.getDetails(request, callback);
+        
+        function callback(place, status) {
+          if (status == google.maps.places.PlacesServiceStatus.OK) {
+              console.log(place);
+              if(!place.opening_hours.open_now){
+                  $('.welcome-banner div').each(function(){
+                    $('#open').attr("id","close");
+                    $('.hour-banner').addClass("red");
+                    $('.hour-banner').text("Siamo chiusi");
+                  });
+              }
+              $('.welcome-banner').removeClass('hide');
+            //createMarker(place);
+          }
+        }
         var image = {
           url: 'http://www.smartbit.online/images/smartbit_marker.png',
           scaledSize: new google.maps.Size(80, 80),
