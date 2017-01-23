@@ -20,7 +20,7 @@
         //console.log('nella sessione si sta usando la persona:s');
     </script>
     <form method="POST" action="{{ url('create-repair') }}" id="create">
-        <div class="col s12 m6 l6">
+        <div class="col s12 m8 l8 offset-">
             <input type="hidden" name="nome-own" value="{{$data->nome}}">
                 <input type="hidden" name="cognome-own" value="{{$data->cognome}}">
                 <input type="hidden" name="id-own" value="{{$data->id}}">
@@ -72,8 +72,6 @@
                 <textarea  required name="description"  value="" placeholder="Esempio: “non funziona lo schermo, il cliente ha provato a riavviarlo ma crede che sia una questione di MAGIA NERA! ⚡”"  id="description" class="materialize-textarea"></textarea>
                 <label for="description">Descrivi il difetto</label>
             </div>
-        </div>
-        <div class="col s12 m6 l6">
             <p>
               <input name="garanzia" value="true" type="checkbox" id="garanzia" />
               <label for="garanzia">In Garanzia?</label>
@@ -96,6 +94,21 @@
                 <input id="70a3d71f-87a6-94d1-771a-ac07379c7386" class="input" placeholder="+Tag">
             </div>
         </div>
+        <div class="col s12 m4 l4" style="padding-top:2em;text-align:center">
+            <div class=" hide preloader-image-phone preloader-wrapper big active">
+          <div class="spinner-layer spinner-blue">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+          </div>
+            <img class="responsive-img-phone phone-box" src="">
+        </div>
+        <!--div class="col s12 m6 l6"></div-->
     
     <div class="fixed-action-btn">
     <button class="create_repair btn-floating btn-large smartbit" type="submit" form="create">

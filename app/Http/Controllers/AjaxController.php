@@ -1,13 +1,11 @@
 <?php
-
 namespace App\Http\Controllers;
-
-
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App;
+use \GuzzleHttp\Exception\GuzzleException;
+use \GuzzleHttp\Client;
 use \SMSGateway;
-
 class AjaxController extends Controller
 {
     /**
@@ -15,35 +13,10 @@ class AjaxController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function phonearenajson(Request $request, $terms){
-        if($request->ajax()){
-            $terms = json_decode($terms);
-            
-        }else {
-            return null;
-        }
-    }
-    public function phonearena(Request $request, $term){
-        if($request->ajax()){
-            $client = new \GuzzleHttp\Client();
-        $res = $client->request('GET', 'http://www.phonearena.com/search', [
-            'query' => ['term' => $term]
-        ]);
-        echo $res->getStatusCode();
-        // 200
-        echo $res->getHeaderLine('content-type');
-        // 'application/json; charset=utf8'
-        echo $res->getBody();
-        return $res;
-        }else{
-            return null;
-        }
-    }
     public function index()
     {
         //
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -53,7 +26,6 @@ class AjaxController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -63,6 +35,27 @@ class AjaxController extends Controller
     public function store(Request $request)
     {
         //
+    }
+    public function phonearenajson(Request $request,$terms){
+        $client = new Client();
+        $res = $client->request('GET', 'http://www.phonearena.com/search', [
+            'query' => ['terms'=> $terms]
+        ]);
+        return $res->getBody();
+    }
+    public function phonearenaimg(Request $request, $term){
+        $client = new Client();
+        $res = $client->request('GET', 'http://www.phonearena.com/search', [
+            'query' => ['term'=> $term]
+        ]);
+        return $res->getBody();
+    }
+    public function phonearena(Request $request, $term){
+        $client = new Client();
+        $res = $client->request('GET', 'http://www.phonearena.com/search', [
+            'query' => ['term'=> $term]
+        ]);
+        return $res->getBody();
     }
     public function people(Request $request)
     {
@@ -135,7 +128,6 @@ class AjaxController extends Controller
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -146,7 +138,6 @@ class AjaxController extends Controller
     {
         //
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -158,7 +149,6 @@ class AjaxController extends Controller
     {
         //
     }
-
     /**
      * Remove the specified resource from storage.
      *

@@ -1,4 +1,8 @@
-//openingHours();
+
+$(document).ready(function(){
+    $('.phone-box').materialbox();
+  });
+
 $('input[type="radio"]').on('click',function(){
     if($('input#phone').is(':checked')){
         $('.dev-input, .imei-input').removeClass('hide');
@@ -13,7 +17,39 @@ $('input[type="radio"]').on('click',function(){
     }
 });
 
-
+function load_img(model){
+    $('.preloader-image-phone').removeClass('hide');
+    $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content'),
+            }
+        });
+    $.ajax({
+        dataType: 'html',
+        url:'/phone-arena-img/'+model,
+        type: 'GET',
+        data:{
+        },
+        success: function(result){
+            //console.log(result);
+            var parent_search = $($.parseHTML(result)).find('div#phones');
+            console.log(parent_search);
+            var tips = new Object();
+            var f_c = $(parent_search).find('div.s_listing div.s_block_4:first');
+                console.log('this is '+this);
+                var src = $(f_c).find('a img').attr('src');
+                console.log(src);
+                $('img.responsive-img-phone').attr('src',src);
+                $('.preloader-image-phone').addClass('hide');
+        },
+        error: function (xhr, b, c) {
+            console.log('response error: \n');
+            console.log(xhr);
+            console.log(b);
+            console.log(c);
+            }
+    });
+}
 var pas = false;
 function openingHours(){
     $.ajaxSetup({
@@ -115,6 +151,7 @@ $.fn.searchModels = function(){
         }
         
         $('input[name="brand"]').val('');
+        $('img.responsive-img-phone').attr('src','');
         $('input[name="model"]').val('');
         console.log('sto cercando.. '+$('input.autocomplete.devices').val());
         $('ul.autocomplete.content.dropdown-content').remove();
@@ -178,6 +215,7 @@ $.fn.searchModels = function(){
                     $('button.insert_person i').html('send');
                     $('input[name="model"]').val($(this).data('model'));
                     $('input[name="brand"]').val($(this).data('brand'));
+                    load_img($(this).data('model'));
                     $input.val($(this).text().trim());
                     $input.trigger('change');
                     $autocomplete.empty();
@@ -211,6 +249,7 @@ function try_phone_arena(term){
         $autocomplete.empty();
     });
     $('input[name="brand"]').val('');
+    $('img.responsive-img-phone').attr('src','');
     $('input[name="model"]').val('');
     console.log('sto cercando in phonearena.. '+$('input.autocomplete.devices').val());
     $('ul.autocomplete-content.dropdown-content').remove();
@@ -290,6 +329,8 @@ function try_phone_arena(term){
                 $('button.insert_person i').html('send');
                 $('input[name="model"]').val($(this).data('model'));
                 $('input[name="brand"]').val($(this).data('brand'));
+                console.log('model is '+$(this).data('model'));
+                load_img($(this).data('model'));
                 $input.val($(this).text().trim());
                 $input.trigger('change');
                 $autocomplete.empty();
