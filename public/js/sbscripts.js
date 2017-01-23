@@ -598,10 +598,10 @@ function getRepairs(page) {
         var pagination = $('ul.pagination.repairs');
         pagination.empty();
         pagination.css('text-align','center');
-        var header = $('div#rip.collection.with-header.container div.collection-header');
-        $('div#rip.collection.with-header.container').empty();
+        var header = $('div.collection.with-header.repairs div.collection-header');
+        $('div.collection.with-header.repairs').empty();
         //$('div#rip.collection.with-header.container').css('border','0px solid');*/
-        $('div#rip.collection.with-header.container').append(header);
+        $('div.collection.with-header.repairs').append(header);
         for(var i = 0; i < data.data.length; i++){
             var repair = '';
             var href_rip = 'href="/repair/'+data.data[i].id+'"';
@@ -655,7 +655,7 @@ function getRepairs(page) {
                     '</div>ID: '+data.data[i].id+' desc:'+data.data[i].note+'</a>';
                     break;
             }
-            $('div#rip.collection.with-header.container').append(repair);
+            $('div.collection.with-header.repairs').append(repair);
             $('.tooltipped').tooltip({delay: 50});
         }
         for(var i = 0; i <= (data.last_page); i++){
@@ -681,7 +681,7 @@ function getRepairs(page) {
                 }
             }
         }
-        $('div#rip.collection.with-header.container').append(pagination);
+        $('div.collection.with-header.repairs').append(pagination);
         //$('.posts').html(data);
         //location.hash = page;
     }).fail(function () {
