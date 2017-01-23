@@ -622,7 +622,7 @@
           }
         }
         var image = {
-          url: 'http://www.smartbit.online/images/smartbit_marker.png',
+          url: '/images/smartbit_marker.gif',
           scaledSize: new google.maps.Size(80, 80),
           origin: new google.maps.Point(0,0), // origin
           anchor: new google.maps.Point(40, 80) // anchor
