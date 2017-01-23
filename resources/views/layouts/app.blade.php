@@ -484,6 +484,8 @@
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAK6y8tZ4VlyEKfCUzV7LvxTNLN6Me6S8&callback=autocompleteAddress">
     </script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAK6y8tZ4VlyEKfCUzV7LvxTNLN6Me6S8&libraries=places"></script>
+
     <script>
     function autocompleteAddress(){
         var position = new google.maps.LatLng(41.775432,12.924108);

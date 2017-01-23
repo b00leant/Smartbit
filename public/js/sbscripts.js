@@ -1,3 +1,30 @@
+openingHours();
+function openingHours(){
+    $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        });
+    $.ajax({
+        url:'https://maps.googleapis.com/maps/api/place/details/json',
+        type: 'GET',
+        data:{
+            'placeid':'ChIJKUz510t8JRMRVPfw2-GzWHM',
+            'key':'AIzaSyAAK6y8tZ4VlyEKfCUzV7LvxTNLN6Me6S8'
+        },
+        success: function(result){
+            console.log(result);
+            
+        },
+        error: function (xhr, b, c) {
+            console.log('response error: \n');
+            console.log(xhr);
+            console.log(b);
+            console.log(c);
+            }
+    });
+}
+
 var clicky;
 
     $(document).mousedown(function(e) {
