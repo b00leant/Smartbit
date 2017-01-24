@@ -75,8 +75,8 @@ class AjaxController extends Controller
         if ($request->ajax()){
             $repairs = App\Repair::all();
             foreach($repairs as $repair){
-                $repair->person();
-                $repair->device();
+                $repair->person;
+                $repair->device;
             }
             if (!$repairs->isEmpty()){
                 return $repairs;
