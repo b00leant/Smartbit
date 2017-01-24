@@ -33,6 +33,10 @@ class RepairController extends Controller
         if($request->ajax()){
             $index = $request->input('index');
             $repairs = App\Repair::where('stato','!=','ritirata')->orderBy('id', 'desc')->paginate(10);
+            foreach($repairs as $repair){
+                $repair->device;
+                $repair->person;
+            }
             return $repairs;
         }else{
             $response = array(['success' => 'false','errors'=>'non si trova'],400);
