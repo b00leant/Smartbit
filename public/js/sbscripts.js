@@ -613,7 +613,7 @@ function getRepairs(page) {
                     '<i class="tooltipped material-icons" data-tooltip="Creata"'+
                     'style="color:grey">hourglass_empty</i>'+
                     '</div>Modello: '+data.data[i].device.model+' ('+data.data[i].person.nome+' '+data.data[i].person.cognome+')';
-                    if(data[i].garanzia){
+                    if(data.data[i].garanzia){
                        repair = repair + '<span data-badge-caption="" class="new badge green" style="margin-right:0.5em">garanzia</span>';
                     }
                     repair = repair +'</a>';
@@ -625,7 +625,7 @@ function getRepairs(page) {
                     '<i class="tooltipped material-icons" data-tooltip="Iniziata"'+
                     'style="color:grey">done</i>'+
                      '</div>Modello: '+data.data[i].device.model+' ('+data.data[i].person.nome+' '+data.data[i].person.cognome+')';
-                    if(data[i].garanzia){
+                    if(data.data[i].garanzia){
                        repair = repair + '<span data-badge-caption="" class="new badge green" style="margin-right:0.5em">garanzia</span>';
                     }
                     repair = repair +'</a>';
@@ -637,7 +637,7 @@ function getRepairs(page) {
                     '<i class="tooltipped material-icons" data-tooltip="Finita (non ancora pronta)"'+
                     'style="color:grey">done_all</i>'+
                      '</div>Modello: '+data.data[i].device.model+' ('+data.data[i].person.nome+' '+data.data[i].person.cognome+')';
-                    if(data[i].garanzia){
+                    if(data.data[i].garanzia){
                        repair = repair + '<span data-badge-caption="" class="new badge green" style="margin-right:0.5em">garanzia</span>';
                     }
                     repair = repair +'</a>';
@@ -649,7 +649,7 @@ function getRepairs(page) {
                     '<i class="tooltipped material-icons" data-tooltip="In lista per l\'assistenza"'+
                     'style="color:grey">local_shipping</i>'+
                      '</div>Modello: '+data.data[i].device.model+' ('+data.data[i].person.nome+' '+data.data[i].person.cognome+')';
-                    if(data[i].garanzia){
+                    if(data.data[i].garanzia){
                        repair = repair + '<span data-badge-caption="" class="new badge green" style="margin-right:0.5em">garanzia</span>';
                     }
                     repair = repair +'</a>';
@@ -661,7 +661,7 @@ function getRepairs(page) {
                     '<i class="tooltipped material-icons" data-tooltip="In centro assistenza"'+
                     'style="color:grey">location_on</i>'+
                      '</div>Modello: '+data.data[i].device.model+' ('+data.data[i].person.nome+' '+data.data[i].person.cognome+')';
-                    if(data[i].garanzia){
+                    if(data.data[i].garanzia){
                        repair = repair + '<span data-badge-caption="" class="new badge green" style="margin-right:0.5em">garanzia</span>';
                     }
                     repair = repair +'</a>';
@@ -673,7 +673,7 @@ function getRepairs(page) {
                     '<i class="tooltipped material-icons" data-tooltip="Pronta per il ritiro"'+
                     'style="color:#4CAF50">done_all</i>'+
                     '</div>Modello: '+data.data[i].device.model+' ('+data.data[i].person.nome+' '+data.data[i].person.cognome+')';
-                    if(data[i].garanzia){
+                    if(data.data[i].garanzia){
                        repair = repair + '<span data-badge-caption="" class="new badge green" style="margin-right:0.5em">garanzia</span>';
                     }
                     repair = repair +'</a>';
@@ -685,7 +685,7 @@ function getRepairs(page) {
                     '<i class="tooltipped material-icons" data-tooltip="Tornata dall\'assistenza"'+
                     'style="color:#4CAF50">done_all</i>'+
                     '</div>Modello: '+data.data[i].device.model+' ('+data.data[i].person.nome+' '+data.data[i].person.cognome+')';
-                    if(data[i].garanzia){
+                    if(data.data[i].garanzia){
                        repair = repair + '<span data-badge-caption="" class="new badge green" style="margin-right:0.5em">garanzia</span>';
                     }
                     repair = repair +'</a>';
@@ -697,7 +697,7 @@ function getRepairs(page) {
                     '<i class="tooltipped material-icons" data-tooltip="Consegnata"'+
                     'style="color:#4CAF50">tag_faces</i>'+
                     '</div>Modello: '+data.data[i].device.model+' ('+data.data[i].person.nome+' '+data.data[i].person.cognome+')';
-                    if(data[i].garanzia){
+                    if(data.data[i].garanzia){
                        repair = repair + '<span data-badge-caption="" class="new badge green" style="margin-right:0.5em">garanzia</span>';
                     }
                     repair = repair +'</a>';
@@ -709,7 +709,7 @@ function getRepairs(page) {
                     '<i class="tooltipped material-icons" data-tooltip="senza stato"'+
                     'style="color:grey">error</i>'+
                      '</div>Modello: '+data.data[i].device.model+' ('+data.data[i].person.nome+' '+data.data[i].person.cognome+')';
-                    if(data[i].garanzia){
+                    if(data.data[i].garanzia){
                        repair = repair + '<span data-badge-caption="" class="new badge green" style="margin-right:0.5em">garanzia</span>';
                     }
                     repair = repair +'</a>';
@@ -721,7 +721,7 @@ function getRepairs(page) {
                     '<i class="tooltipped material-icons" data-tooltip="senza stato"'+
                     'style="color:grey">error</i>'+
                      '</div>Modello: '+data.data[i].device.model+' ('+data.data[i].person.nome+' '+data.data[i].person.cognome+')';
-                    if(data[i].garanzia){
+                    if(data.data[i].garanzia){
                        repair = repair + '<span data-badge-caption="" class="new badge green" style="margin-right:0.5em">garanzia</span>';
                     }
                     repair = repair +'</a>';
