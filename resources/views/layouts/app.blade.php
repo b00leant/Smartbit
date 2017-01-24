@@ -687,12 +687,13 @@
         /*$(document.body).on('click', 'a.lab-item' ,function(){
             
         });*/
-        
+        $('.fb-page span iframe').addClass('hide');
         var refreshID = setInterval(function(){
           if($('.fb-page').attr('fb-xfbml-state') == 'rendered'){
               console.log('hey, change is now!');
               $('.fb-page-loader').addClass('hide');
-              $('.fb-page').removeClass('hide');
+              $('.fb-page span iframe').removeClass('hide');
+              $('.fb-page blockquote a').removeClass('hide');
               clearInterval(refreshID);
           }else{
               console.log('no');

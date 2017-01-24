@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-{{-- <div id="fb-root"></div> --}}
 
 
 
@@ -21,8 +20,9 @@
         <div id="maphome" style="width:100%;height: 525px; position: relative;"></div>
     </div>
     <div style="height:525px;padding-left:0;padding-right:0;background-color:#074b65" class="col s12 l4 valign-wrapper">
-        <div style="margin:auto" class="valign fb-page-loader preloader-wrapper big active">
-          <div style="text-align:center;">
+        <div id="fb-root"></div>
+        <div class="valign fb-page-loader preloader-wrapper big active">
+          <div style="margin:auto;text-align:center;">
               <div class="spinner-layer spinner-smartbit2-only">
                 <div class="circle-clipper left">
                   <div class="circle"></div>
@@ -34,7 +34,7 @@
               </div>
           </div>
           </div>
-        <div style="margin-top:15px;margin-bottom:10px;margin-right:auto;margin-left:auto" class="fb-page hide" 
+        <div style="margin:auto" class="fb-page" 
         data-href="https://www.facebook.com/smartbitsrl/"
         data-tabs="timeline" 
         data-small-header="false" 
@@ -43,7 +43,7 @@
         data-show-facepile="true">
             <blockquote cite="https://www.facebook.com/smartbitsrl/" 
             class="fb-xfbml-parse-ignore">
-                <a href="https://www.facebook.com/smartbitsrl/">SmartBit</a></blockquote>
+                <a class="hide" href="https://www.facebook.com/smartbitsrl/">SmartBit</a></blockquote>
         </div>
     </div>
 </div>
