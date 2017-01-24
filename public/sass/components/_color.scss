@@ -8,6 +8,9 @@
 $smartlab: (
   "base": #d8a028,
 );
+$smartbit2: (
+  "base":#ffab00, 
+);
 $smartbit: (
   "base": #085674,
 );
@@ -344,6 +347,7 @@ $shades: (
 $colors: (
   "smartlab": $smartlab,
   "smartbit": $smartbit,
+  "smartbit2": $smartbit2,
   "materialize-red": $materialize-red,
   "red": $red,
   "pink": $pink,

@@ -37,6 +37,7 @@ $primary-color: color("smartbit", "base") !default;
 $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
 
+$spinner-color: color("smartbit2","base") !default;
 $secondary-color: color("smartbit", "base") !default;
 $success-color: color("green", "base") !default;
 $error-color: color("red", "base") !default;
@@ -243,8 +244,8 @@ $slider-indicator-color: color('green', 'base') !default;
 // 16. Spinners | Loaders
 // ==========================================================================
 
-$spinner-default-color: $secondary-color !default;
-
+//$spinner-default-color: $secondary-color !default;
+$spinner-default-color: $spinner-color !default;
 
 // 17. Tabs
 // ==========================================================================
