@@ -27,9 +27,9 @@
 </div>
         <div id="maphome" style="width:100%;height: 525px; position: relative;"></div>
     </div>
-    <div style="text-align:center;padding-top:15px;padding-bottom:10px" class="grey darken-3 col s12 l4">
+    <div style="text-align:center;padding-top:15px;padding-bottom:10px;background-color:#074b65" class="col s12 l4">
         <div class="fb-page" 
-        data-href="https://www.facebook.com/smartbitsrl/" 
+        data-href="https://www.facebook.com/smartbitsrl/"
         data-tabs="timeline" 
         data-small-header="false" 
         data-adapt-container-width="true" 
