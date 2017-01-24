@@ -21,19 +21,25 @@
     </div>
     <div style="height:525px;padding-left:0;padding-right:0;background-color:#074b65" class="col s12 l4 valign-wrapper">
         <div id="fb-root"></div>
-        <div class="valign fb-page-loader preloader-wrapper big active">
-          <div style="margin:auto;text-align:center;">
-              <div class="spinner-layer spinner-smartbit2-only">
-                <div class="circle-clipper left">
-                  <div class="circle"></div>
-                </div><div class="gap-patch">
-                  <div class="circle"></div>
-                </div><div class="circle-clipper right">
-                  <div class="circle"></div>
-                </div>
+        <div style="
+    width: 100%;
+    text-align: center;
+    position: absolute;
+">
+            <div style="margin:auto;" class="valign fb-page-loader preloader-wrapper big active">
+              <div style="text-align:center;">
+                  <div class="spinner-layer spinner-smartbit2-only">
+                    <div class="circle-clipper left">
+                      <div class="circle"></div>
+                    </div><div class="gap-patch">
+                      <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                      <div class="circle"></div>
+                    </div>
+                  </div>
               </div>
           </div>
-          </div>
+        </div>
         <div style="margin:auto" class="fb-page" 
         data-href="https://www.facebook.com/smartbitsrl/"
         data-tabs="timeline" 
