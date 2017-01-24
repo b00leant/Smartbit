@@ -107,6 +107,15 @@
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 </head>
 <body>
+    <script>
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v2.8&appId=1696543827255530";
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
     <header>
     {{------------------- DEFINISCO NAVIGAZIONE PER GLI OSPITI ---------------}}
     @if(Auth::guest())
@@ -678,7 +687,20 @@
         /*$(document.body).on('click', 'a.lab-item' ,function(){
             
         });*/
+        
+        var refreshID = setInterval(function(){
+          if($('.fb-page').attr('fb-xfbml-state') == 'rendered'){
+              console.log('hey, change is now!');
+              $('.fb-page-loader').addClass('hide');
+              $('.fb-page').removeClass('hide');
+              clearInterval(refreshID);
+          }else{
+              console.log('no');
+          }
+        }, 500);
  		$(document).ready(function(){
+ 		    
+ 		    
             
  		    //autocompleteModels();
  		    @if(Auth::check())

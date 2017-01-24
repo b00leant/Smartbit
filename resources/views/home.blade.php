@@ -2,15 +2,8 @@
 
 @section('content')
 {{-- <div id="fb-root"></div> --}}
-<script>
-(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v2.8&appId=1696543827255530";
-    fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-</script>
+
+
 
 <div class="row home" style="margin-bottom:0;padding-top:56px">
     <div class="col s12 l8" style="padding:0">
@@ -27,8 +20,21 @@
 </div>
         <div id="maphome" style="width:100%;height: 525px; position: relative;"></div>
     </div>
-    <div style="text-align:center;padding-top:15px;padding-bottom:10px;background-color:#074b65" class="col s12 l4">
-        <div class="fb-page" 
+    <div style="height:525px;padding-top:15px;padding-bottom:10px;background-color:#074b65" class="col s12 l4 valign-wrapper">
+        <div style="margin:auto" class="valign fb-page-loader preloader-wrapper big active">
+          <div style="text-align:center;">
+              <div class="spinner-layer spinner-smartbit2-only">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+          </div>
+          </div>
+        <div style="margin:auto" class="fb-page hide" 
         data-href="https://www.facebook.com/smartbitsrl/"
         data-tabs="timeline" 
         data-small-header="false" 
