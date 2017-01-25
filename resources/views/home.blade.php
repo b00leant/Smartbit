@@ -3,7 +3,7 @@
 @section('content')
 
 
-
+<!--div id="fb-root"></div-->
 <div class="row home" style="margin-bottom:0;padding-top:56px">
     <div class="col s12 l8" style="padding:0">
         <div class="hide welcome-banner col s12 l8" style="padding:0;position:absolute;margin-top:90px;z-index:2">
@@ -19,14 +19,11 @@
 </div>
         <div id="maphome" style="width:100%;height: 525px; position: relative;"></div>
     </div>
-    <div style="height:525px;padding-left:0;padding-right:0;background-color:#074b65" class="col s12 l4 valign-wrapper">
-        <div id="fb-root"></div>
-        <div style="
-    width: 100%;
-    text-align: center;
-    position: absolute;
-">
-            <div style="margin:auto;" class="valign fb-page-loader preloader-wrapper big active">
+    <div style="height:525px;background-color:#074b65;text-align: center;padding: 10px 10px 0px 10px" class="col s12 l4 ">
+        
+        <div class="fb-loader-container valign-wrapper" style="
+    height:inherit;">
+            <div style="margin:auto" class="center fb-page-loader preloader-wrapper big active">
               <div style="text-align:center;">
                   <div class="spinner-layer spinner-smartbit2-only">
                     <div class="circle-clipper left">
@@ -40,7 +37,7 @@
               </div>
           </div>
         </div>
-        <div style="margin:auto" class="fb-page" 
+        <div  class="fb-page" 
         data-href="https://www.facebook.com/smartbitsrl/"
         data-tabs="timeline" 
         data-small-header="false" 
