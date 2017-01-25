@@ -5,8 +5,8 @@
 
 <!--div id="fb-root"></div-->
 <div class="row home" style="margin-bottom:0;padding-top:56px">
-    <div class="col s12 l8" style="padding:0">
-        <div class="hide welcome-banner col s12 l8" style="padding:0;position:absolute;margin-top:90px;z-index:2">
+    <div class="col s12 l6" style="padding:0">
+        <div class="hide welcome-banner col s12 l6" style="padding:0;position:absolute;margin-top:90px;z-index:2">
     <div class="fairyoutl " id="open" style="padding:0">
     </div>
     <div class="fairyl " id="open" style="padding:0">
@@ -19,7 +19,7 @@
 </div>
         <div id="maphome" style="width:100%;height: 525px; position: relative;"></div>
     </div>
-    <div style="height:525px;background-color:#074b65;text-align: center;padding: 15px 10px 0px 10px" class="col s12 l4 ">
+    <div style="height:525px;background-color:#074b65;text-align: center;padding: 15px 10px 0px 10px" class="col s12 l6 ">
         
         <div class="fb-loader-container valign-wrapper" style="
     height:inherit;">
