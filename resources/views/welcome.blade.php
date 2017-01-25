@@ -30,7 +30,7 @@
                 </nav>  
                 <div class="collection with-header repairs">
                 <div class="collection-header">
-                    <h4>Riparazioni</h4>
+                    <h4 style="text-align:center">Riparazioni</h4>
                     <a class="btn-floating btn waves-effect waves-light smartbit" href="{{ url('select-repair-owner') }}">
                         <i class="material-icons">add</i>
                     </a>
@@ -150,7 +150,7 @@
             
             <ul id="del" class="collection with-header container">
             <li class="collection-header">
-                <h4>Spedizioni</h4>
+                <h4 style="text-align:center">Spedizioni</h4>
                 @if(Auth::user()->id === 1 or Auth::user()->id === 2)
                 <div class="row"><a href="{{ url('new-pickup') }}" style="margin-top:1em;text-align:center" class="col s8 offset-s2 m4 waves-effect waves-light btn-flat">
                     <!--[if !IE]> -->
@@ -240,7 +240,7 @@
             </nav>
             <div class="collection with-header people">
                 <div class="collection-header">
-                    <h4>Clienti</h4>
+                    <h4 style="text-align:center">Clienti</h4>
                     <a class="btn-floating btn waves-effect waves-light smartbit" href="{{ url('create-person') }}">
                         <!--[if !IE]> -->
                         <i class="material-icons">add</i>
