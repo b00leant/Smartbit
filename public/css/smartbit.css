@@ -1,47 +1,5 @@
-.fairyoutl#open{
-    background-color: transparent;
-    margin-left: 6.9%;float: left;
-    width: 18%;height: 40px;
-    border-top: 20px solid #053D52;
-    border-bottom: 20px solid #053D52;
-    padding: 0px;
-    border-left: 20px solid transparent;
-}
-.hour-banner{
-    text-align: center;
-    position: absolute;
-    width: 50.2%;
-    margin-top: 10px;
-    margin-left: 24.9%;
-    height: 2em;/*40px;*/
-    padding: 0.25em 0 0 0;
-    font-size: 1.5em;
-    color: #ffffff;
-}
-.fairyl#open{
-    float: left;margin-left: 0%;
-    height: 10px;width: 40px;
-    border-left: 40px solid #053D52;
-    border-bottom: 10px solid #03222D;
-}
-.fairyoutr#open{
-    float: right;
-            margin-right: 6.9%;
-            width: 18%;
-            border-top: 20px solid #053D52;
-            border-right: 20px solid transparent;
-            border-bottom: 20px solid #053D52;
-            height: 40px;
-            background-color: transparent;
-}
-.fairyr#open{
-    float: right;
-            border-bottom: 10px solid #03222D;
-            border-right: 40px solid #053D52;
-            height: 10px;
-            width: 40px;
-            
-}
+/*
+CLOSE OLD
 
 .fairyoutl#close{
     background-color: transparent;
@@ -79,6 +37,136 @@
             width: 40px;
             
 }
+
+*/
+
+/*
+
+HOUR BANNER OLD 2
+
+.fairyoutl#close{
+    background-color: transparent;
+    margin-left: 6.9%;
+    float: left;width: 18%;
+    height: 40px;
+    border-top: 20px solid #b57f10;
+    border-bottom: 20px solid #b57f10;
+    padding: 0px;
+    border-left: 20px solid transparent;
+}
+.fairyl#close{
+    float: left;
+    margin-left: 0%;
+    height: 10px;
+    width: 40px;
+    border-left: 40px solid #b57f10;
+    border-bottom: 10px solid #9a6d0f;
+}
+.fairyoutr#close{
+    float: right;
+            margin-right: 6.9%;
+            width: 18%;
+            border-top: 20px solid #b57f10;
+            border-right: 20px solid transparent;
+            border-bottom: 20px solid #b57f10;
+            height: 40px;
+            background-color: transparent;
+}
+.fairyr#close{
+    float: right;
+            border-bottom: 10px solid #9a6d0f;
+            border-right: 40px solid #b57f10;
+            height: 10px;
+            width: 40px;
+            
+}
+*/
+
+.fairyoutl#close{
+    background-color: transparent;
+    margin-left: 6.9%;
+    float: left;width: 18%;
+    height: 40px;
+    border-top: 20px solid #3a3939;
+    border-bottom: 20px solid #3a3939;
+    padding: 0px;
+    border-left: 20px solid transparent;
+}
+.fairyl#close{
+    float: left;
+    margin-left: 0%;
+    height: 10px;
+    width: 40px;
+    border-left: 40px solid #3a3939;
+    border-bottom: 10px solid #272727;
+}
+.fairyoutr#close{
+    float: right;
+            margin-right: 6.9%;
+            width: 18%;
+            border-top: 20px solid #3a3939;
+            border-right: 20px solid transparent;
+            border-bottom: 20px solid #3a3939;
+            height: 40px;
+            background-color: transparent;
+}
+.fairyr#close{
+    float: right;
+            border-bottom: 10px solid #272727;
+            border-right: 40px solid #3a3939;
+            height: 10px;
+            width: 40px;
+            
+}
+
+
+.fairyoutl#open{
+    background-color: transparent;
+    margin-left: 6.9%;float: left;
+    width: 18%;height: 40px;
+    border-top: 20px solid #053D52;
+    border-bottom: 20px solid #053D52;
+    padding: 0px;
+    border-left: 20px solid transparent;
+}
+.hour-banner{
+    text-align: center;
+    position: absolute;
+    width: 50.2%;
+    margin-top: 10px;
+    margin-left: 24.9%;
+    height: 2em;/*40px;*/
+    padding: 0.25em 0 0 0;
+    font-size: 1.5em;
+    color: #ffffff;
+    
+}
+.fairyl#open{
+    float: left;margin-left: 0%;
+    height: 10px;width: 40px;
+    border-left: 40px solid #053D52;
+    border-bottom: 10px solid #03222D;
+}
+.fairyoutr#open{
+    float: right;
+            margin-right: 6.9%;
+            width: 18%;
+            border-top: 20px solid #053D52;
+            border-right: 20px solid transparent;
+            border-bottom: 20px solid #053D52;
+            height: 40px;
+            background-color: transparent;
+}
+.fairyr#open{
+    float: right;
+            border-bottom: 10px solid #03222D;
+            border-right: 40px solid #053D52;
+            height: 10px;
+            width: 40px;
+            
+}
+
+
 ::-webkit-scrollbar
 {
     width: 12px;

@@ -622,7 +622,9 @@
               if(!place.opening_hours.open_now){
                   $('.welcome-banner div').each(function(){
                     $('#open').attr("id","close");
-                    $('.hour-banner').addClass("red");
+                    $('.hour-banner').removeClass("white-text").addClass("grey-text text-darken-2");
+                    //$('.hour-banner').css({'background-color':'#ffb300'});
+                    $('.hour-banner').css({'background-color':'#424242'});
                     $('.hour-banner').text("Siamo chiusi");
                   });
               }
