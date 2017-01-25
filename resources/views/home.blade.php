@@ -19,7 +19,7 @@
         </div>
         <div id="maphome" style="width:100%;height: 525px; position: relative;"></div>
     </div>
-    <div class="col s12 l5 "style="height:525px;background-color:#074b65;text-align: center;padding: 15px 10px 0px 10px" >
+    {{--#074b65 #e9ebee--}}<div class="col s12 l5 "style="height:525px;background-color:#074b65;text-align: center;padding: 15px 10px 0px 10px" >
         
         <div class="fb-loader-container valign-wrapper" style="
     height:inherit;">
