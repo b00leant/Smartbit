@@ -1,10 +1,10 @@
 # Smartbit - Phone Repair & TechnicalSupport Delivery Management 
 
-Smartbit is a free management web tool for companies working in the phone technical support sector.
+Smartbit is a free management web template for companies working in the phone technical support sector.
 
 ## Official Documentation
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+Documentation for the framework I used can be found on the [Laravel website](http://laravel.com/docs).
 
 ## Contributing
 
